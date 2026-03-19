@@ -154,7 +154,7 @@ export default function HomePage() {
                       <div className="flex-shrink-0 relative">
                         <div className="w-[220px] rounded-lg overflow-hidden border-4 border-[#e8d5f0] bg-white p-2 rotate-2 hover:rotate-0 transition-transform duration-300">
                           <Image
-                            src="/images/design-mode/photo.png"
+                            src="https://i.imgur.com/nxG1hjN.png"
                             alt="Asha Cobb-Jones"
                             width={200}
                             height={600}
