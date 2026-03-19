@@ -511,7 +511,7 @@ export default function AboutPage() {
               {/* Card 2: Howard U — col 3–4, row 1 */}
               <div className="col-span-6 md:col-span-2 bg-white rounded-2xl p-5 flex flex-col items-center justify-center shadow-sm border border-[#E8E4F0] relative hover:-translate-y-1 transition-all duration-300">
                 <img
-                  src="/images/howardu_clocktower_logo.png"
+                  src="https://i.imgur.com/rC4Lql2.png"
                   alt="Howard University"
                   className="mb-3"
                   style={{ width: "80px", objectFit: "contain", mixBlendMode: "multiply" }}
