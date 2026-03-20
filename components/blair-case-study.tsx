@@ -316,7 +316,7 @@ export default function BlairCaseStudy() {
             </h2>
             <div className="bg-purple-200 rounded-xl p-1 shadow-lg">
               <img 
-                src="https://i.imgur.com/vA8rmPd.png 
+                src="https://i.imgur.com/vA8rmPd.png" 
                 alt="Project hypothesis slide outlining expected outcomes of the Blair website redesign"
                 className="w-full rounded-lg"
               />
