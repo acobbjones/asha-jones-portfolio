@@ -84,7 +84,7 @@ export default function CSVStackCaseStudy() {
                 {/* Browser Content - GIF */}
                 <div className="bg-white">
                   <img
-                    src="/images/design-mode/O6CGSCz.gif"
+                    src="https://i.imgur.com/YqMaVQp.gif"
                     alt="CSV Stack website demo showing homepage hero, features, compliance standards, and blog sections"
                     className="w-full"
                   />
@@ -203,7 +203,7 @@ export default function CSVStackCaseStudy() {
               <p className="text-gray-700 leading-relaxed mb-8">
                 I developed CSV Stack{"'"}s brand identity through an iterative process—presenting multiple color and logo directions before landing on the True Blue palette and final logo system. This provided a cohesive visual foundation for the website and future marketing materials.
               </p>
-              <img src="/images/design-mode/ZtI2HLG.png" alt="CSV Stack brand identity showing True Blue color palette, logo variations, and applications in website header and business materials" className="w-full max-w-4xl mx-auto rounded-lg shadow-lg my-8" />
+              <img src="https://i.imgur.com/9QKFbKC.png" alt="CSV Stack brand identity showing True Blue color palette, logo variations, and applications in website header and business materials" className="w-full max-w-4xl mx-auto rounded-lg shadow-lg my-8" />
             </div>
           </div>
 
@@ -231,7 +231,7 @@ export default function CSVStackCaseStudy() {
                 <p className="text-gray-600 text-sm leading-relaxed mb-4">
                   The style guide defines the complete visual language—from color swatches and hex codes to button states and UI component examples. This ensures the brand can scale consistently as CSV Stack grows.
                 </p>
-                <img src="/images/design-mode/l7MvW1G.png" alt="CSV Stack style guide showing True Blue color palette with hex codes, button states, and UI component examples" className="w-full max-w-4xl mx-auto rounded-lg shadow-lg my-6" />
+                <img src="https://i.imgur.com/djEWA9e.png" alt="CSV Stack style guide showing True Blue color palette with hex codes, button states, and UI component examples" className="w-full max-w-4xl mx-auto rounded-lg shadow-lg my-6" />
               </div>
 
               {/* Typography System */}
@@ -245,7 +245,7 @@ export default function CSVStackCaseStudy() {
                 <p className="text-gray-600 text-sm leading-relaxed mb-4">
                   The typography system pairs Neue Einstellung (clean, modern sans-serif) for primary content with Red Hat Display for accent elements, creating a professional yet approachable tone.
                 </p>
-                <img src="/images/design-mode/aCa3pyE.png" alt="Typography system pairing Neue Einstellung sans-serif for primary content with Red Hat Display for accent elements" className="w-full max-w-4xl mx-auto rounded-lg shadow-lg my-6" />
+                <img src="https://i.imgur.com/6XbUZc9.png" alt="Typography system pairing Neue Einstellung sans-serif for primary content with Red Hat Display for accent elements" className="w-full max-w-4xl mx-auto rounded-lg shadow-lg my-6" />
               </div>
             </div>
           </div>
@@ -309,16 +309,16 @@ export default function CSVStackCaseStudy() {
                 {/* Right Column - Scrolling Images */}
                 <div className="space-y-12">
                   <div>
-                    <img src="/images/design-mode/60zq2IV.png" alt="CSV Stack homepage hero section featuring AI-powered validation messaging and clear call-to-action" className="w-full rounded-lg shadow-lg" />
+                    <img src="https://i.imgur.com/Fo0QYcs.png" alt="CSV Stack homepage hero section featuring AI-powered validation messaging and clear call-to-action" className="w-full rounded-lg shadow-lg" />
                   </div>
                   <div>
-                    <img src="/images/design-mode/1UfXib6.png" alt="Homepage features section showcasing core product outputs including protocols, reports, and traceability matrices" className="w-full rounded-lg shadow-lg" />
+                    <img src="https://i.imgur.com/tksCj6e.png" alt="Homepage features section showcasing core product outputs including protocols, reports, and traceability matrices" className="w-full rounded-lg shadow-lg" />
                   </div>
                   <div>
-                    <img src="/images/design-mode/FsAFs0x.png" alt="Blog page with gradient hero section, category filters, and clean card layouts for compliance content" className="w-full rounded-lg shadow-lg" />
+                    <img src="https://i.imgur.com/hr8wDBL.png" alt="Blog page with gradient hero section, category filters, and clean card layouts for compliance content" className="w-full rounded-lg shadow-lg" />
                   </div>
                   <div>
-                    <img src="/images/design-mode/lH9IcUp.png" alt="404 error page maintaining brand consistency with blue gradient and user-friendly messaging" className="w-full rounded-lg shadow-lg" />
+                    <img src="https://i.imgur.com/BeUiPdr.png" alt="404 error page maintaining brand consistency with blue gradient and user-friendly messaging" className="w-full rounded-lg shadow-lg" />
                   </div>
                 </div>
               </div>
