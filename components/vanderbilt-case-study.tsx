@@ -53,7 +53,7 @@ export default function VanderbiltCaseStudy() {
           <div className="bg-[#CFAE70] rounded-lg p-1 shadow-xl mb-8">
             <div className="bg-white rounded-lg p-4">
               <img 
-                src="/images/design-mode/WMbvLBy.png" 
+                src="https://i.imgur.com/S9rSU8G.png" 
                 alt="Solution 1 - Sticky Navigation with Dropdowns" 
                 className="w-full rounded-lg"
               />
