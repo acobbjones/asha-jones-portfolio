@@ -1,11 +1,9 @@
 "use client"
 
-import { useEffect } from "react"
+import { useState, useEffect } from "react"
 import Link from "next/link"
 import { FadeUp, HeroFadeUp, StaggerReveal, StaggerItem } from "@/components/scroll-animations"
-import { Check, Layout, FileText, Palette, Type } from "lucide-react"
 import { Navigation } from "@/components/navigation"
-import { FadeUp, HeroFadeUp, StaggerReveal, StaggerItem } from "@/components/scroll-animations"
 
 export default function CSVStackCaseStudy() {
 
