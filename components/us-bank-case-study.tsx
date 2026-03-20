@@ -230,7 +230,7 @@ export default function USBankCaseStudy() {
                   Personalized Emergency Fund Experience
                 </h3>
                 <img
-                  src="/images/design-mode/gmxCK6h.png"
+                  src="https://i.imgur.com/aqFvTAj.png"
                   alt="Mobile experience providing personalized emergency fund guidance with actionable recommendations"
                   className="w-full rounded-lg border border-gray-200 mb-3"
                 />
