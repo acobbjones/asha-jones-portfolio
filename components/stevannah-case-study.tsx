@@ -29,7 +29,7 @@ export default function StevannahCaseStudy() {
 >
                 Sold By Stevannah
               </h1>
-              <p className="text-xl text-gray-600 mb-6">
+              <p className="text-sm text-rose-500 mb-2">
                 A Luxury Real Estate Website Designed for Trust, Clarity & Modern Storytelling
               </p>
               <div className="flex flex-wrap gap-3 mb-6">
