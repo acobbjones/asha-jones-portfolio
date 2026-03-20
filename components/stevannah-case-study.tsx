@@ -687,7 +687,7 @@ export default function StevannahCaseStudy() {
                   e.currentTarget.style.textDecoration = "none"
                 }}
               >
-                Blair School of Music →
+                {"Blair School of Music ->"}
               </Link>
             </div>
           </div>
