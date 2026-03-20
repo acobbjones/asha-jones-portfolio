@@ -56,7 +56,7 @@ export default function BlairCaseStudy() {
           <section className="mb-16">
             <div className="bg-purple-200 rounded-xl p-1 shadow-lg">
               <img 
-                src="/images/design-mode/vaEMefc.png" 
+                src="https://i.imgur.com/tCuChvZ.png" 
                 alt="Xylophone performance at Blair School of Music showcasing the vibrant musical culture"
                 className="w-full rounded-lg"
               />
@@ -94,7 +94,7 @@ export default function BlairCaseStudy() {
 
             <div className="bg-purple-200 rounded-xl p-1 shadow-lg mb-6">
               <img 
-                src="/images/design-mode/wQScEWX.png" 
+                src="https://i.imgur.com/ePYbVNV.png" 
                 alt="Results slide showing key metrics and outcomes from Blair website redesign"
                 className="w-full rounded-lg"
               />
@@ -123,7 +123,7 @@ export default function BlairCaseStudy() {
             </p>
             <div className="bg-purple-200 rounded-xl p-1 shadow-lg mb-6">
               <img 
-                src="/images/design-mode/8rHrvJW.png" 
+                src="https://i.imgur.com/RBxjORh.png" 
                 alt="Blair School of Music color identity framework showing primary purple, cream, tan, gold, and dark brown palette"
                 className="w-full rounded-lg"
               />
@@ -168,7 +168,7 @@ export default function BlairCaseStudy() {
 
             <div className="bg-purple-200 rounded-xl p-1 shadow-lg">
               <img 
-                src="/images/design-mode/bqfNKtH.png" 
+                src="https://i.imgur.com/TAc1xMu.png" 
                 alt="Strategy meetings with Blair stakeholders showing key discussion points on content prioritization, design direction, and video hero section"
                 className="w-full rounded-lg"
               />
@@ -185,7 +185,7 @@ export default function BlairCaseStudy() {
             </p>
             <div className="bg-purple-200 rounded-xl p-1 shadow-lg mb-6">
               <img 
-                src="/images/design-mode/W5Q0OLK.png" 
+                src="https://i.imgur.com/EyrLoKT.png" 
                 alt="Horizontal bar chart showing top page views: Homepage 70,733 views, Livestreams 48,731 views, Admissions Apply 26,591 views, Admissions Programs 15,875 views, Admissions Visit 13,694 views"
                 className="w-full rounded-lg"
               />
@@ -222,7 +222,7 @@ export default function BlairCaseStudy() {
               </div>
               <div className="bg-purple-200 rounded-xl p-1 shadow-lg">
                 <img 
-                  src="/images/design-mode/2FtV8MU.png" 
+                  src="https://i.imgur.com/JRJSXGp.png" 
                   alt="Redesigned sitemap showing Blair website information architecture with flattened navigation hierarchy"
                   className="w-full rounded-lg"
                 />
@@ -245,7 +245,7 @@ export default function BlairCaseStudy() {
               <div className="grid md:grid-cols-2 gap-4">
                 <div className="rounded-xl shadow-lg overflow-hidden">
                   <img 
-                    src="/images/design-mode/kiK29Di.png" 
+                    src="https://i.imgur.com/GgyctaE.png" 
                     alt="Live streaming interface design showing venue selection carousel and video playback modal overlay"
                     className="w-full h-full object-cover block"
                   />
@@ -282,7 +282,7 @@ export default function BlairCaseStudy() {
               </div>
               <div className="rounded-xl shadow-lg overflow-hidden max-w-md mx-auto">
                 <img 
-                  src="/images/design-mode/sdH24R8.png" 
+                  src="https://i.imgur.com/hTrCwqD.png" 
                   alt="Mobile responsive design mockups showing Blair School of Music website on smartphone screens"
                   className="w-full block"
                 />
@@ -316,7 +316,7 @@ export default function BlairCaseStudy() {
             </h2>
             <div className="bg-purple-200 rounded-xl p-1 shadow-lg">
               <img 
-                src="/images/design-mode/2sHDr4K.png" 
+                src="https://i.imgur.com/vA8rmPd.png 
                 alt="Project hypothesis slide outlining expected outcomes of the Blair website redesign"
                 className="w-full rounded-lg"
               />
