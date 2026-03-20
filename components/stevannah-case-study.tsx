@@ -1,7 +1,6 @@
 "use client"
 import { useEffect } from "react"
-import { FadeUp, HeroFadeUp, StaggerReveal, StaggerItem } from 
-"@/components/scroll-animations"
+import { FadeUp, HeroFadeUp, StaggerReveal, StaggerItem } from "@/components/scroll-animations"
 import { Navigation } from "@/components/navigation"
 
 export default function StevannahCaseStudy() {
