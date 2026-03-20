@@ -57,7 +57,7 @@ export default function StevannahCaseStudy() {
           <div className="bg-rose-200 rounded-lg p-1 shadow-xl mb-8 max-w-2xl mx-auto">
   <div className="bg-white rounded-lg p-2 aspect-square flex items-center justify-center">
     <img
-      src="/images/design-mode/sKcATsL.png"
+      src="https://i.imgur.com/LBL1ZFm.png"
       alt="Sold by Stevannah Logo"
       className="w-3/4 h-auto rounded-lg"
     />
@@ -247,7 +247,7 @@ export default function StevannahCaseStudy() {
               {/* IMAGE 2: Brand Kit Typography */}
 <div className="my-8">
   <img
-    src="/images/design-mode/A69LFmd.png"
+    src="https://i.imgur.com/w1l1ByH.png"
     alt="Typography System - Black Mango and Playfair Display"
     className="w-3/4 mx-auto h-auto rounded-lg shadow-md"
   />
@@ -267,7 +267,7 @@ export default function StevannahCaseStudy() {
 {/* IMAGE 4: Sitemap */}
 <div className="my-8">
   <img
-    src="/images/design-mode/qekdlbi.png"
+    src="https://i.imgur.com/WPq5Zi4.png"
     alt="Information Architecture and Sitemap"
     className="w-2/3 mx-auto h-auto rounded-lg shadow-md"
   />
@@ -277,7 +277,7 @@ export default function StevannahCaseStudy() {
   <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
     <div className="flex flex-col items-center">
       <img
-        src="/images/design-mode/1odbYEI.png"
+        src="https://i.imgur.com/4nxjOdC.png"
         alt="Home Page Wireframe"
         className="w-full h-auto rounded-lg shadow-md"
       />
@@ -285,7 +285,7 @@ export default function StevannahCaseStudy() {
     </div>
     <div className="flex flex-col items-center">
       <img
-        src="/images/design-mode/F0EIvpY.png"
+        src="https://i.imgur.com/iAAr8D2.png"
         alt="About Page Wireframe"
         className="w-full h-auto rounded-lg shadow-md"
       />
@@ -293,7 +293,7 @@ export default function StevannahCaseStudy() {
     </div>
     <div className="flex flex-col items-center">
       <img
-        src="/images/design-mode/uz3F00P.png"
+        src="https://i.imgur.com/CiEdhmP.png"
         alt="Services Page Wireframe"
         className="w-full h-auto rounded-lg shadow-md"
       />
@@ -301,7 +301,7 @@ export default function StevannahCaseStudy() {
     </div>
     <div className="flex flex-col items-center">
       <img
-        src="/images/design-mode/2oXwRMJ.png"
+        src="https://i.imgur.com/tNmR1dm.png"
         alt="Contact Page Wireframe"
         className="w-full h-auto rounded-lg shadow-md"
       />
@@ -323,7 +323,7 @@ export default function StevannahCaseStudy() {
                 <p className="text-gray-600 text-sm mb-2">{/* IMAGE 3: UI Elements */}
 <div className="my-8">
   <img
-    src="/images/design-mode/ORO1hRU.png"
+    src="https://i.imgur.com/MPBoUst.png"
     alt="UI Design System - Buttons and Input Components"
     className="w-2/3 mx-auto h-auto rounded-lg shadow-md"
   />
@@ -364,7 +364,7 @@ export default function StevannahCaseStudy() {
 <div className="my-8">
   <div className="overflow-hidden rounded-lg shadow-lg" style={{ maxHeight: '700px' }}>
     <img
-      src="/images/design-mode/zQ9kEdn.png"
+      src="https://i.imgur.com/hG7Cfid.png"
       alt="Home Page Navigation - Responsive Design Across Desktop, Tablet, and Mobile"
       className="w-full h-auto"
       style={{ objectFit: 'cover', objectPosition: 'top' }}
@@ -387,7 +387,7 @@ export default function StevannahCaseStudy() {
                 {/* IMAGE 7: About Page Responsive */}
 <div className="my-8">
   <img
-    src="/images/design-mode/2eC75rS.png"
+    src="https://i.imgur.com/4DIVaNq.png"
     alt="About Page - Responsive Design Across Desktop, Tablet, and Mobile"
     className="w-full h-auto rounded-lg shadow-lg"
   />
@@ -413,7 +413,7 @@ export default function StevannahCaseStudy() {
 <div className="my-8">
   <div className="overflow-hidden rounded-lg shadow-lg" style={{ maxHeight: '700px' }}>
     <img
-      src="/images/design-mode/ssrgN3Z.png"
+      src="https://i.imgur.com/5ZJsfr1.png"
       alt="Contact Page - Responsive Design with AI-Powered Form"
       className="w-full h-auto"
       style={{ objectFit: 'cover', objectPosition: 'top' }}
