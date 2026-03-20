@@ -6,9 +6,11 @@ import { FadeUp, HeroFadeUp, StaggerReveal, StaggerItem } from "@/components/scr
 import { Navigation } from "@/components/navigation"
 
 export default function CSVStackCaseStudy() {
+  const [isVisible, setIsVisible] = useState(false)
 
   useEffect(() => {
     window.scrollTo(0, 0)
+    setIsVisible(true)
   }, [])
 
   return (
