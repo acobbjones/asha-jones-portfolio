@@ -1,6 +1,7 @@
 "use client"
-
-import { FadeUp, HeroFadeUp, StaggerReveal, StaggerItem } from "@/components/scroll-animations"
+import { useEffect } from "react"
+import { FadeUp, HeroFadeUp, StaggerReveal, StaggerItem } from 
+"@/components/scroll-animations"
 import { Navigation } from "@/components/navigation"
 
 export default function StevannahCaseStudy() {
@@ -14,7 +15,6 @@ export default function StevannahCaseStudy() {
       <Navigation />
 
       <div className="p-8">
-        className="text-3xl font-bold mb-4 text-gray-900"
           <div className="bg-rose-200 rounded-lg p-1 shadow-xl mb-8">
             <div className="bg-white rounded-lg p-8">
 <p className="text-sm text-pink-500 mb-2" style={{ fontFamily: "Courier New, Courier, monospace" }}>
