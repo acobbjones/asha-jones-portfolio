@@ -4,6 +4,7 @@ import { useState, useEffect } from "react"
 import Link from "next/link"
 import { FadeUp, HeroFadeUp, StaggerReveal, StaggerItem } from "@/components/scroll-animations"
 import { Navigation } from "@/components/navigation"
+import { Palette, Type, Layout, FileText, Check } from "lucide-react"
 
 export default function CSVStackCaseStudy() {
   const [isVisible, setIsVisible] = useState(false)
