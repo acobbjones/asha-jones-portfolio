@@ -1,10 +1,7 @@
 "use client"
 
-import { useEffect } from "react"
-import Link from "next/link"
 import { FadeUp, HeroFadeUp, StaggerReveal, StaggerItem } from "@/components/scroll-animations"
 import { Navigation } from "@/components/navigation"
-import { FadeUp, HeroFadeUp, StaggerReveal, StaggerItem } from "@/components/scroll-animations"
 
 export default function StevannahCaseStudy() {
 
@@ -17,7 +14,7 @@ export default function StevannahCaseStudy() {
       <Navigation />
 
       <div className="p-8">
-        <div className="max-w-5xl mx-auto space-y-8">
+        className="text-3xl font-bold mb-4 text-gray-900"
           <div className="bg-rose-200 rounded-lg p-1 shadow-xl mb-8">
             <div className="bg-white rounded-lg p-8">
 <p className="text-sm text-pink-500 mb-2" style={{ fontFamily: "Courier New, Courier, monospace" }}>
@@ -29,7 +26,7 @@ export default function StevannahCaseStudy() {
 >
                 Sold By Stevannah
               </h1>
-              <p className="text-sm text-rose-500 mb-2">
+              <p className="text-xl text-gray-900 mb-6">
                 A Luxury Real Estate Website Designed for Trust, Clarity & Modern Storytelling
               </p>
               <div className="flex flex-wrap gap-3 mb-6">
