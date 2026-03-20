@@ -3,9 +3,7 @@
 // Vanderbilt University Navigation Case Study Component
 import { useEffect } from "react"
 import { Navigation } from "@/components/navigation"
-import { FadeUp, HeroFadeUp, StaggerReveal, StaggerItem } from "@/components/scroll-animations"
-import Link from "next/link"
-import { FadeUp, HeroFadeUp, StaggerReveal, StaggerItem } from "@/components/scroll-animations"
+import { FadeUp, HeroFadeUp, StaggerReveal, StaggerItem } from "@/components/scroll-animations" import Link from "next/link"
 
 export default function VanderbiltCaseStudy() {
 
@@ -176,7 +174,7 @@ export default function VanderbiltCaseStudy() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center mb-5">
                 <div>
                   <img 
-                    src="/images/design-mode/b5vJpKL.png" 
+                    src="https://i.imgur.com/9N4A9Tf.png" 
                     alt="Usability testing showing navigation challenges" 
                     className="w-full rounded-lg"
                   />
@@ -262,7 +260,7 @@ export default function VanderbiltCaseStudy() {
                 Research Methodology
               </h2>
               <img 
-                src="/images/design-mode/tOkpMYU.png" 
+                src="https://i.imgur.com/fzVom1I.png" 
                 alt="Three-part research methodology" 
                 className="w-full rounded-lg"
               />
@@ -343,7 +341,7 @@ export default function VanderbiltCaseStudy() {
                 <div>
                   <div className="bg-gray-50 rounded-lg p-4 mb-4">
                     <img 
-                      src="/images/design-mode/lTtkA7o.png" 
+                      src="https://i.imgur.com/wynczDl.png" 
                       alt="Solution 2 - Persona-based navigation" 
                       className="w-full rounded-lg"
                     />
@@ -356,7 +354,7 @@ export default function VanderbiltCaseStudy() {
                 <div>
                   <div className="bg-gray-50 rounded-lg p-4 mb-4">
                     <img 
-                      src="/images/design-mode/QGy0skg.png" 
+                      src="https://i.imgur.com/LcpZ3mA.png" 
                       alt="Solution 3 - Search-first navigation" 
                       className="w-full rounded-lg"
                     />
@@ -469,7 +467,7 @@ export default function VanderbiltCaseStudy() {
               </h2>
               
               <img 
-                src="/images/design-mode/aD93yHV.png" 
+                src="https://i.imgur.com/MnPFopF.png" 
                 alt="Outcome - Strategic design exploration to implementation" 
                 className="w-full max-w-4xl mx-auto rounded-lg mb-8"
               />
