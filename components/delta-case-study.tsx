@@ -182,7 +182,7 @@ export default function DeltaCaseStudy() {
                 {/* After Image (background - new design on right) */}
                 <div className="absolute inset-0">
                   <img
-                    src="/images/design-mode/zUwjEyY.png"
+                    src="https://i.imgur.com/wX3Z5Ei.png"
                     alt="After: Redesigned Delta profile modal with improved hierarchy"
                     className="absolute inset-0 w-full h-full object-contain bg-gray-50"
                     draggable={false}
@@ -198,7 +198,7 @@ export default function DeltaCaseStudy() {
                   style={{ clipPath: `inset(0 ${100 - sliderPosition}% 0 0)` }}
                 >
                   <img
-                    src="/images/design-mode/aucTWpw.png"
+                    src="https://i.imgur.com/fWscbpJ.png"
                     alt="Before: Original Delta profile modal design"
                     className="absolute inset-0 w-full h-full object-contain bg-gray-50"
                     draggable={false}
