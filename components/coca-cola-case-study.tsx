@@ -64,7 +64,7 @@ export default function CocaColaCaseStudy() {
                 Coca-Cola Freestyle needed to ensure their Point of Sale system was accessible for users with visual impairments, including rare blindness conditions. As Digital Production Designer, I led accessibility-focused redesign efforts, conducting research that included working directly with users who had visual impairments to inform our design solutions.
               </p>
               <img
-                src="/images/design-mode/tKEt4Um.png"
+                src="https://i.imgur.com/Pgbs6JU.png"
                 alt="Coca-Cola Freestyle machines showing different size variations of the beverage dispensing system"
                 className="w-full rounded-lg shadow-lg mt-4 mb-2"
               />
@@ -136,7 +136,7 @@ export default function CocaColaCaseStudy() {
                   Understanding Visual Impairments
                 </h3>
                 <img
-                  src="/images/design-mode/QxuQxme.png"
+                  src="https://i.imgur.com/f2MSIxR.png"
                   alt="Understanding how different visual impairments affect the user experience for the POS system"
                   className="w-full rounded-lg shadow-lg mb-3"
                 />
@@ -151,7 +151,7 @@ export default function CocaColaCaseStudy() {
                   Proposed Accessibility Controls
                 </h3>
                 <img
-                  src="/images/design-mode/KfDDZCY.png"
+                  src="https://i.imgur.com/jSrssJK.png"
                   alt="Customizable text size and color adjustment controls for personalized accessibility options"
                   className="w-full rounded-lg shadow-lg mb-3"
                 />
@@ -166,7 +166,7 @@ export default function CocaColaCaseStudy() {
                   Shipped Accessible Interface
                 </h3>
                 <img
-                  src="/images/design-mode/tiU4Tsz.png"
+                  src="https://i.imgur.com/63mRS4G.png"
                   alt="Dark mode home screen of Coca-Cola Freestyle showing all beverage brands with high-contrast design and ADA accessibility button"
                   className="w-full rounded-lg shadow-lg mb-3"
                 />
