@@ -149,7 +149,7 @@ style={{ fontFamily: "Courier New, Courier, monospace", color: "#5a3e5c" }}
                   Accessibility Color Redesign
                 </h3>
                 <img
-                  src="/images/design-mode/ABjlMhq.png"
+                  src="https://i.imgur.com/q3KAwci.png"
                   alt="Neighborly primary blue color redesign from #407EC9 to #4377BD achieving WCAG 2.1 AA compliance"
                   className="w-full rounded-lg border border-gray-200 mb-3"
                 />
@@ -167,7 +167,7 @@ style={{ fontFamily: "Courier New, Courier, monospace", color: "#5a3e5c" }}
                   Design System Implementation
                 </h3>
                 <img
-                  src="/images/design-mode/64s9FDr.png"
+                  src="https://i.imgur.com/MkRNW20.png"
                   alt="Scalable UI components built in Axure RP 10 deployed across multiple Neighborly brand properties"
                   className="w-full rounded-lg shadow-lg mb-3"
                 />
