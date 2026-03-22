@@ -175,9 +175,9 @@ export default function HomePage() {
                     </div>
                     <div className="text-center mt-3 text-xs">
                       <span className="text-gray-500">View My: </span>
-                      <a href="https://www.linkedin.com/in/ashacobb-jones/" target="_blank" rel="noopener noreferrer" rel="noopener noreferrer" className="hover:underline" style={{ color: "#6b7fd4" }}>LinkedIn</a>
+                      <a href="https://www.linkedin.com/in/ashacobb-jones/" target="_blank" rel="noopener noreferrer" className="hover:underline" style={{ color: "#6b7fd4" }}>LinkedIn</a>
                       <span className="text-gray-300"> | </span>
-                      <a href="https://drive.google.com/uc?export=download&id=1uxzTJJR4Bauqo_W9MkSiixViFqwMMtbE" target="_blank" rel="noopener noreferrer" rel="noopener noreferrer" className="hover:underline" style={{ color: "#6b7fd4" }}>Resume</a>
+                      <a href="https://drive.google.com/uc?export=download&id=1uxzTJJR4Bauqo_W9MkSiixViFqwMMtbE" target="_blank" rel="noopener noreferrer" className="hover:underline" style={{ color: "#6b7fd4" }}>Resume</a>
                       <span className="text-gray-300"> | </span>
                       <Link href="/work" className="hover:underline" style={{ color: "#6b7fd4" }}>Portfolio</Link>
                     </div>
@@ -231,7 +231,7 @@ export default function HomePage() {
                   </div>
                 </div>
 
-                {/* Asha's Details — now frosted glass */}
+                {/* Asha's Details */}
                 <div className={cardShell}>
                   <div className={cardInner}>
                     <h3 className="text-xl font-bold mb-4" style={{ fontFamily: "Courier New, monospace", color: "#5a3e5c" }}>
@@ -272,7 +272,7 @@ export default function HomePage() {
                   </div>
                 </div>
 
-                {/* Currently Vibing To — now frosted glass */}
+                {/* Currently Vibing To */}
                 <div className={cardShell}>
                   <div className={cardInner}>
                     <h3 className="text-lg font-bold mb-3" style={{ fontFamily: "Courier New, monospace", color: "#5a3e5c" }}>
@@ -360,67 +360,87 @@ export default function HomePage() {
                       Featured Case Studies
                     </h2>
                     <div className={cardShell}>
-                    <div className="flex gap-2 rounded-lg overflow-hidden h-[500px]">
-                      {featuredProjects.map((project) => {
-                        const isActive = activePanel === project.id
-                        return (
-                          <div
-                            key={project.id}
-                            className={`relative overflow-hidden rounded-lg transition-all duration-500 ease-in-out ${isActive ? "flex-[4]" : "flex-[0.4] cursor-pointer hover:brightness-110"}`}
-                            onClick={() => !isActive && setActivePanel(project.id)}
-                          >
-                            {!isActive && (
-                              <div className={`w-full h-full bg-gradient-to-br ${project.mainImage} flex items-center justify-center`}>
-                                <span className="font-bold text-sm whitespace-nowrap" style={{ fontFamily: "Courier New, monospace", color: "#5a3e5c", writingMode: "vertical-rl", transform: "rotate(180deg)" }}>
-                                  {project.title}
-                                </span>
-                              </div>
-                            )}
-                            {isActive && (
-                              <div className="flex h-full w-full">
-                                <div className="w-3/5 h-full relative flex-shrink-0 overflow-hidden">
-                                  <img
-                                    src={
-                                      project.id === "vanderbilt-navigation" ? "https://i.imgur.com/qreL6eJ.png" :
-                                      project.id === "sold-by-stevannah" ? "https://i.imgur.com/8O417Sy.png" :
-                                      project.id === "csv-stack-ai" ? "https://i.imgur.com/W5rPp7h.png" :
-                                      "https://i.imgur.com/FSCVOEt.png"
-                                    }
-                                    alt={project.title}
-                                    className="object-cover w-full h-full"
-                                  />
-                                </div>
-                                <div className="w-2/5 bg-white/95 p-4 overflow-y-auto flex flex-col justify-between text-sm">
-                                  <div className="space-y-3">
-                                    <p className="text-xs text-gray-400 uppercase tracking-widest">{project.year} · Case Study</p>
-                                    <h3 className="text-xl font-bold text-gray-800" style={{ fontFamily: "Courier New, monospace" }}>{project.title}</h3>
-                                    <p className="font-medium" style={{ color: "#7a6a82" }}>{project.subtitle}</p>
-                                    <p className="text-gray-500 text-sm">{project.description}</p>
-                                    <div className="flex flex-wrap gap-2">
-                                      {project.tags.map((tag) => (
-                                        <span key={tag.name} className={`px-2 py-1 rounded text-xs font-medium ${tag.bg} ${tag.text}`}>{tag.name}</span>
-                                      ))}
-                                    </div>
-                                    <p className="text-gray-500 text-xs">Impact: {project.impact}</p>
-                                  </div>
-                                  <Link
-                                    href={`/work/${project.id}`}
-                                    scroll={true}
-                                    className="inline-block mt-4 px-4 py-2 rounded-full text-sm font-bold w-fit no-underline transition-all"
+                      {/* MOBILE: stacked cards | DESKTOP: horizontal accordion */}
+                      <div className="flex flex-col gap-3 rounded-lg md:flex-row md:overflow-hidden md:h-[500px]">
+                        {featuredProjects.map((project) => {
+                          const isActive = activePanel === project.id
+                          return (
+                            <div
+                              key={project.id}
+                              className={
+                                "relative overflow-hidden rounded-lg transition-all duration-500 ease-in-out " +
+                                (isActive
+                                  ? "md:flex-[4] min-h-[360px] md:min-h-0"
+                                  : "md:flex-[0.4] min-h-[56px] md:min-h-0 cursor-pointer hover:brightness-110")
+                              }
+                              onClick={() => !isActive && setActivePanel(project.id)}
+                            >
+                              {!isActive && (
+                                <div className={"w-full h-full bg-gradient-to-br " + project.mainImage + " flex items-center justify-center"}>
+                                  {/* Mobile: horizontal label | Desktop: vertical rotated label */}
+                                  <span
+                                    className="font-bold text-sm px-4 md:px-0 md:whitespace-nowrap"
                                     style={{
-                                      background: "linear-gradient(135deg, #f5e6d3 0%, #f0d9e8 50%, #e8d5f0 100%)",
+                                      fontFamily: "Courier New, monospace",
                                       color: "#5a3e5c",
-                                      border: "1px solid rgba(240,210,230,0.6)",
+                                      writingMode: "horizontal-tb",
                                     }}
                                   >
-                                    View Case Study →
-                                  </Link>
+                                    <span className="md:hidden">{project.title}</span>
+                                    <span
+                                      className="hidden md:inline"
+                                      style={{ writingMode: "vertical-rl", transform: "rotate(180deg)", display: "inline-block" }}
+                                    >
+                                      {project.title}
+                                    </span>
+                                  </span>
                                 </div>
-                              </div>
-                            )}
-                          </div>
-                        )
-                      })}
+                              )}
+                              {isActive && (
+                                <div className="flex flex-col md:flex-row h-full w-full">
+                                  <div className="w-full md:w-3/5 h-48 md:h-full relative flex-shrink-0 overflow-hidden">
+                                    <img
+                                      src={
+                                        project.id === "vanderbilt-navigation" ? "https://i.imgur.com/qreL6eJ.png" :
+                                        project.id === "sold-by-stevannah" ? "https://i.imgur.com/8O417Sy.png" :
+                                        project.id === "csv-stack-ai" ? "https://i.imgur.com/W5rPp7h.png" :
+                                        "https://i.imgur.com/FSCVOEt.png"
+                                      }
+                                      alt={project.title}
+                                      className="object-cover w-full h-full"
+                                    />
+                                  </div>
+                                  <div className="w-full md:w-2/5 bg-white/95 p-4 overflow-y-auto flex flex-col justify-between text-sm">
+                                    <div className="space-y-3">
+                                      <p className="text-xs text-gray-400 uppercase tracking-widest">{project.year} · Case Study</p>
+                                      <h3 className="text-xl font-bold text-gray-800" style={{ fontFamily: "Courier New, monospace" }}>{project.title}</h3>
+                                      <p className="font-medium" style={{ color: "#7a6a82" }}>{project.subtitle}</p>
+                                      <p className="text-gray-500 text-sm">{project.description}</p>
+                                      <div className="flex flex-wrap gap-2">
+                                        {project.tags.map((tag) => (
+                                          <span key={tag.name} className={"px-2 py-1 rounded text-xs font-medium " + tag.bg + " " + tag.text}>{tag.name}</span>
+                                        ))}
+                                      </div>
+                                      <p className="text-gray-500 text-xs">Impact: {project.impact}</p>
+                                    </div>
+                                    <Link
+                                      href={"/work/" + project.id}
+                                      scroll={true}
+                                      className="inline-block mt-4 px-4 py-2 rounded-full text-sm font-bold w-fit no-underline transition-all"
+                                      style={{
+                                        background: "linear-gradient(135deg, #f5e6d3 0%, #f0d9e8 50%, #e8d5f0 100%)",
+                                        color: "#5a3e5c",
+                                        border: "1px solid rgba(240,210,230,0.6)",
+                                      }}
+                                    >
+                                      View Case Study →
+                                    </Link>
+                                  </div>
+                                </div>
+                              )}
+                            </div>
+                          )
+                        })}
                       </div>
                     </div>
                   </div>
