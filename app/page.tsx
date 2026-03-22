@@ -374,7 +374,7 @@ export default function HomePage() {
                               <img
                                 src={projectImage(project.id)}
                                 alt={project.title}
-                                className="w-full h-full object-cover"
+                                className="w-full h-full object-cover object-top"
                               />
                             </div>
                             <div className="p-4 space-y-2">
@@ -387,7 +387,6 @@ export default function HomePage() {
                                   <span key={tag.name} className={"px-2 py-1 rounded text-xs font-medium " + tag.bg + " " + tag.text}>{tag.name}</span>
                                 ))}
                               </div>
-                              <p className="text-gray-500 text-xs">Impact: {project.impact}</p>
                               <Link
                                 href={"/work/" + project.id}
                                 scroll={true}
