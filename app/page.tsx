@@ -370,7 +370,7 @@ export default function HomePage() {
                       {featuredProjects.map((project) => (
                         <div key={project.id} className={cardShell}>
                           <div className="bg-white/95 rounded-lg overflow-hidden">
-                            <div className="h-44 overflow-hidden">
+                            <div className="h-64 overflow-hidden">
                               <img
                                 src={projectImage(project.id)}
                                 alt={project.title}
@@ -381,7 +381,6 @@ export default function HomePage() {
                               <p className="text-xs text-gray-400 uppercase tracking-widest">{project.year} · Case Study</p>
                               <h3 className="text-lg font-bold text-gray-800" style={{ fontFamily: "Courier New, monospace" }}>{project.title}</h3>
                               <p className="font-medium text-sm" style={{ color: "#7a6a82" }}>{project.subtitle}</p>
-                              <p className="text-gray-500 text-sm">{project.description}</p>
                               <div className="flex flex-wrap gap-2">
                                 {project.tags.map((tag) => (
                                   <span key={tag.name} className={"px-2 py-1 rounded text-xs font-medium " + tag.bg + " " + tag.text}>{tag.name}</span>
