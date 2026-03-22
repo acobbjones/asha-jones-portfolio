@@ -3,8 +3,7 @@
 // Vanderbilt University Navigation Case Study Component
 import { useEffect } from "react"
 import { Navigation } from "@/components/navigation"
-import { FadeUp, HeroFadeUp, StaggerReveal, StaggerItem } from 
-"@/components/scroll-animations"
+import { FadeUp, HeroFadeUp, StaggerReveal, StaggerItem } from "@/components/scroll-animations"
 import Link from "next/link"
 
 export default function VanderbiltCaseStudy() {
