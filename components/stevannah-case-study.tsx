@@ -16,11 +16,11 @@ export default function StevannahCaseStudy() {
       <div className="p-8">
           <div className="bg-rose-200 rounded-lg p-1 shadow-xl mb-8">
             <div className="bg-white rounded-lg p-8">
-<p className="text-sm text-pink-500 mb-2" style={{ fontFamily: "Courier New, Courier, monospace" }}>
+<p className="text-sm mb-2" style={{ color: "#B08376" }} style={{ fontFamily: "Courier New, Courier, monospace" }}>
   CASE STUDY
 </p>
 <h1
-  className="text-4xl md:text-5xl font-bold mb-4 text-gray-900"
+  className="text-4xl font-bold mb-4" style={{ color: "#B08376" }}
   style={{ fontFamily: "Courier New, Courier, monospace" }}
 >
                 Sold By Stevannah
