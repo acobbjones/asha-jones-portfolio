@@ -118,9 +118,15 @@ export default function HomePage() {
     },
   ]
 
-  // Shared card shell — frosted glass outer, near-white inner
   const cardShell = "bg-white/20 backdrop-blur-md border border-white/30 rounded-lg p-1 shadow-xl"
   const cardInner = "bg-white/95 rounded-lg p-4"
+
+  const projectImage = (id: string) => {
+    if (id === "vanderbilt-navigation") return "https://i.imgur.com/qreL6eJ.png"
+    if (id === "sold-by-stevannah") return "https://i.imgur.com/8O417Sy.png"
+    if (id === "csv-stack-ai") return "https://i.imgur.com/W5rPp7h.png"
+    return "https://i.imgur.com/FSCVOEt.png"
+  }
 
   return (
     <div
@@ -139,7 +145,6 @@ export default function HomePage() {
       <div className="relative">
         <Navigation />
 
-        {/* Content */}
         <div className="p-8">
           <div className="max-w-7xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -216,17 +221,17 @@ export default function HomePage() {
                     </div>
                     <p className="text-xs mt-3 text-center" style={{ color: "#6b7fd4" }}>www.myspace.com/ashacobbjonesux</p>
                     <Link
-                    href="/contact"
-                    className="block w-full mt-3 py-2 rounded-full font-bold text-sm text-center transition-all duration-200 active:-translate-y-0.5"
-                    style={{ background: "linear-gradient(135deg, #f5e6d3 0%, #f0d9e8 50%, #e8d5f0 100%)", color: "#5a3e5c", border: "1px solid rgba(240,210,230,0.6)", boxShadow: "0 2px 12px rgba(200,160,200,0.2)", textDecoration: "none" }}
+                      href="/contact"
+                      className="block w-full mt-3 py-2 rounded-full font-bold text-sm text-center transition-all duration-200 active:-translate-y-0.5"
+                      style={{ background: "linear-gradient(135deg, #f5e6d3 0%, #f0d9e8 50%, #e8d5f0 100%)", color: "#5a3e5c", border: "1px solid rgba(240,210,230,0.6)", boxShadow: "0 2px 12px rgba(200,160,200,0.2)", textDecoration: "none" }}
                     >
-                    <span
-                    onMouseEnter={e => (e.currentTarget.style.textDecoration = "underline")}
-                    onMouseLeave={e => (e.currentTarget.style.textDecoration = "none")}
-                    style={{ textDecoration: "none" }}
-                    >
-                    Send Message
-                    </span>
+                      <span
+                        onMouseEnter={e => (e.currentTarget.style.textDecoration = "underline")}
+                        onMouseLeave={e => (e.currentTarget.style.textDecoration = "none")}
+                        style={{ textDecoration: "none" }}
+                      >
+                        Send Message
+                      </span>
                     </Link>
                   </div>
                 </div>
@@ -359,90 +364,117 @@ export default function HomePage() {
                     <h2 className="text-2xl font-bold" style={{ fontFamily: "Courier New, monospace", color: "#5a3e5c" }}>
                       Featured Case Studies
                     </h2>
-                    <div className={cardShell}>
-                      {/* MOBILE: stacked cards | DESKTOP: horizontal accordion */}
-                      <div className="flex flex-col gap-3 rounded-lg md:flex-row md:overflow-hidden md:h-[500px]">
-                        {featuredProjects.map((project) => {
-                          const isActive = activePanel === project.id
-                          return (
-                            <div
-                              key={project.id}
-                              className={
-                                "relative overflow-hidden rounded-lg transition-all duration-500 ease-in-out " +
-                                (isActive
-                                  ? "md:flex-[4] min-h-[360px] md:min-h-0"
-                                  : "md:flex-[0.4] min-h-[56px] md:min-h-0 cursor-pointer hover:brightness-110")
-                              }
-                              onClick={() => !isActive && setActivePanel(project.id)}
-                            >
-                              {!isActive && (
-                                <div className={"w-full h-full bg-gradient-to-br " + project.mainImage + " flex items-center justify-center"}>
-                                  {/* Mobile: horizontal label | Desktop: vertical rotated label */}
-                                  <span
-                                    className="font-bold text-sm px-4 md:px-0 md:whitespace-nowrap"
-                                    style={{
-                                      fontFamily: "Courier New, monospace",
-                                      color: "#5a3e5c",
-                                      writingMode: "horizontal-tb",
-                                    }}
-                                  >
-                                    <span className="md:hidden">{project.title}</span>
+
+                    {/* MOBILE: fully expanded stacked cards, no accordion */}
+                    <div className="flex flex-col gap-4 md:hidden">
+                      {featuredProjects.map((project) => (
+                        <div key={project.id} className={cardShell}>
+                          <div className="bg-white/95 rounded-lg overflow-hidden">
+                            <div className="h-44 overflow-hidden">
+                              <img
+                                src={projectImage(project.id)}
+                                alt={project.title}
+                                className="w-full h-full object-cover"
+                              />
+                            </div>
+                            <div className="p-4 space-y-2">
+                              <p className="text-xs text-gray-400 uppercase tracking-widest">{project.year} · Case Study</p>
+                              <h3 className="text-lg font-bold text-gray-800" style={{ fontFamily: "Courier New, monospace" }}>{project.title}</h3>
+                              <p className="font-medium text-sm" style={{ color: "#7a6a82" }}>{project.subtitle}</p>
+                              <p className="text-gray-500 text-sm">{project.description}</p>
+                              <div className="flex flex-wrap gap-2">
+                                {project.tags.map((tag) => (
+                                  <span key={tag.name} className={"px-2 py-1 rounded text-xs font-medium " + tag.bg + " " + tag.text}>{tag.name}</span>
+                                ))}
+                              </div>
+                              <p className="text-gray-500 text-xs">Impact: {project.impact}</p>
+                              <Link
+                                href={"/work/" + project.id}
+                                scroll={true}
+                                className="inline-block mt-2 px-4 py-2 rounded-full text-sm font-bold no-underline"
+                                style={{
+                                  background: "linear-gradient(135deg, #f5e6d3 0%, #f0d9e8 50%, #e8d5f0 100%)",
+                                  color: "#5a3e5c",
+                                  border: "1px solid rgba(240,210,230,0.6)",
+                                }}
+                              >
+                                View Case Study →
+                              </Link>
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* DESKTOP: horizontal accordion */}
+                    <div className="hidden md:block">
+                      <div className={cardShell}>
+                        <div className="flex gap-2 rounded-lg overflow-hidden h-[500px]">
+                          {featuredProjects.map((project) => {
+                            const isActive = activePanel === project.id
+                            return (
+                              <div
+                                key={project.id}
+                                className={
+                                  "relative overflow-hidden rounded-lg transition-all duration-500 ease-in-out " +
+                                  (isActive ? "flex-[4]" : "flex-[0.4] cursor-pointer hover:brightness-110")
+                                }
+                                onClick={() => !isActive && setActivePanel(project.id)}
+                              >
+                                {!isActive && (
+                                  <div className={"w-full h-full bg-gradient-to-br " + project.mainImage + " flex items-center justify-center"}>
                                     <span
-                                      className="hidden md:inline"
-                                      style={{ writingMode: "vertical-rl", transform: "rotate(180deg)", display: "inline-block" }}
+                                      className="font-bold text-sm whitespace-nowrap"
+                                      style={{ fontFamily: "Courier New, monospace", color: "#5a3e5c", writingMode: "vertical-rl", transform: "rotate(180deg)" }}
                                     >
                                       {project.title}
                                     </span>
-                                  </span>
-                                </div>
-                              )}
-                              {isActive && (
-                                <div className="flex flex-col md:flex-row h-full w-full">
-                                  <div className="w-full md:w-3/5 h-48 md:h-full relative flex-shrink-0 overflow-hidden">
-                                    <img
-                                      src={
-                                        project.id === "vanderbilt-navigation" ? "https://i.imgur.com/qreL6eJ.png" :
-                                        project.id === "sold-by-stevannah" ? "https://i.imgur.com/8O417Sy.png" :
-                                        project.id === "csv-stack-ai" ? "https://i.imgur.com/W5rPp7h.png" :
-                                        "https://i.imgur.com/FSCVOEt.png"
-                                      }
-                                      alt={project.title}
-                                      className="object-cover w-full h-full"
-                                    />
                                   </div>
-                                  <div className="w-full md:w-2/5 bg-white/95 p-4 overflow-y-auto flex flex-col justify-between text-sm">
-                                    <div className="space-y-3">
-                                      <p className="text-xs text-gray-400 uppercase tracking-widest">{project.year} · Case Study</p>
-                                      <h3 className="text-xl font-bold text-gray-800" style={{ fontFamily: "Courier New, monospace" }}>{project.title}</h3>
-                                      <p className="font-medium" style={{ color: "#7a6a82" }}>{project.subtitle}</p>
-                                      <p className="text-gray-500 text-sm">{project.description}</p>
-                                      <div className="flex flex-wrap gap-2">
-                                        {project.tags.map((tag) => (
-                                          <span key={tag.name} className={"px-2 py-1 rounded text-xs font-medium " + tag.bg + " " + tag.text}>{tag.name}</span>
-                                        ))}
-                                      </div>
-                                      <p className="text-gray-500 text-xs">Impact: {project.impact}</p>
+                                )}
+                                {isActive && (
+                                  <div className="flex h-full w-full">
+                                    <div className="w-3/5 h-full relative flex-shrink-0 overflow-hidden">
+                                      <img
+                                        src={projectImage(project.id)}
+                                        alt={project.title}
+                                        className="object-cover w-full h-full"
+                                      />
                                     </div>
-                                    <Link
-                                      href={"/work/" + project.id}
-                                      scroll={true}
-                                      className="inline-block mt-4 px-4 py-2 rounded-full text-sm font-bold w-fit no-underline transition-all"
-                                      style={{
-                                        background: "linear-gradient(135deg, #f5e6d3 0%, #f0d9e8 50%, #e8d5f0 100%)",
-                                        color: "#5a3e5c",
-                                        border: "1px solid rgba(240,210,230,0.6)",
-                                      }}
-                                    >
-                                      View Case Study →
-                                    </Link>
+                                    <div className="w-2/5 bg-white/95 p-4 overflow-y-auto flex flex-col justify-between text-sm">
+                                      <div className="space-y-3">
+                                        <p className="text-xs text-gray-400 uppercase tracking-widest">{project.year} · Case Study</p>
+                                        <h3 className="text-xl font-bold text-gray-800" style={{ fontFamily: "Courier New, monospace" }}>{project.title}</h3>
+                                        <p className="font-medium" style={{ color: "#7a6a82" }}>{project.subtitle}</p>
+                                        <p className="text-gray-500 text-sm">{project.description}</p>
+                                        <div className="flex flex-wrap gap-2">
+                                          {project.tags.map((tag) => (
+                                            <span key={tag.name} className={"px-2 py-1 rounded text-xs font-medium " + tag.bg + " " + tag.text}>{tag.name}</span>
+                                          ))}
+                                        </div>
+                                        <p className="text-gray-500 text-xs">Impact: {project.impact}</p>
+                                      </div>
+                                      <Link
+                                        href={"/work/" + project.id}
+                                        scroll={true}
+                                        className="inline-block mt-4 px-4 py-2 rounded-full text-sm font-bold w-fit no-underline transition-all"
+                                        style={{
+                                          background: "linear-gradient(135deg, #f5e6d3 0%, #f0d9e8 50%, #e8d5f0 100%)",
+                                          color: "#5a3e5c",
+                                          border: "1px solid rgba(240,210,230,0.6)",
+                                        }}
+                                      >
+                                        View Case Study →
+                                      </Link>
+                                    </div>
                                   </div>
-                                </div>
-                              )}
-                            </div>
-                          )
-                        })}
+                                )}
+                              </div>
+                            )
+                          })}
+                        </div>
                       </div>
                     </div>
+
                   </div>
                 </FadeUp>
 
