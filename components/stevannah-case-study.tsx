@@ -1,5 +1,7 @@
 "use client"
+
 import { useEffect } from "react"
+import Link from "next/link"
 import { FadeUp, HeroFadeUp, StaggerReveal, StaggerItem } from "@/components/scroll-animations"
 import { Navigation } from "@/components/navigation"
 
@@ -14,18 +16,19 @@ export default function StevannahCaseStudy() {
       <Navigation />
 
       <div className="p-8">
+        <div className="max-w-5xl mx-auto space-y-8">
           <div className="bg-rose-200 rounded-lg p-1 shadow-xl mb-8">
             <div className="bg-white rounded-lg p-8">
-<p className="text-sm mb-2" style={{ color: "#B08376" }} style={{ fontFamily: "Courier New, Courier, monospace" }}>
+<p className="text-sm mb-2" style={{ fontFamily: "Courier New, Courier, monospace", color: "#B08376" }}>
   CASE STUDY
 </p>
 <h1
-  className="text-4xl font-bold mb-4" style={{ color: "#B08376" }}
-  style={{ fontFamily: "Courier New, Courier, monospace" }}
+  className="text-4xl font-bold mb-4"
+  style={{ fontFamily: "Courier New, Courier, monospace", color: "#B08376" }}
 >
                 Sold By Stevannah
               </h1>
-              <p className="text-xl text-gray-900 mb-6">
+              <p className="text-xl text-gray-600 mb-6">
                 A Luxury Real Estate Website Designed for Trust, Clarity & Modern Storytelling
               </p>
               <div className="flex flex-wrap gap-3 mb-6">
@@ -53,7 +56,7 @@ export default function StevannahCaseStudy() {
           <div className="bg-rose-200 rounded-lg p-1 shadow-xl mb-8 max-w-2xl mx-auto">
   <div className="bg-white rounded-lg p-2 aspect-square flex items-center justify-center">
     <img
-      src="https://i.imgur.com/LBL1ZFm.png"
+      src="/images/design-mode/sKcATsL.png"
       alt="Sold by Stevannah Logo"
       className="w-3/4 h-auto rounded-lg"
     />
@@ -243,7 +246,7 @@ export default function StevannahCaseStudy() {
               {/* IMAGE 2: Brand Kit Typography */}
 <div className="my-8">
   <img
-    src="https://i.imgur.com/w1l1ByH.png"
+    src="/images/design-mode/A69LFmd.png"
     alt="Typography System - Black Mango and Playfair Display"
     className="w-3/4 mx-auto h-auto rounded-lg shadow-md"
   />
@@ -263,7 +266,7 @@ export default function StevannahCaseStudy() {
 {/* IMAGE 4: Sitemap */}
 <div className="my-8">
   <img
-    src="https://i.imgur.com/WPq5Zi4.png"
+    src="/images/design-mode/qekdlbi.png"
     alt="Information Architecture and Sitemap"
     className="w-2/3 mx-auto h-auto rounded-lg shadow-md"
   />
@@ -273,7 +276,7 @@ export default function StevannahCaseStudy() {
   <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
     <div className="flex flex-col items-center">
       <img
-        src="https://i.imgur.com/4nxjOdC.png"
+        src="/images/design-mode/1odbYEI.png"
         alt="Home Page Wireframe"
         className="w-full h-auto rounded-lg shadow-md"
       />
@@ -281,7 +284,7 @@ export default function StevannahCaseStudy() {
     </div>
     <div className="flex flex-col items-center">
       <img
-        src="https://i.imgur.com/iAAr8D2.png"
+        src="/images/design-mode/F0EIvpY.png"
         alt="About Page Wireframe"
         className="w-full h-auto rounded-lg shadow-md"
       />
@@ -289,7 +292,7 @@ export default function StevannahCaseStudy() {
     </div>
     <div className="flex flex-col items-center">
       <img
-        src="https://i.imgur.com/CiEdhmP.png"
+        src="/images/design-mode/uz3F00P.png"
         alt="Services Page Wireframe"
         className="w-full h-auto rounded-lg shadow-md"
       />
@@ -297,7 +300,7 @@ export default function StevannahCaseStudy() {
     </div>
     <div className="flex flex-col items-center">
       <img
-        src="https://i.imgur.com/tNmR1dm.png"
+        src="/images/design-mode/2oXwRMJ.png"
         alt="Contact Page Wireframe"
         className="w-full h-auto rounded-lg shadow-md"
       />
@@ -316,14 +319,15 @@ export default function StevannahCaseStudy() {
                   <span className="bg-pink-300 text-gray-800 px-3 py-1 rounded text-xs">Rose gold accents</span>
                   <span className="bg-amber-100 text-gray-800 px-3 py-1 rounded text-xs">Soft cream & pink</span>
                 </div>
-                <p className="text-gray-600 text-sm mb-2">{/* IMAGE 3: UI Elements */}
-<div className="my-8">
-  <img
-    src="https://i.imgur.com/MPBoUst.png"
-    alt="UI Design System - Buttons and Input Components"
-    className="w-2/3 mx-auto h-auto rounded-lg shadow-md"
-  />
-</div>I crafted:</p>
+                {/* IMAGE 3: UI Elements */}
+                <div className="my-8">
+                  <img
+                    src="/images/design-mode/ORO1hRU.png"
+                    alt="UI Design System - Buttons and Input Components"
+                    className="w-2/3 mx-auto h-auto rounded-lg shadow-md"
+                  />
+                </div>
+                <p className="text-gray-600 text-sm mb-2">I crafted:</p>
                 <ul className="text-gray-600 text-sm space-y-1 ml-4">
                   <li>• Custom iconography</li>
                   <li>• Scroll-triggered storytelling moments</li>
@@ -360,7 +364,7 @@ export default function StevannahCaseStudy() {
 <div className="my-8">
   <div className="overflow-hidden rounded-lg shadow-lg" style={{ maxHeight: '700px' }}>
     <img
-      src="https://i.imgur.com/hG7Cfid.png"
+      src="/images/design-mode/zQ9kEdn.png"
       alt="Home Page Navigation - Responsive Design Across Desktop, Tablet, and Mobile"
       className="w-full h-auto"
       style={{ objectFit: 'cover', objectPosition: 'top' }}
@@ -383,7 +387,7 @@ export default function StevannahCaseStudy() {
                 {/* IMAGE 7: About Page Responsive */}
 <div className="my-8">
   <img
-    src="https://i.imgur.com/4DIVaNq.png"
+    src="/images/design-mode/2eC75rS.png"
     alt="About Page - Responsive Design Across Desktop, Tablet, and Mobile"
     className="w-full h-auto rounded-lg shadow-lg"
   />
@@ -409,7 +413,7 @@ export default function StevannahCaseStudy() {
 <div className="my-8">
   <div className="overflow-hidden rounded-lg shadow-lg" style={{ maxHeight: '700px' }}>
     <img
-      src="https://i.imgur.com/5ZJsfr1.png"
+      src="/images/design-mode/ssrgN3Z.png"
       alt="Contact Page - Responsive Design with AI-Powered Form"
       className="w-full h-auto"
       style={{ objectFit: 'cover', objectPosition: 'top' }}
@@ -686,7 +690,7 @@ export default function StevannahCaseStudy() {
                   e.currentTarget.style.textDecoration = "none"
                 }}
               >
-                {"Blair School of Music ->"}
+                {"Blair School of Music →"}
               </Link>
             </div>
           </div>
