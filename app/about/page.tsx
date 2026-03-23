@@ -133,7 +133,7 @@ export default function AboutPage() {
             }
           })
         },
-        { threshold: 0.7, rootMargin: "-48% 0px -48% 0px" }
+        { threshold: 0.3, rootMargin: "-20% 0px -20% 0px" }
       )
       observer.observe(ref)
       return observer
