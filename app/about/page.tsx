@@ -19,26 +19,36 @@ const originStory = [
   {
     phase: "The Beginning",
     year: "Growing Up",
+    // Full copy for desktop
     content:
       "I've always been a quintessential millennial — I grew up inside technology. GameBoy. AOL Instant Messenger. MySpace layouts I coded myself. Long before I knew UX was a career, I was already doing it — obsessing over how digital experiences felt, and quietly redesigning every interface I touched.",
+    // Short copy for mobile
+    mobileContent:
+      "I grew up obsessing over digital experiences — coding MySpace layouts before I even knew UX was a career.",
   },
   {
     phase: "The Pivot",
     year: "Post-Howard",
     content:
       "I studied French Literature at Howard University — which taught me more about communication, culture, and human nuance than any design course could. After graduating, I landed a contract with Google, working as a brand ambassador for Google Cardboard. Watching people experience something new and delightful for the first time lit something in me. I knew I wanted to work in tech. I just didn't know where yet.",
+    mobileContent:
+      "French Lit at Howard taught me human nuance. A Google contract showed me what delight looks like. I knew tech was next.",
   },
   {
     phase: "Finding UX",
     year: "Atlanta Era",
     content:
       "I stayed in Atlanta after Google because I could feel the tech boom coming — and I was right. After a lot of research, I discovered user experience design and it clicked immediately. While working full-time at a nonprofit, I enrolled in General Assembly's UX bootcamp part-time. Eventually I quit my job, went full-time, and three months later landed at Coca-Cola as a Digital Production Designer. That was the start.",
+    mobileContent:
+      "Discovered UX in Atlanta, quit my nonprofit job, enrolled at General Assembly, and landed at Coca-Cola three months later.",
   },
   {
     phase: "Where I Am Now",
     year: "Present",
     content:
       "Today I'm a Senior UX Designer with 8+ years of experience across enterprise, education, fintech, and emerging tech. I've designed for 1.1M+ users, led cross-functional teams, and built systems that scale. I'm currently exploring what's next — AI agents, voice design, and the intersections of technology that don't have names yet.",
+    mobileContent:
+      "8+ years, 1.1M+ users, enterprise to emerging tech. Now exploring AI agents, voice design, and what comes next.",
   },
 ]
 
@@ -97,7 +107,7 @@ const experience = [
   {
     role: "UX Designer",
     company: "Neighborly",
-    period: "Jan 2021 – Jan 2022",
+    period: "Jan 2021 – Sep 2021",
     highlight: "Design system + 25+ screens for home services platform",
   },
   {
@@ -138,11 +148,10 @@ export default function AboutPage() {
     <MySpaceLayout fluid>
       <div className="min-h-screen">
 
-        {/* SECTION 1: Hero with contained card + scrolling stats marquee */}
+        {/* SECTION 1: Hero */}
         <section className="w-full bg-transparent pt-12 pb-0">
           <div className="max-w-[1200px] mx-auto px-6">
 
-            {/* Hero text above the card */}
             <HeroFadeUp>
               <div className="mb-8">
                 <span className="text-xs font-semibold tracking-[0.25em] uppercase text-[#7B6B9E] mb-4 block">
@@ -166,17 +175,17 @@ export default function AboutPage() {
               </div>
             </HeroFadeUp>
 
-            {/* Contained hero image card */}
+            {/* Hero image — fixed background position for mobile */}
             <div className="w-full rounded-3xl overflow-hidden relative" style={{ height: "65vh", minHeight: "480px" }}>
-              {/* Background photo */}
               <div
                 className="absolute inset-0 bg-cover bg-no-repeat"
-                style={{ backgroundImage: "url('https://i.imgur.com/KTblNms.png')", backgroundPosition: "center 20%" }}
+                style={{
+                  backgroundImage: "url('https://i.imgur.com/KTblNms.png')",
+                  backgroundPosition: "30% 20%",
+                }}
               />
-              {/* Dark overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
 
-              {/* Stats marquee — overlaid at bottom of image */}
               <div className="absolute bottom-0 left-0 right-0 bg-black/50 backdrop-blur-sm overflow-hidden py-5 marquee-fade">
                 <div className="flex animate-marquee whitespace-nowrap">
                   {[...Array(4)].flatMap(() => [
@@ -187,10 +196,7 @@ export default function AboutPage() {
                   ]).map((stat, index) => (
                     <div key={index} className="flex items-center gap-3 mx-8 flex-shrink-0">
                       <span className="text-white/30 text-lg">/</span>
-                      <span
-                        className="text-white font-bold text-xl"
-                        style={{ fontFamily: "Courier New, monospace" }}
-                      >
+                      <span className="text-white font-bold text-xl" style={{ fontFamily: "Courier New, monospace" }}>
                         {stat.value}
                       </span>
                       <span className="text-white/50 text-sm tracking-widest uppercase">
@@ -204,7 +210,7 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* SECTION 2: Philosophy Quote Block */}
+        {/* SECTION 2: Philosophy Quote */}
         <section className="w-full py-20 px-6 bg-transparent">
           <div className="max-w-[900px] mx-auto">
             <FadeUp>
@@ -227,7 +233,7 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* SECTION 3: Sticky Scroll Origin Story */}
+        {/* SECTION 3: Origin Story */}
         <section className="w-full bg-transparent">
           <div className="max-w-[1200px] mx-auto px-6 py-20">
             <FadeUp>
@@ -244,7 +250,23 @@ export default function AboutPage() {
               </div>
             </FadeUp>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+            {/* MOBILE: simple stacked cards, no sticky scroll, short copy */}
+            <div className="flex flex-col gap-6 lg:hidden">
+              {originStory.map((story, index) => (
+                <div key={index} className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 border border-[#E8E4F0] shadow-sm">
+                  <span className="text-xs font-bold tracking-[0.2em] uppercase mb-1 block" style={{ color: "#7a6a82" }}>
+                    {story.year}
+                  </span>
+                  <h3 className="text-xl font-bold text-[#1F1F1F] mb-3" style={{ fontFamily: "Courier New, monospace" }}>
+                    {story.phase}
+                  </h3>
+                  <p className="text-[#4A4268] text-base leading-relaxed">{story.mobileContent}</p>
+                </div>
+              ))}
+            </div>
+
+            {/* DESKTOP: sticky scroll layout unchanged */}
+            <div className="hidden lg:grid grid-cols-2 gap-12 items-start">
               {/* Left — Scrollable story */}
               <div className="space-y-0">
                 {originStory.map((story, index) => (
@@ -268,21 +290,16 @@ export default function AboutPage() {
               </div>
 
               {/* Right — Sticky visual */}
-              <div className="hidden lg:block sticky top-24 h-[70vh]">
+              <div className="sticky top-24 h-[70vh]">
                 <div className="w-full h-full rounded-2xl overflow-hidden shadow-2xl relative">
-                  {/* Progress indicator */}
                   <div className="absolute top-4 right-4 z-10 flex flex-col gap-2">
                     {originStory.map((_, index) => (
                       <div
                         key={index}
-                        className={`w-1.5 h-8 rounded-full transition-all duration-500 ${
-                          activeStory === index ? "bg-pink-400" : "bg-white/30"
-                        }`}
+                        className={"w-1.5 h-8 rounded-full transition-all duration-500 " + (activeStory === index ? "bg-pink-400" : "bg-white/30")}
                       />
                     ))}
                   </div>
-
-                  {/* Background changes with active story */}
                   <img
                     src={
                       activeStory === 0
@@ -295,16 +312,11 @@ export default function AboutPage() {
                     }
                     alt="Origin story background"
                     className="absolute inset-0 w-full h-full object-cover transition-all duration-700"
-                    style={activeStory === 3 ? { objectPosition: 'center 30%' } : undefined}
+                    style={activeStory === 3 ? { objectPosition: "center 30%" } : undefined}
                   />
-
-                  {/* Content overlay */}
                   <div className="absolute inset-0 flex flex-col justify-end p-8">
                     <div className="bg-black/40 backdrop-blur-sm rounded-xl p-6">
-                      <p
-                        className="text-white font-bold text-xl mb-1"
-                        style={{ fontFamily: "Courier New, monospace" }}
-                      >
+                      <p className="text-white font-bold text-xl mb-1" style={{ fontFamily: "Courier New, monospace" }}>
                         {originStory[activeStory].phase}
                       </p>
                       <p className="text-white/60 text-sm">{originStory[activeStory].year}</p>
@@ -336,8 +348,8 @@ export default function AboutPage() {
               </div>
             </FadeUp>
 
-            {/* Double Diamond Diagrams */}
-            <div className="flex flex-col md:flex-row justify-center items-start gap-8 mb-16">
+            {/* Double Diamond Diagrams — hidden on mobile, visible on md+ */}
+            <div className="hidden md:flex flex-col md:flex-row justify-center items-start gap-8 mb-16">
               {/* Traditional Diamond */}
               <div className="flex-1 max-w-[680px]">
                 <p className="text-xs font-bold tracking-widest uppercase text-[#7a6a82] mb-2 text-center">Traditional</p>
@@ -398,7 +410,6 @@ export default function AboutPage() {
 
             {/* Process Step Cards */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
-              {/* Step 01: Discover */}
               <FadeUp>
                 <div className="group bg-white/20 backdrop-blur-md border border-white/30 rounded-2xl p-1 shadow-xl hover:-translate-y-1 transition-all duration-300 h-full flex flex-col">
                   <div className="bg-white/95 rounded-2xl p-8 h-full flex flex-col border-l-4 border-l-transparent group-hover:border-l-[#c4a0cc] transition-all duration-300">
@@ -414,7 +425,6 @@ export default function AboutPage() {
                 </div>
               </FadeUp>
 
-              {/* Step 02: Define */}
               <FadeUp>
                 <div className="group bg-white/20 backdrop-blur-md border border-white/30 rounded-2xl p-1 shadow-xl hover:-translate-y-1 transition-all duration-300 h-full flex flex-col">
                   <div className="bg-white/95 rounded-2xl p-8 h-full flex flex-col border-l-4 border-l-transparent group-hover:border-l-[#c4a0cc] transition-all duration-300">
@@ -430,7 +440,6 @@ export default function AboutPage() {
                 </div>
               </FadeUp>
 
-              {/* Step 03: Develop */}
               <FadeUp>
                 <div className="group bg-white/20 backdrop-blur-md border border-white/30 rounded-2xl p-1 shadow-xl hover:-translate-y-1 transition-all duration-300 h-full flex flex-col">
                   <div className="bg-white/95 rounded-2xl p-8 h-full flex flex-col border-l-4 border-l-transparent group-hover:border-l-[#c4a0cc] transition-all duration-300">
@@ -446,7 +455,6 @@ export default function AboutPage() {
                 </div>
               </FadeUp>
 
-              {/* Step 04: Deliver */}
               <FadeUp>
                 <div className="group bg-white/20 backdrop-blur-md border border-white/30 rounded-2xl p-1 shadow-xl hover:-translate-y-1 transition-all duration-300 h-full flex flex-col">
                   <div className="bg-white/95 rounded-2xl p-8 h-full flex flex-col border-l-4 border-l-transparent group-hover:border-l-[#c4a0cc] transition-all duration-300">
@@ -482,34 +490,28 @@ export default function AboutPage() {
               </div>
             </FadeUp>
 
-            <FadeUp className="relative grid grid-cols-6 gap-4 auto-rows-[140px]">
-              {/* Floating sparkle decorations */}
-              <span className="absolute -top-3 left-[30%] text-[#f5e6d3] text-lg rotate-12 z-20 pointer-events-none">✦</span>
-              <span className="absolute top-[45%] right-[5%] text-[#f0d9e8] text-sm -rotate-6 z-20 pointer-events-none">✦</span>
-              <span className="absolute bottom-[15%] left-[48%] text-[#e8d5f0] text-base rotate-45 z-20 pointer-events-none">✦</span>
-
-              {/* Card 1: Clarity in Complexity — col 1–2, row-span-2 */}
+            {/* MOBILE: simple stacked cards */}
+            <div className="flex flex-col gap-4 md:hidden">
+              {/* Clarity in Complexity */}
               <div
-                className="col-span-6 md:col-span-2 md:row-span-2 rounded-2xl p-6 flex flex-col justify-end shadow-xl relative overflow-hidden hover:-translate-y-1 transition-all duration-300"
+                className="rounded-2xl p-6 flex flex-col justify-end shadow-xl relative overflow-hidden"
                 style={{
                   backgroundImage: "linear-gradient(rgba(45, 31, 61, 0.65), rgba(45, 31, 61, 0.65)), url('/images/Liquid-Metal-Background-12.jpg')",
                   backgroundSize: "cover",
-                  backgroundPosition: "center"
+                  backgroundPosition: "center",
+                  minHeight: "180px",
                 }}
               >
-                <span className="absolute top-4 right-4 text-[24px] rotate-12" style={{ color: "#f5e6d3" }}>✦</span>
-                <span className="absolute top-12 right-12 text-[18px] -rotate-6" style={{ color: "#f5e6d3" }}>✦</span>
-                <span className="absolute top-6 left-6 text-[32px] rotate-45" style={{ color: "#f5e6d3" }}>✦</span>
-                <h3 className="text-white font-bold text-xl mb-3 relative z-10" style={{ fontFamily: "Courier New, monospace" }}>
+                <h3 className="text-white font-bold text-xl mb-2" style={{ fontFamily: "Courier New, monospace" }}>
                   Clarity in Complexity
                 </h3>
-                <p className="text-white/90 text-sm leading-relaxed relative z-10">
+                <p className="text-white/90 text-sm leading-relaxed">
                   {"Fragmented systems, competing priorities, impossible timelines — I untangle all of it and design something beautiful that people actually want to use."}
                 </p>
               </div>
 
-              {/* Card 2: Howard U — col 3–4, row 1 */}
-              <div className="col-span-6 md:col-span-2 bg-white rounded-2xl p-5 flex flex-col items-center justify-center shadow-sm border border-[#E8E4F0] relative hover:-translate-y-1 transition-all duration-300">
+              {/* Howard */}
+              <div className="bg-white rounded-2xl p-5 flex flex-col items-center justify-center shadow-sm border border-[#E8E4F0]">
                 <img
                   src="https://i.imgur.com/rC4Lql2.png"
                   alt="Howard University"
@@ -519,39 +521,101 @@ export default function AboutPage() {
                 <p className="text-[#7a6a82] text-sm text-center" style={{ fontFamily: "Courier New, monospace" }}>{"BA · French Literature · 2015"}</p>
               </div>
 
-              {/* Card 3: Remote by Choice — col 5–6, row 1 */}
-              <div className="col-span-6 md:col-span-2 rounded-2xl p-5 flex flex-col justify-center shadow-sm border border-[rgba(240,210,230,0.6)] relative hover:-translate-y-1 transition-all duration-300" style={{ background: "linear-gradient(135deg, #f5e6d3 0%, #f0d9e8 50%, #e8d5f0 100%)" }}>
+              {/* Remote */}
+              <div className="rounded-2xl p-5 flex flex-col justify-center shadow-sm border border-[rgba(240,210,230,0.6)] relative" style={{ background: "linear-gradient(135deg, #f5e6d3 0%, #f0d9e8 50%, #e8d5f0 100%)" }}>
                 <span className="absolute top-3 right-3 text-[#5a3e5c]/60 text-lg">📍</span>
-                <h3 className="text-[#5a3e5c] font-bold text-lg mb-2" style={{ fontFamily: "Courier New, monospace" }}>
-                  Remote by choice.
-                </h3>
-                <p className="text-[#7a6a82] text-sm leading-relaxed">
-                  NYC, Raleigh, or DMV when the work calls.
-                </p>
+                <h3 className="text-[#5a3e5c] font-bold text-lg mb-2" style={{ fontFamily: "Courier New, monospace" }}>Remote by choice.</h3>
+                <p className="text-[#7a6a82] text-sm leading-relaxed">NYC, Raleigh, or DMV when the work calls.</p>
               </div>
 
-              {/* Card 4: I Work Best When — col 3–4, row 2 */}
+              {/* I Work Best When */}
               <div
-                className="col-span-6 md:col-span-2 rounded-2xl p-5 flex flex-col justify-between shadow-sm relative hover:-translate-y-1 transition-all duration-300"
-                style={{
-                  background: "rgba(255,255,255,0.80)",
-                  border: "2px solid #c4a0cc",
-                  boxShadow: "0 0 12px rgba(196,160,204,0.3)"
-                }}
+                className="rounded-2xl p-5 flex flex-col gap-2 shadow-sm"
+                style={{ background: "rgba(255,255,255,0.80)", border: "2px solid #c4a0cc", boxShadow: "0 0 12px rgba(196,160,204,0.3)" }}
               >
                 <div className="flex items-center gap-2">
                   <p className="text-xs font-bold tracking-widest uppercase text-[#7a6a82]" style={{ fontFamily: "Courier New, monospace" }}>I Work Best When</p>
                   <span className="text-base rotate-12">☕</span>
                 </div>
-                <p className="text-[#5a3e5c] text-sm leading-relaxed mt-2 mb-auto">
-                  {"Full creative range, a little trust, good snacks, and an almond milk latte. That's the formula."}
-                </p>
+                <p className="text-[#5a3e5c] text-sm leading-relaxed">{"Full creative range, a little trust, good snacks, and an almond milk latte. That's the formula."}</p>
               </div>
 
-              {/* Card 5: My Tools — col 5–6, row-span-2 */}
+              {/* My Tools */}
+              <div className="bg-[#2d1f3d] rounded-2xl p-5 flex flex-col shadow-xl">
+                <p className="text-xs font-bold tracking-widest uppercase text-white/90 mb-4" style={{ fontFamily: "Courier New, monospace" }}>My Tools</p>
+                <div className="grid grid-cols-3 gap-4">
+                  {[
+                    { name: "Figma", src: "https://cdn.simpleicons.org/figma/ffffff" },
+                    { name: "Framer", src: "https://cdn.simpleicons.org/framer/ffffff" },
+                    { name: "v0", src: "https://cdn.simpleicons.org/vercel/ffffff" },
+                    { name: "Notion", src: "https://cdn.simpleicons.org/notion/ffffff" },
+                    { name: "Claude", src: "https://cdn.simpleicons.org/anthropic/ffffff" },
+                    { name: "n8n", src: "https://cdn.simpleicons.org/n8n/ffffff" },
+                  ].map((tool) => (
+                    <div key={tool.name} className="flex flex-col items-center gap-2">
+                      <div className="w-12 h-12 rounded-2xl flex items-center justify-center shadow-md" style={{ background: "rgba(255,255,255,0.15)", backdropFilter: "blur(8px)", border: "1px solid rgba(255,255,255,0.2)" }}>
+                        <img src={tool.src} alt={tool.name} className="w-7 h-7" />
+                      </div>
+                      <span className="text-white/90 text-xs font-medium" style={{ fontFamily: "Courier New, monospace" }}>{tool.name}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Currently Into */}
+              <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-5 flex flex-col gap-3 shadow-sm border border-[#E8E4F0]">
+                <p className="text-xs font-bold tracking-widest uppercase text-[#7B6B9E]" style={{ fontFamily: "Courier New, monospace" }}>Currently Into</p>
+                <div className="flex flex-wrap gap-2">
+                  {["Vibecoding", "AI Agents", "Hot Sculpt", "Voice Design", "Peptides", "The Body Keeps the Score"].map((item) => (
+                    <span key={item} className="text-xs bg-[#2d1f3d] text-white/90 px-3 py-1.5 rounded-full font-medium">
+                      {item}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* DESKTOP: original bento grid */}
+            <FadeUp className="relative hidden md:grid grid-cols-6 gap-4 auto-rows-[140px]">
+              <span className="absolute -top-3 left-[30%] text-[#f5e6d3] text-lg rotate-12 z-20 pointer-events-none">✦</span>
+              <span className="absolute top-[45%] right-[5%] text-[#f0d9e8] text-sm -rotate-6 z-20 pointer-events-none">✦</span>
+              <span className="absolute bottom-[15%] left-[48%] text-[#e8d5f0] text-base rotate-45 z-20 pointer-events-none">✦</span>
+
               <div
-                className="col-span-6 md:col-span-2 md:row-span-2 bg-[#2d1f3d] rounded-2xl p-5 flex flex-col shadow-xl relative z-10 hover:-translate-y-1 transition-all duration-300"
+                className="col-span-2 row-span-2 rounded-2xl p-6 flex flex-col justify-end shadow-xl relative overflow-hidden hover:-translate-y-1 transition-all duration-300"
+                style={{
+                  backgroundImage: "linear-gradient(rgba(45, 31, 61, 0.65), rgba(45, 31, 61, 0.65)), url('/images/Liquid-Metal-Background-12.jpg')",
+                  backgroundSize: "cover",
+                  backgroundPosition: "center"
+                }}
               >
+                <span className="absolute top-4 right-4 text-[24px] rotate-12" style={{ color: "#f5e6d3" }}>✦</span>
+                <span className="absolute top-12 right-12 text-[18px] -rotate-6" style={{ color: "#f5e6d3" }}>✦</span>
+                <span className="absolute top-6 left-6 text-[32px] rotate-45" style={{ color: "#f5e6d3" }}>✦</span>
+                <h3 className="text-white font-bold text-xl mb-3 relative z-10" style={{ fontFamily: "Courier New, monospace" }}>Clarity in Complexity</h3>
+                <p className="text-white/90 text-sm leading-relaxed relative z-10">{"Fragmented systems, competing priorities, impossible timelines — I untangle all of it and design something beautiful that people actually want to use."}</p>
+              </div>
+
+              <div className="col-span-2 bg-white rounded-2xl p-5 flex flex-col items-center justify-center shadow-sm border border-[#E8E4F0] relative hover:-translate-y-1 transition-all duration-300">
+                <img src="https://i.imgur.com/rC4Lql2.png" alt="Howard University" className="mb-3" style={{ width: "80px", objectFit: "contain", mixBlendMode: "multiply" }} />
+                <p className="text-[#7a6a82] text-sm text-center" style={{ fontFamily: "Courier New, monospace" }}>{"BA · French Literature · 2015"}</p>
+              </div>
+
+              <div className="col-span-2 rounded-2xl p-5 flex flex-col justify-center shadow-sm border border-[rgba(240,210,230,0.6)] relative hover:-translate-y-1 transition-all duration-300" style={{ background: "linear-gradient(135deg, #f5e6d3 0%, #f0d9e8 50%, #e8d5f0 100%)" }}>
+                <span className="absolute top-3 right-3 text-[#5a3e5c]/60 text-lg">📍</span>
+                <h3 className="text-[#5a3e5c] font-bold text-lg mb-2" style={{ fontFamily: "Courier New, monospace" }}>Remote by choice.</h3>
+                <p className="text-[#7a6a82] text-sm leading-relaxed">NYC, Raleigh, or DMV when the work calls.</p>
+              </div>
+
+              <div className="col-span-2 rounded-2xl p-5 flex flex-col justify-between shadow-sm relative hover:-translate-y-1 transition-all duration-300" style={{ background: "rgba(255,255,255,0.80)", border: "2px solid #c4a0cc", boxShadow: "0 0 12px rgba(196,160,204,0.3)" }}>
+                <div className="flex items-center gap-2">
+                  <p className="text-xs font-bold tracking-widest uppercase text-[#7a6a82]" style={{ fontFamily: "Courier New, monospace" }}>I Work Best When</p>
+                  <span className="text-base rotate-12">☕</span>
+                </div>
+                <p className="text-[#5a3e5c] text-sm leading-relaxed mt-2 mb-auto">{"Full creative range, a little trust, good snacks, and an almond milk latte. That's the formula."}</p>
+              </div>
+
+              <div className="col-span-2 row-span-2 bg-[#2d1f3d] rounded-2xl p-5 flex flex-col shadow-xl relative z-10 hover:-translate-y-1 transition-all duration-300">
                 <p className="text-xs font-bold tracking-widest uppercase text-white/90 mb-4" style={{ fontFamily: "Courier New, monospace" }}>My Tools</p>
                 <div className="grid grid-cols-3 gap-3 mt-2">
                   {[
@@ -572,27 +636,21 @@ export default function AboutPage() {
                 </div>
               </div>
 
-              {/* Card 6: Currently Into — col 1–4, row 3 */}
-              <div className="col-span-6 md:col-span-4 bg-white/80 backdrop-blur-sm rounded-2xl p-5 flex flex-col justify-center gap-3 shadow-sm border border-[#E8E4F0] relative hover:-translate-y-1 transition-all duration-300">
+              <div className="col-span-4 bg-white/80 backdrop-blur-sm rounded-2xl p-5 flex flex-col justify-center gap-3 shadow-sm border border-[#E8E4F0] relative hover:-translate-y-1 transition-all duration-300">
                 <div className="relative">
                   <p className="text-xs font-bold tracking-widest uppercase text-[#7B6B9E]" style={{ fontFamily: "Courier New, monospace" }}>Currently Into</p>
-                  <span className="absolute -top-1 -right-1 text-[#f5e6d3] text-xs">✦</span>
-                  <span className="absolute top-2 right-6 text-[#f0d9e8] text-[10px] rotate-45">✦</span>
-                  <span className="absolute -top-2 right-12 text-[#e8d5f0] text-xs -rotate-12">✦</span>
                 </div>
-                <div className="flex flex-wrap gap-2 mt-3">
+                <div className="flex flex-wrap gap-2 mt-1">
                   {["Vibecoding", "AI Agents", "Hot Sculpt", "Voice Design", "Peptides", "The Body Keeps the Score"].map((item) => (
-                    <span key={item} className="text-xs bg-[#2d1f3d] text-white/90 px-3 py-1.5 rounded-full font-medium">
-                      {item}
-                    </span>
+                    <span key={item} className="text-xs bg-[#2d1f3d] text-white/90 px-3 py-1.5 rounded-full font-medium">{item}</span>
                   ))}
                 </div>
               </div>
             </FadeUp>
           </div>
         </section>
-        
-        {/* SECTION 6: Experience Timeline - Zigzag */}
+
+        {/* SECTION 6: Experience Timeline */}
         <section className="w-full py-20 px-6 bg-transparent">
           <div className="max-w-[1000px] mx-auto">
             <FadeUp>
@@ -609,23 +667,44 @@ export default function AboutPage() {
               </div>
             </FadeUp>
 
-            <StaggerReveal className="relative">
-              {/* Entry 1: Golden Hour Agency - Pill+Watermark LEFT, Card RIGHT */}
-              <div className="grid grid-cols-1 md:grid-cols-[1fr_40px_1fr] items-start gap-4 mb-16 relative">
+            {/* MOBILE: clean single-column timeline */}
+            <div className="flex flex-col gap-6 md:hidden">
+              {[
+                { role: "Founder & Lead UX Designer", company: "The Golden Hour Agency", period: "June 2024 – Present", highlight: "Human-centered design, UX/UI, and innovative digital solutions" },
+                { role: "Associate Director, UX/UI Design", company: "Vanderbilt University", period: "Oct 2022 – March 2024", highlight: "Led strategic UX overhaul for 8 major university websites" },
+                { role: "Senior UX/UI Designer", company: "Delta Airlines", period: "Jan 2022 – Sep 2022", highlight: "Delta Vacations booking flows + in-flight Wi-Fi portal" },
+                { role: "UX Design Architect", company: "US Bank", period: "Sep 2021 – Jan 2022", highlight: "Cross-segment customer journey maps + IA for financial products" },
+                { role: "UX Designer", company: "Neighborly", period: "Jan 2021 – Sep 2021", highlight: "Design system + 25+ screens for home services platform" },
+                { role: "Digital Production Designer", company: "Coca-Cola", period: "Oct 2019 – Sep 2020", highlight: "500+ prototypes for Freestyle kiosk UX serving 800K consumers" },
+              ].map((item, index) => (
+                <div key={index} className="flex flex-col gap-2">
+                  <span className="px-3 py-1 rounded-full text-xs font-bold self-start" style={{ background: "linear-gradient(135deg, #f5e6d3, #f0d9e8, #e8d5f0)", color: "#5a3e5c", fontFamily: "Courier New, monospace" }}>
+                    {item.period}
+                  </span>
+                  <h3 className="font-bold text-lg text-[#1F1F1F]" style={{ fontFamily: "Courier New, monospace" }}>{item.role}</h3>
+                  <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-5 border border-[#E8E4F0] shadow-sm">
+                    <p className="text-[#7a6a82] text-sm font-medium mb-1">{item.company}</p>
+                    <p className="text-[#4A4268] text-sm">{item.highlight}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* DESKTOP: zigzag timeline unchanged */}
+            <StaggerReveal className="relative hidden md:block">
+              {/* Entry 1: Golden Hour Agency */}
+              <div className="grid grid-cols-[1fr_40px_1fr] items-start gap-4 mb-16 relative">
                 <span className="absolute -top-2 left-[45%] text-[#f5e6d3] text-sm rotate-12">✦</span>
-                {/* Left: Pill + Watermark */}
                 <div className="relative flex flex-col items-end">
                   <div className="relative inline-block pb-20 pl-16">
                     <img src="https://i.imgur.com/eKHdyfe.png" className="absolute bottom-0 left-0 w-28 h-28 opacity-20 z-0" alt="" />
                     <span className="relative z-10 px-4 py-1.5 rounded-full text-xs font-bold inline-block" style={{ background: "linear-gradient(135deg, #f5e6d3, #f0d9e8, #e8d5f0)", color: "#5a3e5c", fontFamily: "Courier New, monospace" }}>June 2024 – Present</span>
                   </div>
                 </div>
-                {/* Center: Spine + Dot */}
-                <div className="hidden md:flex flex-col items-center">
+                <div className="flex flex-col items-center">
                   <div className="absolute top-6 bottom-0 left-1/2 -translate-x-1/2 w-px bg-[#c4a0cc] opacity-40" style={{ height: "calc(100% + 64px)" }} />
                   <div className="w-3 h-3 rounded-full bg-[#c4a0cc] z-10" />
                 </div>
-                {/* Right: Role + Card */}
                 <div>
                   <h3 className="font-bold text-lg text-[#1F1F1F] mb-2" style={{ fontFamily: "Courier New, monospace" }}>Founder & Lead UX Designer</h3>
                   <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 border border-[#E8E4F0] shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300">
@@ -635,10 +714,9 @@ export default function AboutPage() {
                 </div>
               </div>
 
-              {/* Entry 2: Vanderbilt - Card LEFT, Pill+Watermark RIGHT */}
-              <div className="grid grid-cols-1 md:grid-cols-[1fr_40px_1fr] items-start gap-4 mb-16 relative">
+              {/* Entry 2: Vanderbilt */}
+              <div className="grid grid-cols-[1fr_40px_1fr] items-start gap-4 mb-16 relative">
                 <span className="absolute top-8 right-[10%] text-[#e8d5f0] text-xs -rotate-6">✦</span>
-                {/* Left: Role + Card */}
                 <div className="md:text-right">
                   <h3 className="font-bold text-lg text-[#1F1F1F] mb-2" style={{ fontFamily: "Courier New, monospace" }}>Associate Director, UX/UI Design</h3>
                   <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 border border-[#E8E4F0] shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300">
@@ -646,12 +724,10 @@ export default function AboutPage() {
                     <p className="text-[#4A4268] text-sm">Led strategic UX overhaul for 8 major university websites</p>
                   </div>
                 </div>
-                {/* Center: Spine + Dot */}
-                <div className="hidden md:flex flex-col items-center">
+                <div className="flex flex-col items-center">
                   <div className="absolute top-6 bottom-0 left-1/2 -translate-x-1/2 w-px bg-[#c4a0cc] opacity-40" style={{ height: "calc(100% + 64px)" }} />
                   <div className="w-3 h-3 rounded-full bg-[#c4a0cc] z-10" />
                 </div>
-                {/* Right: Pill + Watermark */}
                 <div className="relative flex flex-col items-start">
                   <div className="relative inline-block pb-20 pr-16">
                     <img src="https://i.imgur.com/P0bmOd9.png" className="absolute bottom-0 right-0 w-28 h-28 opacity-20 z-0" alt="" />
@@ -660,22 +736,19 @@ export default function AboutPage() {
                 </div>
               </div>
 
-              {/* Entry 3: Delta - Pill+Watermark LEFT, Card RIGHT */}
-              <div className="grid grid-cols-1 md:grid-cols-[1fr_40px_1fr] items-start gap-4 mb-16 relative">
+              {/* Entry 3: Delta */}
+              <div className="grid grid-cols-[1fr_40px_1fr] items-start gap-4 mb-16 relative">
                 <span className="absolute top-1/2 left-[30%] text-[#f0d9e8] text-[10px] rotate-45">✦</span>
-                {/* Left: Pill + Watermark */}
                 <div className="relative flex flex-col items-end">
                   <div className="relative inline-block pb-20 pl-16">
                     <img src="https://i.imgur.com/019ucuM.png" className="absolute bottom-0 left-0 w-28 h-28 opacity-20 z-0" alt="" />
                     <span className="relative z-10 px-4 py-1.5 rounded-full text-xs font-bold inline-block" style={{ background: "linear-gradient(135deg, #f5e6d3, #f0d9e8, #e8d5f0)", color: "#5a3e5c", fontFamily: "Courier New, monospace" }}>Jan 2022 – Sep 2022</span>
                   </div>
                 </div>
-                {/* Center: Spine + Dot */}
-                <div className="hidden md:flex flex-col items-center">
+                <div className="flex flex-col items-center">
                   <div className="absolute top-6 bottom-0 left-1/2 -translate-x-1/2 w-px bg-[#c4a0cc] opacity-40" style={{ height: "calc(100% + 64px)" }} />
                   <div className="w-3 h-3 rounded-full bg-[#c4a0cc] z-10" />
                 </div>
-                {/* Right: Role + Card */}
                 <div>
                   <h3 className="font-bold text-lg text-[#1F1F1F] mb-2" style={{ fontFamily: "Courier New, monospace" }}>Senior UX/UI Designer</h3>
                   <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 border border-[#E8E4F0] shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300">
@@ -685,10 +758,9 @@ export default function AboutPage() {
                 </div>
               </div>
 
-              {/* Entry 4: US Bank - Card LEFT, Pill+Watermark RIGHT */}
-              <div className="grid grid-cols-1 md:grid-cols-[1fr_40px_1fr] items-start gap-4 mb-16 relative">
+              {/* Entry 4: US Bank */}
+              <div className="grid grid-cols-[1fr_40px_1fr] items-start gap-4 mb-16 relative">
                 <span className="absolute -top-3 right-[15%] text-[#f5e6d3] text-sm rotate-12">✦</span>
-                {/* Left: Role + Card */}
                 <div className="md:text-right">
                   <h3 className="font-bold text-lg text-[#1F1F1F] mb-2" style={{ fontFamily: "Courier New, monospace" }}>UX Design Architect</h3>
                   <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 border border-[#E8E4F0] shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300">
@@ -696,12 +768,10 @@ export default function AboutPage() {
                     <p className="text-[#4A4268] text-sm">Cross-segment customer journey maps + IA for financial products</p>
                   </div>
                 </div>
-                {/* Center: Spine + Dot */}
-                <div className="hidden md:flex flex-col items-center">
+                <div className="flex flex-col items-center">
                   <div className="absolute top-6 bottom-0 left-1/2 -translate-x-1/2 w-px bg-[#c4a0cc] opacity-40" style={{ height: "calc(100% + 64px)" }} />
                   <div className="w-3 h-3 rounded-full bg-[#c4a0cc] z-10" />
                 </div>
-                {/* Right: Pill + Watermark */}
                 <div className="relative flex flex-col items-start">
                   <div className="relative inline-block pb-20 pr-16">
                     <img src="https://i.imgur.com/CTIZIT4.png" className="absolute bottom-0 right-0 w-28 h-28 opacity-20 z-0" alt="" />
@@ -710,22 +780,19 @@ export default function AboutPage() {
                 </div>
               </div>
 
-              {/* Entry 5: Neighborly - Pill+Watermark LEFT, Card RIGHT */}
-              <div className="grid grid-cols-1 md:grid-cols-[1fr_40px_1fr] items-start gap-4 mb-16 relative">
+              {/* Entry 5: Neighborly */}
+              <div className="grid grid-cols-[1fr_40px_1fr] items-start gap-4 mb-16 relative">
                 <span className="absolute bottom-4 left-[40%] text-[#e8d5f0] text-xs -rotate-12">✦</span>
-                {/* Left: Pill + Watermark */}
                 <div className="relative flex flex-col items-end">
                   <div className="relative inline-block pb-20 pl-16">
                     <img src="https://i.imgur.com/Z4nlmPW.png" className="absolute bottom-0 left-0 w-28 h-28 opacity-20 z-0" alt="" />
                     <span className="relative z-10 px-4 py-1.5 rounded-full text-xs font-bold inline-block" style={{ background: "linear-gradient(135deg, #f5e6d3, #f0d9e8, #e8d5f0)", color: "#5a3e5c", fontFamily: "Courier New, monospace" }}>Jan 2021 – Sep 2021</span>
                   </div>
                 </div>
-                {/* Center: Spine + Dot */}
-                <div className="hidden md:flex flex-col items-center">
+                <div className="flex flex-col items-center">
                   <div className="absolute top-6 bottom-0 left-1/2 -translate-x-1/2 w-px bg-[#c4a0cc] opacity-40" style={{ height: "calc(100% + 64px)" }} />
                   <div className="w-3 h-3 rounded-full bg-[#c4a0cc] z-10" />
                 </div>
-                {/* Right: Role + Card */}
                 <div>
                   <h3 className="font-bold text-lg text-[#1F1F1F] mb-2" style={{ fontFamily: "Courier New, monospace" }}>UX Designer</h3>
                   <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 border border-[#E8E4F0] shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300">
@@ -735,11 +802,10 @@ export default function AboutPage() {
                 </div>
               </div>
 
-              {/* Entry 6: Coca-Cola - Card LEFT, Pill+Watermark RIGHT */}
-              <div className="grid grid-cols-1 md:grid-cols-[1fr_40px_1fr] items-start gap-4 mb-16 relative">
+              {/* Entry 6: Coca-Cola */}
+              <div className="grid grid-cols-[1fr_40px_1fr] items-start gap-4 mb-16 relative">
                 <span className="absolute top-2 left-[5%] text-[#f0d9e8] text-[10px] rotate-45">✦</span>
                 <span className="absolute -bottom-2 right-[20%] text-[#f5e6d3] text-xs -rotate-6">✦</span>
-                {/* Left: Role + Card */}
                 <div className="md:text-right">
                   <h3 className="font-bold text-lg text-[#1F1F1F] mb-2" style={{ fontFamily: "Courier New, monospace" }}>Digital Production Designer</h3>
                   <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 border border-[#E8E4F0] shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300">
@@ -747,11 +813,9 @@ export default function AboutPage() {
                     <p className="text-[#4A4268] text-sm">500+ prototypes for Freestyle kiosk UX serving 800K consumers</p>
                   </div>
                 </div>
-                {/* Center: Spine + Dot */}
-                <div className="hidden md:flex flex-col items-center">
+                <div className="flex flex-col items-center">
                   <div className="w-3 h-3 rounded-full bg-[#c4a0cc] z-10" />
                 </div>
-                {/* Right: Pill + Watermark */}
                 <div className="relative flex flex-col items-start">
                   <div className="relative inline-block pb-20 pr-16">
                     <img src="https://i.imgur.com/OORP0h7.png" className="absolute bottom-0 right-0 w-28 h-28 opacity-20 z-0" alt="" />
@@ -767,37 +831,37 @@ export default function AboutPage() {
         <section className="w-full py-20 px-6" style={{ background: "rgba(255,255,255,0.15)", backdropFilter: "blur(12px)", borderTop: "1px solid rgba(255,255,255,0.3)" }}>
           <div className="max-w-[800px] mx-auto text-center">
             <FadeUp>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4" style={{ fontFamily: "Courier New, monospace", color: "#5a3e5c" }}>
-              Want to work together?
-            </h2>
-            <p className="mb-10 max-w-md mx-auto" style={{ color: "#7a6a82" }}>
-              {"I'm always open to new opportunities, collaborations, or just a good design conversation."}
-            </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <a href="https://drive.google.com/uc?export=download&id=1uxzTJJR4Bauqo_W9MkSiixViFqwMMtbE" target="_blank" rel="noopener noreferrer" rel="noopener noreferrer" style={{ textDecoration: "none" }}>
-                <button className="rounded-full px-8 py-3 font-bold transition-all duration-200 border active:-translate-y-0.5" style={{ borderColor: "#5a3e5c", color: "#5a3e5c", background: "transparent" }}>
-                  <span
-                    onMouseEnter={e => (e.currentTarget.style.textDecoration = "underline")}
-                    onMouseLeave={e => (e.currentTarget.style.textDecoration = "none")}
-                    style={{ fontFamily: "Courier New, monospace", textDecoration: "none" }}
-                  >
-                    Download Resume
-                  </span>
-                </button>
-              </a>
-              <Link href="/contact" style={{ textDecoration: "none" }}>
-                <button className="rounded-full px-8 py-3 font-bold transition-all duration-200 flex items-center gap-2 active:-translate-y-0.5" style={{ background: "linear-gradient(135deg, #f5e6d3 0%, #f0d9e8 50%, #e8d5f0 100%)", color: "#5a3e5c", border: "1px solid rgba(240,210,230,0.6)", boxShadow: "0 2px 12px rgba(200,160,200,0.2)" }}>
-                  <span
-                    onMouseEnter={e => (e.currentTarget.style.textDecoration = "underline")}
-                    onMouseLeave={e => (e.currentTarget.style.textDecoration = "none")}
-                    style={{ textDecoration: "none" }}
-                  >
-                    {"Let's Talk"}
-                  </span>
-                  <ArrowRight className="w-4 h-4" />
-                </button>
-              </Link>
-            </div>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4" style={{ fontFamily: "Courier New, monospace", color: "#5a3e5c" }}>
+                Want to work together?
+              </h2>
+              <p className="mb-10 max-w-md mx-auto" style={{ color: "#7a6a82" }}>
+                {"I'm always open to new opportunities, collaborations, or just a good design conversation."}
+              </p>
+              <div className="flex flex-wrap justify-center gap-4">
+                <a href="https://drive.google.com/uc?export=download&id=1uxzTJJR4Bauqo_W9MkSiixViFqwMMtbE" target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none" }}>
+                  <button className="rounded-full px-8 py-3 font-bold transition-all duration-200 border active:-translate-y-0.5" style={{ borderColor: "#5a3e5c", color: "#5a3e5c", background: "transparent" }}>
+                    <span
+                      onMouseEnter={e => (e.currentTarget.style.textDecoration = "underline")}
+                      onMouseLeave={e => (e.currentTarget.style.textDecoration = "none")}
+                      style={{ fontFamily: "Courier New, monospace", textDecoration: "none" }}
+                    >
+                      Download Resume
+                    </span>
+                  </button>
+                </a>
+                <Link href="/contact" style={{ textDecoration: "none" }}>
+                  <button className="rounded-full px-8 py-3 font-bold transition-all duration-200 flex items-center gap-2 active:-translate-y-0.5" style={{ background: "linear-gradient(135deg, #f5e6d3 0%, #f0d9e8 50%, #e8d5f0 100%)", color: "#5a3e5c", border: "1px solid rgba(240,210,230,0.6)", boxShadow: "0 2px 12px rgba(200,160,200,0.2)" }}>
+                    <span
+                      onMouseEnter={e => (e.currentTarget.style.textDecoration = "underline")}
+                      onMouseLeave={e => (e.currentTarget.style.textDecoration = "none")}
+                      style={{ textDecoration: "none" }}
+                    >
+                      {"Let's Talk"}
+                    </span>
+                    <ArrowRight className="w-4 h-4" />
+                  </button>
+                </Link>
+              </div>
             </FadeUp>
           </div>
         </section>
