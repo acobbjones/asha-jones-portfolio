@@ -273,7 +273,7 @@ export default function AboutPage() {
                   <div
                     key={index}
                     ref={(el) => { storyRefs.current[index] = el }}
-                    className="min-h-[70vh] flex flex-col justify-center py-16 border-b border-purple-100 last:border-0"
+                    className={"flex flex-col justify-center py-16 border-b border-purple-100 last:border-0 " + (index === 0 ? "min-h-[110vh]" : "min-h-[70vh]")}
                   >
                     <span className="text-xs font-bold tracking-[0.2em] uppercase mb-2 block" style={{ color: "#7a6a82" }}>
                       {story.year}
