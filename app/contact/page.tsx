@@ -9,7 +9,7 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { Linkedin, Instagram, Send, CheckCircle2 } from "lucide-react"
+import { Linkedin, Send, CheckCircle2 } from "lucide-react"
 import { FadeUp, HeroFadeUp } from "@/components/scroll-animations"
 
 export default function ContactPage() {
@@ -267,16 +267,6 @@ style={{ background: "rgba(232,213,240,0.3)", color: "#5a3e5c" }}
               >
                 <Linkedin className="w-6 h-6" />
                 <span className="sr-only">LinkedIn</span>
-              </a>
-              <a
-                href="https://instagram.com"
-                target="_blank" rel="noopener noreferrer"
-                rel="noopener noreferrer"
-                className="transition-colors p-2 rounded-full hover:bg-[#b3a2bb]/40"
-                style={{ color: "#7a6a82" }}
-              >
-                <Instagram className="w-6 h-6" />
-                <span className="sr-only">Instagram</span>
               </a>
             </div>
           </div></FadeUp>
