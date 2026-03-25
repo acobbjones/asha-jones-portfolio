@@ -53,14 +53,16 @@ export function Navigation() {
     border: "1px solid rgba(240,210,230,0.6)",
   }
 
+  const courierFont = { fontFamily: "Courier New, Courier, monospace" }
+
   return (
     <>
       <div className="w-full mb-6 sticky top-0 z-50 px-6 pt-4">
-        {/* Outer row: logo left, pill absolutely centered */}
         <div className="relative flex items-center w-full">
 
           {/* Logo — left anchored */}
           <Link href="/" scroll={true} className="flex items-center no-underline flex-shrink-0 z-10">
+            {/* Desktop: wordmark — h-16 */}
             <Image
               src="/images/logo-wordmark.png"
               alt="Asha Jones"
@@ -68,12 +70,13 @@ export function Navigation() {
               height={80}
               className="hidden md:block h-16 w-auto object-contain"
             />
+            {/* Mobile: A mark — h-14 */}
             <Image
               src="/images/logo-mark.png"
               alt="Asha Jones"
-              width={48}
-              height={48}
-              className="block md:hidden h-12 w-auto object-contain"
+              width={56}
+              height={56}
+              className="block md:hidden h-14 w-auto object-contain"
             />
           </Link>
 
@@ -89,10 +92,7 @@ export function Navigation() {
                 boxShadow: "0 4px 24px rgba(180, 160, 200, 0.12), inset 0 1px 0 rgba(255,255,255,0.6)",
               }}
             >
-              <nav
-                className="flex items-center gap-2 relative"
-                style={{ fontFamily: "Courier New, Courier, monospace" }}
-              >
+              <nav className="flex items-center gap-2 relative" style={courierFont}>
                 <Link
                   href="/"
                   scroll={true}
@@ -100,7 +100,7 @@ export function Navigation() {
                     "px-5 py-2 rounded-full transition-all cursor-pointer font-bold no-underline text-sm",
                     pathname === "/" ? "text-[#5a3e5c]" : "text-[#4a4458] hover:bg-black/10"
                   )}
-                  style={{ fontFamily: "Courier New, Courier, monospace", ...(pathname === "/" && activePillStyle) }}
+                  style={{ ...courierFont, ...(pathname === "/" && activePillStyle) }}
                 >
                   Home
                 </Link>
@@ -113,7 +113,7 @@ export function Navigation() {
                       "flex items-center gap-1 px-5 py-2 rounded-full font-bold transition-all cursor-pointer text-sm",
                       isWorkPage ? "text-[#5a3e5c]" : "text-[#4a4458] hover:bg-black/10"
                     )}
-                    style={{ fontFamily: "Courier New, Courier, monospace", ...(isWorkPage && activePillStyle) }}
+                    style={{ ...courierFont, ...(isWorkPage && activePillStyle) }}
                   >
                     Work
                     <ChevronDown size={14} className={`transition-transform ${isWorkOpen ? "rotate-180" : ""}`} />
@@ -141,7 +141,7 @@ export function Navigation() {
                             "block px-4 py-2 text-[#4a4458] hover:text-[#5a3e5c] hover:bg-white/60 transition-all duration-200 text-sm no-underline hover:underline",
                             index === 0 && "rounded-t-xl"
                           )}
-                          style={{ fontFamily: "Courier New, Courier, monospace" }}
+                          style={courierFont}
                         >
                           {study.label}
                         </Link>
@@ -153,7 +153,7 @@ export function Navigation() {
                         onMouseDown={(e) => e.preventDefault()}
                         onClick={() => setIsWorkOpen(false)}
                         className="block px-4 py-2 text-[#7a6a82] hover:bg-white/60 rounded-b-xl hover:underline transition-all duration-200 text-sm italic no-underline"
-                        style={{ fontFamily: "Courier New, Courier, monospace" }}
+                        style={courierFont}
                       >
                         More Work
                       </Link>
@@ -168,7 +168,7 @@ export function Navigation() {
                     "px-5 py-2 rounded-full transition-all cursor-pointer font-bold no-underline text-sm",
                     pathname === "/about" ? "text-[#5a3e5c]" : "text-[#4a4458] hover:bg-black/10"
                   )}
-                  style={{ fontFamily: "Courier New, Courier, monospace", ...(pathname === "/about" && activePillStyle) }}
+                  style={{ ...courierFont, ...(pathname === "/about" && activePillStyle) }}
                 >
                   About
                 </Link>
@@ -180,7 +180,7 @@ export function Navigation() {
                     "px-5 py-2 rounded-full transition-all cursor-pointer font-bold no-underline text-sm",
                     pathname === "/contact" ? "text-[#5a3e5c]" : "text-[#4a4458] hover:bg-black/10"
                   )}
-                  style={{ fontFamily: "Courier New, Courier, monospace", ...(pathname === "/contact" && activePillStyle) }}
+                  style={{ ...courierFont, ...(pathname === "/contact" && activePillStyle) }}
                 >
                   Contact
                 </Link>
@@ -221,14 +221,15 @@ export function Navigation() {
             WebkitBackdropFilter: "blur(24px)",
           }}
         >
+          {/* Header */}
           <div className="flex items-center justify-between px-6 pt-6 pb-4 border-b border-[#e8d5f0]/60">
             <Link href="/" scroll={true} onClick={() => setIsMobileOpen(false)}>
               <Image
                 src="/images/logo-mark.png"
                 alt="Asha Jones"
-                width={48}
-                height={48}
-                className="h-12 w-auto object-contain"
+                width={56}
+                height={56}
+                className="h-14 w-auto object-contain"
               />
             </Link>
             <button
@@ -240,29 +241,49 @@ export function Navigation() {
             </button>
           </div>
 
-          <nav className="flex flex-col flex-1 px-6 py-4" style={{ fontFamily: "Courier New, Courier, monospace" }}>
+          {/* Links */}
+          <nav className="flex flex-col flex-1 px-6 py-4" style={courierFont}>
+
+            {/* Home */}
             <Link
               href="/"
               scroll={true}
               onClick={() => setIsMobileOpen(false)}
               className="flex items-center justify-between py-5 border-b border-[#e8d5f0]/60 no-underline"
             >
-              <span className="text-2xl font-bold" style={{ color: pathname === "/" ? "#5a3e5c" : "#4a4458" }}>Home</span>
+              <span className="text-2xl font-bold" style={{ color: pathname === "/" ? "#5a3e5c" : "#4a4458", ...courierFont }}>
+                Home
+              </span>
               {pathname === "/" && (
-                <span className="text-xs font-bold px-3 py-1 rounded-full" style={{ background: "linear-gradient(135deg, #f5e6d3, #f0d9e8, #e8d5f0)", color: "#5a3e5c" }}>active</span>
+                <span className="text-xs font-bold px-3 py-1 rounded-full" style={{ background: "linear-gradient(135deg, #f5e6d3, #f0d9e8, #e8d5f0)", color: "#5a3e5c" }}>
+                  active
+                </span>
               )}
             </Link>
 
+            {/* Work accordion */}
             <div className="border-b border-[#e8d5f0]/60">
-              <button onClick={() => setIsMobileWorkOpen(!isMobileWorkOpen)} className="w-full flex items-center justify-between py-5">
-                <span className="text-2xl font-bold" style={{ color: isWorkPage ? "#5a3e5c" : "#4a4458" }}>Work</span>
+              <button
+                onClick={() => setIsMobileWorkOpen(!isMobileWorkOpen)}
+                className="w-full flex items-center justify-between py-5"
+              >
+                <span className="text-2xl font-bold" style={{ color: isWorkPage ? "#5a3e5c" : "#4a4458", ...courierFont }}>
+                  Work
+                </span>
                 <div className="flex items-center gap-2">
                   {isWorkPage && (
-                    <span className="text-xs font-bold px-3 py-1 rounded-full" style={{ background: "linear-gradient(135deg, #f5e6d3, #f0d9e8, #e8d5f0)", color: "#5a3e5c" }}>active</span>
+                    <span className="text-xs font-bold px-3 py-1 rounded-full" style={{ background: "linear-gradient(135deg, #f5e6d3, #f0d9e8, #e8d5f0)", color: "#5a3e5c" }}>
+                      active
+                    </span>
                   )}
-                  <ChevronDown size={18} color="#5a3e5c" className={`transition-transform duration-300 ${isMobileWorkOpen ? "rotate-180" : ""}`} />
+                  <ChevronDown
+                    size={18}
+                    color="#5a3e5c"
+                    className={`transition-transform duration-300 ${isMobileWorkOpen ? "rotate-180" : ""}`}
+                  />
                 </div>
               </button>
+
               {isMobileWorkOpen && (
                 <div className="pb-4 space-y-1 pl-2">
                   {caseStudies.map((study) => (
@@ -272,31 +293,58 @@ export function Navigation() {
                       scroll={true}
                       onClick={() => setIsMobileOpen(false)}
                       className="block py-3 text-base font-medium no-underline hover:underline border-b border-[#e8d5f0]/30 last:border-0"
-                      style={{ color: pathname === study.href ? "#5a3e5c" : "#7a6a82" }}
+                      style={{ color: pathname === study.href ? "#5a3e5c" : "#7a6a82", ...courierFont }}
                     >
                       {study.label}
                     </Link>
                   ))}
-                  <Link href="/more-work" scroll={true} onClick={() => setIsMobileOpen(false)} className="block py-3 text-base italic no-underline hover:underline" style={{ color: "#7a6a82" }}>
+                  <Link
+                    href="/more-work"
+                    scroll={true}
+                    onClick={() => setIsMobileOpen(false)}
+                    className="block py-3 text-base italic no-underline hover:underline"
+                    style={{ color: "#7a6a82", ...courierFont }}
+                  >
                     More Work
                   </Link>
                 </div>
               )}
             </div>
 
-            <Link href="/about" scroll={true} onClick={() => setIsMobileOpen(false)} className="flex items-center justify-between py-5 border-b border-[#e8d5f0]/60 no-underline">
-              <span className="text-2xl font-bold" style={{ color: pathname === "/about" ? "#5a3e5c" : "#4a4458" }}>About</span>
+            {/* About */}
+            <Link
+              href="/about"
+              scroll={true}
+              onClick={() => setIsMobileOpen(false)}
+              className="flex items-center justify-between py-5 border-b border-[#e8d5f0]/60 no-underline"
+            >
+              <span className="text-2xl font-bold" style={{ color: pathname === "/about" ? "#5a3e5c" : "#4a4458", ...courierFont }}>
+                About
+              </span>
               {pathname === "/about" && (
-                <span className="text-xs font-bold px-3 py-1 rounded-full" style={{ background: "linear-gradient(135deg, #f5e6d3, #f0d9e8, #e8d5f0)", color: "#5a3e5c" }}>active</span>
+                <span className="text-xs font-bold px-3 py-1 rounded-full" style={{ background: "linear-gradient(135deg, #f5e6d3, #f0d9e8, #e8d5f0)", color: "#5a3e5c" }}>
+                  active
+                </span>
               )}
             </Link>
 
-            <Link href="/contact" scroll={true} onClick={() => setIsMobileOpen(false)} className="flex items-center justify-between py-5 no-underline">
-              <span className="text-2xl font-bold" style={{ color: pathname === "/contact" ? "#5a3e5c" : "#4a4458" }}>Contact</span>
+            {/* Contact */}
+            <Link
+              href="/contact"
+              scroll={true}
+              onClick={() => setIsMobileOpen(false)}
+              className="flex items-center justify-between py-5 no-underline"
+            >
+              <span className="text-2xl font-bold" style={{ color: pathname === "/contact" ? "#5a3e5c" : "#4a4458", ...courierFont }}>
+                Contact
+              </span>
               {pathname === "/contact" && (
-                <span className="text-xs font-bold px-3 py-1 rounded-full" style={{ background: "linear-gradient(135deg, #f5e6d3, #f0d9e8, #e8d5f0)", color: "#5a3e5c" }}>active</span>
+                <span className="text-xs font-bold px-3 py-1 rounded-full" style={{ background: "linear-gradient(135deg, #f5e6d3, #f0d9e8, #e8d5f0)", color: "#5a3e5c" }}>
+                  active
+                </span>
               )}
             </Link>
+
           </nav>
         </div>
       )}
