@@ -146,7 +146,7 @@ export default function HomePage() {
           <p>→ strong visual instinct</p>
           <p>→ real impact (not just pretty screens)</p>
         </div>
-        <p className="text-base text-gray-400 mb-6" style={{ fontFamily: "Courier New, monospace" }}>
+        <p className="text-lg text-gray-400 mb-6" style={{ fontFamily: "Courier New, monospace" }}>
           remote-friendly ✦ open to nyc/nj ✦ dc ✦ nc
         </p>
         <Link
