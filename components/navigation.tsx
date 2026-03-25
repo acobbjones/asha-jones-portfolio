@@ -20,9 +20,10 @@ export function Navigation() {
   const [isMobileOpen, setIsMobileOpen] = useState(false)
   const [isMobileWorkOpen, setIsMobileWorkOpen] = useState(false)
   const [showLogo, setShowLogo] = useState(true)
+  const [menuVisible, setMenuVisible] = useState(false)
   const dropdownRef = useRef<HTMLDivElement>(null)
 
-  // Scroll threshold — hide logo past 150px, show when back within 150px
+  // Scroll threshold — hide logo past 150px on both desktop and mobile
   useEffect(() => {
     const handleScroll = () => {
       setShowLogo(window.scrollY < 150)
@@ -30,6 +31,18 @@ export function Navigation() {
     window.addEventListener("scroll", handleScroll, { passive: true })
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
+
+  // Animate menu in after mount
+  useEffect(() => {
+    if (isMobileOpen) {
+      // Small delay so the element renders before animating
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => setMenuVisible(true))
+      })
+    } else {
+      setMenuVisible(false)
+    }
+  }, [isMobileOpen])
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
@@ -55,6 +68,11 @@ export function Navigation() {
     return () => { document.body.style.overflow = "" }
   }, [isMobileOpen])
 
+  const handleCloseMenu = () => {
+    setMenuVisible(false)
+    setTimeout(() => setIsMobileOpen(false), 350)
+  }
+
   const isWorkPage = pathname.startsWith("/work") || pathname === "/more-work"
 
   const activePillStyle = {
@@ -70,7 +88,7 @@ export function Navigation() {
       <div className="w-full mb-6 sticky top-0 z-50 px-6 pt-4">
         <div className="relative flex items-center w-full">
 
-          {/* Logo — fades out past 150px scroll threshold */}
+          {/* Logo — fades out past 150px scroll threshold (desktop + mobile) */}
           <Link
             href="/"
             scroll={true}
@@ -230,135 +248,158 @@ export function Navigation() {
         </div>
       </div>
 
-      {/* Mobile menu overlay */}
+      {/* Mobile menu overlay — slides in from the right */}
       {isMobileOpen && (
-        <div
-          className="fixed inset-0 z-[100] flex flex-col"
-          style={{
-            background: "rgba(240, 230, 248, 0.92)",
-            backdropFilter: "blur(24px)",
-            WebkitBackdropFilter: "blur(24px)",
-          }}
-        >
-          <div className="flex items-center justify-between px-6 pt-6 pb-4 border-b border-[#e8d5f0]/60">
-            <Link href="/" scroll={true} onClick={() => setIsMobileOpen(false)}>
-              <Image
-                src="/images/logo-mark.png"
-                alt="Asha Jones"
-                width={56}
-                height={56}
-                className="h-14 w-auto object-contain"
-              />
-            </Link>
-            <button
-              onClick={() => setIsMobileOpen(false)}
-              className="flex items-center justify-center w-9 h-9 rounded-full hover:bg-black/10 transition-all"
-              aria-label="Close menu"
-            >
-              <X size={20} color="#5a3e5c" />
-            </button>
-          </div>
+        <>
+          {/* Backdrop */}
+          <div
+            className="fixed inset-0 z-[99]"
+            style={{
+              background: "rgba(90, 62, 92, 0.15)",
+              backdropFilter: "blur(4px)",
+              opacity: menuVisible ? 1 : 0,
+              transition: "opacity 350ms ease",
+            }}
+            onClick={handleCloseMenu}
+          />
 
-          <nav className="flex flex-col flex-1 px-6 py-4" style={courierFont}>
-
-            <Link
-              href="/"
-              scroll={true}
-              onClick={() => setIsMobileOpen(false)}
-              className="flex items-center justify-between py-5 border-b border-[#e8d5f0]/60 no-underline"
-            >
-              <span className="text-2xl font-bold" style={{ color: pathname === "/" ? "#5a3e5c" : "#4a4458", ...courierFont }}>
-                Home
-              </span>
-              {pathname === "/" && (
-                <span className="text-xs font-bold px-3 py-1 rounded-full" style={{ background: "linear-gradient(135deg, #f5e6d3, #f0d9e8, #e8d5f0)", color: "#5a3e5c" }}>
-                  active
-                </span>
-              )}
-            </Link>
-
-            <div className="border-b border-[#e8d5f0]/60">
+          {/* Panel — slides in from right */}
+          <div
+            className="fixed top-0 right-0 h-full z-[100] flex flex-col"
+            style={{
+              width: "80%",
+              maxWidth: "360px",
+              background: "rgba(245, 238, 252, 0.97)",
+              backdropFilter: "blur(24px)",
+              WebkitBackdropFilter: "blur(24px)",
+              borderLeft: "1px solid rgba(200, 180, 220, 0.3)",
+              transform: menuVisible ? "translateX(0)" : "translateX(100%)",
+              transition: "transform 350ms cubic-bezier(0.32, 0.72, 0, 1)",
+            }}
+          >
+            {/* Header */}
+            <div className="flex items-center justify-between px-6 pt-6 pb-4 border-b border-[#e8d5f0]/60">
+              <Link href="/" scroll={true} onClick={handleCloseMenu}>
+                <Image
+                  src="/images/logo-mark.png"
+                  alt="Asha Jones"
+                  width={56}
+                  height={56}
+                  className="h-14 w-auto object-contain"
+                />
+              </Link>
               <button
-                onClick={() => setIsMobileWorkOpen(!isMobileWorkOpen)}
-                className="w-full flex items-center justify-between py-5"
+                onClick={handleCloseMenu}
+                className="flex items-center justify-center w-9 h-9 rounded-full hover:bg-black/10 transition-all"
+                aria-label="Close menu"
               >
-                <span className="text-2xl font-bold" style={{ color: isWorkPage ? "#5a3e5c" : "#4a4458", ...courierFont }}>
-                  Work
-                </span>
-                <div className="flex items-center gap-2">
-                  {isWorkPage && (
-                    <span className="text-xs font-bold px-3 py-1 rounded-full" style={{ background: "linear-gradient(135deg, #f5e6d3, #f0d9e8, #e8d5f0)", color: "#5a3e5c" }}>
-                      active
-                    </span>
-                  )}
-                  <ChevronDown
-                    size={18}
-                    color="#5a3e5c"
-                    className={`transition-transform duration-300 ${isMobileWorkOpen ? "rotate-180" : ""}`}
-                  />
-                </div>
+                <X size={20} color="#5a3e5c" />
               </button>
-              {isMobileWorkOpen && (
-                <div className="pb-4 space-y-1 pl-2">
-                  {caseStudies.map((study) => (
-                    <Link
-                      key={study.href}
-                      href={study.href}
-                      scroll={true}
-                      onClick={() => setIsMobileOpen(false)}
-                      className="block py-3 text-base font-medium no-underline hover:underline border-b border-[#e8d5f0]/30 last:border-0"
-                      style={{ color: pathname === study.href ? "#5a3e5c" : "#7a6a82", ...courierFont }}
-                    >
-                      {study.label}
-                    </Link>
-                  ))}
-                  <Link
-                    href="/more-work"
-                    scroll={true}
-                    onClick={() => setIsMobileOpen(false)}
-                    className="block py-3 text-base italic no-underline hover:underline"
-                    style={{ color: "#7a6a82", ...courierFont }}
-                  >
-                    More Work
-                  </Link>
-                </div>
-              )}
             </div>
 
-            <Link
-              href="/about"
-              scroll={true}
-              onClick={() => setIsMobileOpen(false)}
-              className="flex items-center justify-between py-5 border-b border-[#e8d5f0]/60 no-underline"
-            >
-              <span className="text-2xl font-bold" style={{ color: pathname === "/about" ? "#5a3e5c" : "#4a4458", ...courierFont }}>
-                About
-              </span>
-              {pathname === "/about" && (
-                <span className="text-xs font-bold px-3 py-1 rounded-full" style={{ background: "linear-gradient(135deg, #f5e6d3, #f0d9e8, #e8d5f0)", color: "#5a3e5c" }}>
-                  active
-                </span>
-              )}
-            </Link>
+            {/* Links */}
+            <nav className="flex flex-col flex-1 px-6 py-4" style={courierFont}>
 
-            <Link
-              href="/contact"
-              scroll={true}
-              onClick={() => setIsMobileOpen(false)}
-              className="flex items-center justify-between py-5 no-underline"
-            >
-              <span className="text-2xl font-bold" style={{ color: pathname === "/contact" ? "#5a3e5c" : "#4a4458", ...courierFont }}>
-                Contact
-              </span>
-              {pathname === "/contact" && (
-                <span className="text-xs font-bold px-3 py-1 rounded-full" style={{ background: "linear-gradient(135deg, #f5e6d3, #f0d9e8, #e8d5f0)", color: "#5a3e5c" }}>
-                  active
+              <Link
+                href="/"
+                scroll={true}
+                onClick={handleCloseMenu}
+                className="flex items-center justify-between py-5 border-b border-[#e8d5f0]/60 no-underline"
+              >
+                <span className="text-2xl font-bold" style={{ color: pathname === "/" ? "#5a3e5c" : "#4a4458", ...courierFont }}>
+                  Home
                 </span>
-              )}
-            </Link>
+                {pathname === "/" && (
+                  <span className="text-xs font-bold px-3 py-1 rounded-full" style={{ background: "linear-gradient(135deg, #f5e6d3, #f0d9e8, #e8d5f0)", color: "#5a3e5c" }}>
+                    active
+                  </span>
+                )}
+              </Link>
 
-          </nav>
-        </div>
+              {/* Work accordion */}
+              <div className="border-b border-[#e8d5f0]/60">
+                <button
+                  onClick={() => setIsMobileWorkOpen(!isMobileWorkOpen)}
+                  className="w-full flex items-center justify-between py-5"
+                >
+                  <span className="text-2xl font-bold" style={{ color: isWorkPage ? "#5a3e5c" : "#4a4458", ...courierFont }}>
+                    Work
+                  </span>
+                  <div className="flex items-center gap-2">
+                    {isWorkPage && (
+                      <span className="text-xs font-bold px-3 py-1 rounded-full" style={{ background: "linear-gradient(135deg, #f5e6d3, #f0d9e8, #e8d5f0)", color: "#5a3e5c" }}>
+                        active
+                      </span>
+                    )}
+                    <ChevronDown
+                      size={18}
+                      color="#5a3e5c"
+                      className={`transition-transform duration-300 ${isMobileWorkOpen ? "rotate-180" : ""}`}
+                    />
+                  </div>
+                </button>
+                {isMobileWorkOpen && (
+                  <div className="pb-4 space-y-1 pl-2">
+                    {caseStudies.map((study) => (
+                      <Link
+                        key={study.href}
+                        href={study.href}
+                        scroll={true}
+                        onClick={handleCloseMenu}
+                        className="block py-3 text-base font-medium no-underline hover:underline border-b border-[#e8d5f0]/30 last:border-0"
+                        style={{ color: pathname === study.href ? "#5a3e5c" : "#7a6a82", ...courierFont }}
+                      >
+                        {study.label}
+                      </Link>
+                    ))}
+                    <Link
+                      href="/more-work"
+                      scroll={true}
+                      onClick={handleCloseMenu}
+                      className="block py-3 text-base italic no-underline hover:underline"
+                      style={{ color: "#7a6a82", ...courierFont }}
+                    >
+                      More Work
+                    </Link>
+                  </div>
+                )}
+              </div>
+
+              <Link
+                href="/about"
+                scroll={true}
+                onClick={handleCloseMenu}
+                className="flex items-center justify-between py-5 border-b border-[#e8d5f0]/60 no-underline"
+              >
+                <span className="text-2xl font-bold" style={{ color: pathname === "/about" ? "#5a3e5c" : "#4a4458", ...courierFont }}>
+                  About
+                </span>
+                {pathname === "/about" && (
+                  <span className="text-xs font-bold px-3 py-1 rounded-full" style={{ background: "linear-gradient(135deg, #f5e6d3, #f0d9e8, #e8d5f0)", color: "#5a3e5c" }}>
+                    active
+                  </span>
+                )}
+              </Link>
+
+              <Link
+                href="/contact"
+                scroll={true}
+                onClick={handleCloseMenu}
+                className="flex items-center justify-between py-5 no-underline"
+              >
+                <span className="text-2xl font-bold" style={{ color: pathname === "/contact" ? "#5a3e5c" : "#4a4458", ...courierFont }}>
+                  Contact
+                </span>
+                {pathname === "/contact" && (
+                  <span className="text-xs font-bold px-3 py-1 rounded-full" style={{ background: "linear-gradient(135deg, #f5e6d3, #f0d9e8, #e8d5f0)", color: "#5a3e5c" }}>
+                    active
+                  </span>
+                )}
+              </Link>
+
+            </nav>
+          </div>
+        </>
       )}
     </>
   )
