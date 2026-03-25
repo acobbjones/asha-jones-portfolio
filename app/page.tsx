@@ -172,8 +172,8 @@ export default function HomePage() {
                         <h2 className="text-xl font-bold" style={{ fontFamily: "Courier New, monospace", color: "#5a3e5c" }}>
                           Asha Cobb-Jones
                         </h2>
-                        <p className="text-xs text-gray-500 mt-1">HARRISBURG $ 4EVER,</p>
-                        <p className="text-xs text-gray-500">Pennsylvania, United States</p>
+                        <p className="text-xs text-gray-500 mt-1">HARRISBURG $ 4EVER, now BROOKLYN</p>
+                        <p className="text-xs text-gray-500">new york, Pennsylvania, United States</p>
                         <p className="text-xs text-gray-400 mt-2">Profile Views: <span className="font-bold text-gray-600">1810</span></p>
                         <p className="text-xs text-gray-400">Last Login: 2/20/2026</p>
                       </div>
@@ -234,6 +234,44 @@ export default function HomePage() {
                       </span>
                     </Link>
                   </div>
+                </div>
+
+                {/* Welcome Card — mobile only, sits right after Contacting */}
+                <div className="block lg:hidden">
+                  <HeroFadeUp>
+                    <div className={cardShell}>
+                      <div className="bg-white/95 rounded-lg p-8">
+                        <h1 className="text-3xl font-bold mb-3" style={{ fontFamily: "Courier New, monospace", color: "#5a3e5c" }}>
+                          Welcome to My Digital Space!
+                        </h1>
+                        <p className="text-base text-gray-500 mb-4">
+                          {"I'm glad you're here. take a look around and stay awhile."}
+                        </p>
+                        <p className="text-sm text-gray-500 mb-4" style={{ fontFamily: "Courier New, monospace" }}>
+                          — product/ux designer, storyteller, and lowkey obsessed with how things feel, not just how they function.
+                        </p>
+                        <p className="text-sm text-gray-500 mb-4">
+                          i care about the details, the experience, and whether it actually lands— for the user and the business.
+                        </p>
+                        <div className="space-y-1 mb-5 text-sm" style={{ color: "#7a6a82" }}>
+                          <p>→ thoughtful interaction</p>
+                          <p>→ strong visual instinct</p>
+                          <p>→ real impact (not just pretty screens)</p>
+                        </div>
+                        <p className="text-xs text-gray-400 mb-5">
+                          remote-friendly ✦ open to nyc/nj ✦ dc ✦ nc
+                        </p>
+                        <Link
+                          href="/work"
+                          scroll={true}
+                          className="inline-flex items-center gap-1 px-6 py-2 rounded-full font-bold transition-all duration-200 text-sm active:-translate-y-0.5"
+                          style={{ background: "linear-gradient(135deg, #f5e6d3 0%, #f0d9e8 50%, #e8d5f0 100%)", color: "#5a3e5c", border: "1px solid rgba(240,210,230,0.6)", boxShadow: "0 2px 12px rgba(200,160,200,0.2)", textDecoration: "none" }}
+                        >
+                          <span style={{ textDecoration: "none" }} onMouseEnter={e => (e.currentTarget.style.textDecoration = "underline")} onMouseLeave={e => (e.currentTarget.style.textDecoration = "none")}>View My Work →</span>
+                        </Link>
+                      </div>
+                    </div>
+                  </HeroFadeUp>
                 </div>
 
                 {/* Asha's Details */}
@@ -335,25 +373,40 @@ export default function HomePage() {
               {/* RIGHT CONTENT AREA */}
               <div className="lg:col-span-2 space-y-6">
 
-                {/* Welcome Card */}
+                {/* Welcome Card — desktop only */}
                 <HeroFadeUp>
-                  <div className={cardShell}>
-                    <div className="bg-white/95 rounded-lg p-8">
-                      <h1 className="text-3xl md:text-4xl font-bold mb-2" style={{ fontFamily: "Courier New, monospace", color: "#5a3e5c" }}>
-                        Welcome to My Digital Space!
-                      </h1>
-                      <p className="text-lg font-bold text-gray-600 mb-4">Where pixels meet purpose and users come first</p>
-                      <p className="text-gray-500 mb-6">
-                        I'm a designer with a love for storytelling, interaction, and creating digital spaces that feel both expressive and intentional. I care deeply about the user, the integrity of good design, and the measurable impact great UX has on a business.This portfolio is a window into my work, my process, and the way I see design. Remote-friendly and open to relocating to NYC/NJ, NC, or the Washington DC area.
-                      </p>
-                      <Link
-                        href="/work"
-                        scroll={true}
-                        className="inline-flex items-center gap-1 px-6 py-2 rounded-full font-bold transition-all duration-200 text-sm active:-translate-y-0.5"
-                        style={{ background: "linear-gradient(135deg, #f5e6d3 0%, #f0d9e8 50%, #e8d5f0 100%)", color: "#5a3e5c", border: "1px solid rgba(240,210,230,0.6)", boxShadow: "0 2px 12px rgba(200,160,200,0.2)", textDecoration: "none" }}
-                      >
-                        <span style={{ textDecoration: "none" }} onMouseEnter={e => (e.currentTarget.style.textDecoration = "underline")} onMouseLeave={e => (e.currentTarget.style.textDecoration = "none")}>View My Work →</span>
-                      </Link>
+                  <div className="hidden lg:block">
+                    <div className={cardShell}>
+                      <div className="bg-white/95 rounded-lg p-8">
+                        <h1 className="text-3xl md:text-4xl font-bold mb-3" style={{ fontFamily: "Courier New, monospace", color: "#5a3e5c" }}>
+                          Welcome to My Digital Space!
+                        </h1>
+                        <p className="text-lg text-gray-500 mb-4">
+                          {"I'm glad you're here. take a look around and stay awhile."}
+                        </p>
+                        <p className="text-sm text-gray-500 mb-4" style={{ fontFamily: "Courier New, monospace" }}>
+                          — product/ux designer, storyteller, and lowkey obsessed with how things feel, not just how they function.
+                        </p>
+                        <p className="text-sm text-gray-500 mb-4">
+                          i care about the details, the experience, and whether it actually lands— for the user and the business.
+                        </p>
+                        <div className="space-y-1 mb-5 text-sm" style={{ color: "#7a6a82" }}>
+                          <p>→ thoughtful interaction</p>
+                          <p>→ strong visual instinct</p>
+                          <p>→ real impact (not just pretty screens)</p>
+                        </div>
+                        <p className="text-xs text-gray-400 mb-6">
+                          remote-friendly ✦ open to nyc/nj ✦ dc ✦ nc
+                        </p>
+                        <Link
+                          href="/work"
+                          scroll={true}
+                          className="inline-flex items-center gap-1 px-6 py-2 rounded-full font-bold transition-all duration-200 text-sm active:-translate-y-0.5"
+                          style={{ background: "linear-gradient(135deg, #f5e6d3 0%, #f0d9e8 50%, #e8d5f0 100%)", color: "#5a3e5c", border: "1px solid rgba(240,210,230,0.6)", boxShadow: "0 2px 12px rgba(200,160,200,0.2)", textDecoration: "none" }}
+                        >
+                          <span style={{ textDecoration: "none" }} onMouseEnter={e => (e.currentTarget.style.textDecoration = "underline")} onMouseLeave={e => (e.currentTarget.style.textDecoration = "none")}>View My Work →</span>
+                        </Link>
+                      </div>
                     </div>
                   </div>
                 </HeroFadeUp>
