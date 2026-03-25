@@ -86,18 +86,7 @@ export default function HomePage() {
   ]
 
   const comments = [
-    {
-      avatar: "from-purple-400 to-pink-400",
-      name: "Deborah Farese — Sr. Director of Digital Experience, Vanderbilt",
-      date: "Posted on October 30, 2023",
-      text: "Asha brought a level of strategic thinking to our navigation redesign that I didn't expect. She didn't just solve the UX problem — she helped us see the bigger picture across the entire ecosystem. Incredibly collaborative and always advocating for the user.",
-    },
-    {
-      avatar: "from-blue-400 to-purple-500",
-      name: "Albert Crews — Exec. Director of Strategy & Marketing, Vanderbilt",
-      date: "Posted on March 3, 2024",
-      text: "Working with Asha on the Big VU project was a masterclass in cross-functional design leadership. She navigated complex stakeholder needs with grace and delivered a visual system that actually scaled. She's the kind of designer who makes the whole team better.",
-    },
+    const comments = [
     {
       avatar: "from-cyan-400 to-purple-400",
       name: "Shahee Parker — CEO & Founder, CSV Stack",
@@ -109,6 +98,18 @@ export default function HomePage() {
       name: "Stevannah Middleton — Owner, Sold by Stevannah",
       date: "Posted on July 22, 2025",
       text: "I came to Asha with a vision and she exceeded it. My site looks exactly like the brand I've been building — luxurious, warm, and unforgettable. Clients comment on it constantly. If you need someone who truly listens AND delivers, she's your girl.",
+    },
+    {
+      avatar: "from-blue-400 to-purple-500",
+      name: "Albert Crews — Exec. Director of Strategy & Marketing, Vanderbilt",
+      date: "Posted on March 3, 2024",
+      text: "Working with Asha on the Big VU project was a masterclass in cross-functional design leadership. She navigated complex stakeholder needs with grace and delivered a visual system that actually scaled. She's the kind of designer who makes the whole team better.",
+    },
+    {
+      avatar: "from-purple-400 to-pink-400",
+      name: "Deborah Farese — Sr. Director of Digital Experience, Vanderbilt",
+      date: "Posted on October 30, 2023",
+      text: "Asha brought a level of strategic thinking to our navigation redesign that I didn't expect. She didn't just solve the UX problem — she helped us see the bigger picture across the entire ecosystem. Incredibly collaborative and always advocating for the user.",
     },
     {
       avatar: "from-green-400 to-cyan-500",
