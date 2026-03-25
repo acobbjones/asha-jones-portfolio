@@ -66,7 +66,7 @@ export function Navigation() {
               alt="Asha Jones"
               width={200}
               height={80}
-              className="hidden md:block h-24 w-auto object-contain"
+              className="hidden md:block h-16 w-auto object-contain"
             />
             <Image
               src="/images/logo-mark.png"
