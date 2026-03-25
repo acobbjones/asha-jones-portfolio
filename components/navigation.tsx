@@ -31,13 +31,11 @@ export function Navigation() {
     return () => document.removeEventListener("mousedown", handleClickOutside)
   }, [])
 
-  // Close mobile menu on route change
   useEffect(() => {
     setIsMobileOpen(false)
     setIsMobileWorkOpen(false)
   }, [pathname])
 
-  // Prevent body scroll when mobile menu is open
   useEffect(() => {
     if (isMobileOpen) {
       document.body.style.overflow = "hidden"
@@ -55,161 +53,163 @@ export function Navigation() {
     border: "1px solid rgba(240,210,230,0.6)",
   }
 
+  const pillContainerStyle = {
+    background: "rgba(255, 255, 255, 0.40)",
+    backdropFilter: "blur(16px)",
+    WebkitBackdropFilter: "blur(16px)",
+    border: "1px solid rgba(255, 255, 255, 0.55)",
+    boxShadow: "0 4px 24px rgba(180, 160, 200, 0.12), inset 0 1px 0 rgba(255,255,255,0.6)",
+  }
+
   return (
     <>
-      <div className="w-full mb-6 sticky top-0 z-50 px-4 pt-4">
-        <div
-          className="mx-auto max-w-xl rounded-full px-4 py-2 flex justify-between items-center"
-          style={{
-            background: "rgba(255, 255, 255, 0.40)",
-            backdropFilter: "blur(16px)",
-            WebkitBackdropFilter: "blur(16px)",
-            border: "1px solid rgba(255, 255, 255, 0.55)",
-            boxShadow: "0 4px 24px rgba(180, 160, 200, 0.12), inset 0 1px 0 rgba(255,255,255,0.6)",
-          }}
-        >
-          {/* Logo */}
+      <div className="w-full mb-6 sticky top-0 z-50 px-6 pt-4">
+        <div className="mx-auto max-w-7xl flex items-center justify-between">
+
+          {/* Logo — outside the pill, left side */}
           <Link href="/" scroll={true} className="flex items-center no-underline flex-shrink-0">
             {/* Desktop: wordmark */}
-            <div className="hidden md:block">
-              <Image
-                src="/images/logo-wordmark.png"
-                alt="Asha Jones"
-                width={100}
-                height={36}
-                className="h-8 w-auto object-contain"
-              />
-            </div>
+            <Image
+              src="/images/logo-wordmark.png"
+              alt="Asha Jones"
+              width={160}
+              height={64}
+              className="hidden md:block h-16 w-auto object-contain"
+            />
             {/* Mobile: A mark */}
-            <div className="block md:hidden">
-              <Image
-                src="/images/logo-mark.png"
-                alt="Asha Jones"
-                width={36}
-                height={36}
-                className="h-8 w-auto object-contain"
-              />
-            </div>
+            <Image
+              src="/images/logo-mark.png"
+              alt="Asha Jones"
+              width={48}
+              height={48}
+              className="block md:hidden h-12 w-auto object-contain"
+            />
           </Link>
 
-          {/* Desktop nav links */}
-          <nav
-            className="hidden md:flex justify-center items-center gap-2 relative"
-            style={{ fontFamily: "Courier New, Courier, monospace" }}
+          {/* Nav pill — right side */}
+          <div
+            className="rounded-full px-4 py-2 flex items-center gap-2"
+            style={pillContainerStyle}
           >
-            <Link
-              href="/"
-              scroll={true}
-              className={cn(
-                "px-5 py-2 rounded-full transition-all cursor-pointer font-bold no-underline text-sm",
-                pathname === "/" ? "text-[#5a3e5c]" : "text-[#4a4458] hover:bg-black/10"
-              )}
-              style={{
-                fontFamily: "Courier New, Courier, monospace",
-                ...(pathname === "/" && activePillStyle),
-              }}
+            {/* Desktop nav links */}
+            <nav
+              className="hidden md:flex items-center gap-2 relative"
+              style={{ fontFamily: "Courier New, Courier, monospace" }}
             >
-              Home
-            </Link>
-
-            <div className="relative" ref={dropdownRef}>
-              <button
-                onClick={() => setIsWorkOpen(!isWorkOpen)}
-                onBlur={() => setTimeout(() => setIsWorkOpen(false), 200)}
+              <Link
+                href="/"
+                scroll={true}
                 className={cn(
-                  "flex items-center gap-1 px-5 py-2 rounded-full font-bold transition-all cursor-pointer text-sm",
-                  isWorkPage ? "text-[#5a3e5c]" : "text-[#4a4458] hover:bg-black/10"
+                  "px-5 py-2 rounded-full transition-all cursor-pointer font-bold no-underline text-sm",
+                  pathname === "/" ? "text-[#5a3e5c]" : "text-[#4a4458] hover:bg-black/10"
                 )}
                 style={{
                   fontFamily: "Courier New, Courier, monospace",
-                  ...(isWorkPage && activePillStyle),
+                  ...(pathname === "/" && activePillStyle),
                 }}
               >
-                Work
-                <ChevronDown size={14} className={`transition-transform ${isWorkOpen ? "rotate-180" : ""}`} />
-              </button>
+                Home
+              </Link>
 
-              {isWorkOpen && (
-                <div
-                  className="absolute top-full left-1/2 -translate-x-1/2 mt-2 rounded-2xl py-2 min-w-[240px] z-50"
+              <div className="relative" ref={dropdownRef}>
+                <button
+                  onClick={() => setIsWorkOpen(!isWorkOpen)}
+                  onBlur={() => setTimeout(() => setIsWorkOpen(false), 200)}
+                  className={cn(
+                    "flex items-center gap-1 px-5 py-2 rounded-full font-bold transition-all cursor-pointer text-sm",
+                    isWorkPage ? "text-[#5a3e5c]" : "text-[#4a4458] hover:bg-black/10"
+                  )}
                   style={{
-                    background: "rgba(255,255,255,0.97)",
-                    backdropFilter: "blur(16px)",
-                    WebkitBackdropFilter: "blur(16px)",
-                    border: "1px solid rgba(255,255,255,0.6)",
-                    boxShadow: "0 8px 32px rgba(180,160,200,0.18)",
+                    fontFamily: "Courier New, Courier, monospace",
+                    ...(isWorkPage && activePillStyle),
                   }}
                 >
-                  {caseStudies.map((study, index) => (
+                  Work
+                  <ChevronDown size={14} className={`transition-transform ${isWorkOpen ? "rotate-180" : ""}`} />
+                </button>
+
+                {isWorkOpen && (
+                  <div
+                    className="absolute top-full left-1/2 -translate-x-1/2 mt-2 rounded-2xl py-2 min-w-[240px] z-50"
+                    style={{
+                      background: "rgba(255,255,255,0.97)",
+                      backdropFilter: "blur(16px)",
+                      WebkitBackdropFilter: "blur(16px)",
+                      border: "1px solid rgba(255,255,255,0.6)",
+                      boxShadow: "0 8px 32px rgba(180,160,200,0.18)",
+                    }}
+                  >
+                    {caseStudies.map((study, index) => (
+                      <Link
+                        key={study.href}
+                        href={study.href}
+                        scroll={true}
+                        onMouseDown={(e) => e.preventDefault()}
+                        onClick={() => setIsWorkOpen(false)}
+                        className={cn(
+                          "block px-4 py-2 text-[#4a4458] hover:text-[#5a3e5c] hover:bg-white/60 transition-all duration-200 text-sm no-underline hover:underline",
+                          index === 0 && "rounded-t-xl"
+                        )}
+                        style={{ fontFamily: "Courier New, Courier, monospace" }}
+                      >
+                        {study.label}
+                      </Link>
+                    ))}
+                    <div className="border-t border-[#e8d5f0]/60 my-2" />
                     <Link
-                      key={study.href}
-                      href={study.href}
+                      href="/more-work"
                       scroll={true}
                       onMouseDown={(e) => e.preventDefault()}
                       onClick={() => setIsWorkOpen(false)}
-                      className={cn(
-                        "block px-4 py-2 text-[#4a4458] hover:text-[#5a3e5c] hover:bg-white/60 transition-all duration-200 text-sm no-underline hover:underline",
-                        index === 0 && "rounded-t-xl"
-                      )}
+                      className="block px-4 py-2 text-[#7a6a82] hover:bg-white/60 rounded-b-xl hover:underline transition-all duration-200 text-sm italic no-underline"
                       style={{ fontFamily: "Courier New, Courier, monospace" }}
                     >
-                      {study.label}
+                      More Work
                     </Link>
-                  ))}
-                  <div className="border-t border-[#e8d5f0]/60 my-2" />
-                  <Link
-                    href="/more-work"
-                    scroll={true}
-                    onMouseDown={(e) => e.preventDefault()}
-                    onClick={() => setIsWorkOpen(false)}
-                    className="block px-4 py-2 text-[#7a6a82] hover:bg-white/60 rounded-b-xl hover:underline transition-all duration-200 text-sm italic no-underline"
-                    style={{ fontFamily: "Courier New, Courier, monospace" }}
-                  >
-                    More Work
-                  </Link>
-                </div>
-              )}
-            </div>
+                  </div>
+                )}
+              </div>
 
-            <Link
-              href="/about"
-              scroll={true}
-              className={cn(
-                "px-5 py-2 rounded-full transition-all cursor-pointer font-bold no-underline text-sm",
-                pathname === "/about" ? "text-[#5a3e5c]" : "text-[#4a4458] hover:bg-black/10"
-              )}
-              style={{
-                fontFamily: "Courier New, Courier, monospace",
-                ...(pathname === "/about" && activePillStyle),
-              }}
+              <Link
+                href="/about"
+                scroll={true}
+                className={cn(
+                  "px-5 py-2 rounded-full transition-all cursor-pointer font-bold no-underline text-sm",
+                  pathname === "/about" ? "text-[#5a3e5c]" : "text-[#4a4458] hover:bg-black/10"
+                )}
+                style={{
+                  fontFamily: "Courier New, Courier, monospace",
+                  ...(pathname === "/about" && activePillStyle),
+                }}
+              >
+                About
+              </Link>
+
+              <Link
+                href="/contact"
+                scroll={true}
+                className={cn(
+                  "px-5 py-2 rounded-full transition-all cursor-pointer font-bold no-underline text-sm",
+                  pathname === "/contact" ? "text-[#5a3e5c]" : "text-[#4a4458] hover:bg-black/10"
+                )}
+                style={{
+                  fontFamily: "Courier New, Courier, monospace",
+                  ...(pathname === "/contact" && activePillStyle),
+                }}
+              >
+                Contact
+              </Link>
+            </nav>
+
+            {/* Mobile hamburger button */}
+            <button
+              className="md:hidden flex items-center justify-center w-9 h-9 rounded-full transition-all hover:bg-black/10"
+              onClick={() => setIsMobileOpen(true)}
+              aria-label="Open menu"
             >
-              About
-            </Link>
-
-            <Link
-              href="/contact"
-              scroll={true}
-              className={cn(
-                "px-5 py-2 rounded-full transition-all cursor-pointer font-bold no-underline text-sm",
-                pathname === "/contact" ? "text-[#5a3e5c]" : "text-[#4a4458] hover:bg-black/10"
-              )}
-              style={{
-                fontFamily: "Courier New, Courier, monospace",
-                ...(pathname === "/contact" && activePillStyle),
-              }}
-            >
-              Contact
-            </Link>
-          </nav>
-
-          {/* Mobile hamburger button */}
-          <button
-            className="md:hidden flex items-center justify-center w-9 h-9 rounded-full transition-all hover:bg-black/10"
-            onClick={() => setIsMobileOpen(true)}
-            aria-label="Open menu"
-          >
-            <Menu size={20} color="#5a3e5c" />
-          </button>
+              <Menu size={20} color="#5a3e5c" />
+            </button>
+          </div>
         </div>
       </div>
 
@@ -229,9 +229,9 @@ export function Navigation() {
               <Image
                 src="/images/logo-mark.png"
                 alt="Asha Jones"
-                width={36}
-                height={36}
-                className="h-9 w-auto object-contain"
+                width={48}
+                height={48}
+                className="h-12 w-auto object-contain"
               />
             </Link>
             <button
@@ -246,47 +246,34 @@ export function Navigation() {
           {/* Links */}
           <nav className="flex flex-col flex-1 px-6 py-4" style={{ fontFamily: "Courier New, Courier, monospace" }}>
 
-            {/* Home */}
             <Link
               href="/"
               scroll={true}
               onClick={() => setIsMobileOpen(false)}
               className="flex items-center justify-between py-5 border-b border-[#e8d5f0]/60 no-underline"
             >
-              <span
-                className="text-2xl font-bold"
-                style={{ color: pathname === "/" ? "#5a3e5c" : "#4a4458" }}
-              >
+              <span className="text-2xl font-bold" style={{ color: pathname === "/" ? "#5a3e5c" : "#4a4458" }}>
                 Home
               </span>
               {pathname === "/" && (
-                <span
-                  className="text-xs font-bold px-3 py-1 rounded-full"
-                  style={{ background: "linear-gradient(135deg, #f5e6d3, #f0d9e8, #e8d5f0)", color: "#5a3e5c" }}
-                >
+                <span className="text-xs font-bold px-3 py-1 rounded-full" style={{ background: "linear-gradient(135deg, #f5e6d3, #f0d9e8, #e8d5f0)", color: "#5a3e5c" }}>
                   active
                 </span>
               )}
             </Link>
 
-            {/* Work — accordion */}
+            {/* Work accordion */}
             <div className="border-b border-[#e8d5f0]/60">
               <button
                 onClick={() => setIsMobileWorkOpen(!isMobileWorkOpen)}
                 className="w-full flex items-center justify-between py-5"
               >
-                <span
-                  className="text-2xl font-bold"
-                  style={{ color: isWorkPage ? "#5a3e5c" : "#4a4458" }}
-                >
+                <span className="text-2xl font-bold" style={{ color: isWorkPage ? "#5a3e5c" : "#4a4458" }}>
                   Work
                 </span>
                 <div className="flex items-center gap-2">
                   {isWorkPage && (
-                    <span
-                      className="text-xs font-bold px-3 py-1 rounded-full"
-                      style={{ background: "linear-gradient(135deg, #f5e6d3, #f0d9e8, #e8d5f0)", color: "#5a3e5c" }}
-                    >
+                    <span className="text-xs font-bold px-3 py-1 rounded-full" style={{ background: "linear-gradient(135deg, #f5e6d3, #f0d9e8, #e8d5f0)", color: "#5a3e5c" }}>
                       active
                     </span>
                   )}
@@ -297,8 +284,6 @@ export function Navigation() {
                   />
                 </div>
               </button>
-
-              {/* Accordion content */}
               {isMobileWorkOpen && (
                 <div className="pb-4 space-y-1 pl-2">
                   {caseStudies.map((study) => (
@@ -326,47 +311,33 @@ export function Navigation() {
               )}
             </div>
 
-            {/* About */}
             <Link
               href="/about"
               scroll={true}
               onClick={() => setIsMobileOpen(false)}
               className="flex items-center justify-between py-5 border-b border-[#e8d5f0]/60 no-underline"
             >
-              <span
-                className="text-2xl font-bold"
-                style={{ color: pathname === "/about" ? "#5a3e5c" : "#4a4458" }}
-              >
+              <span className="text-2xl font-bold" style={{ color: pathname === "/about" ? "#5a3e5c" : "#4a4458" }}>
                 About
               </span>
               {pathname === "/about" && (
-                <span
-                  className="text-xs font-bold px-3 py-1 rounded-full"
-                  style={{ background: "linear-gradient(135deg, #f5e6d3, #f0d9e8, #e8d5f0)", color: "#5a3e5c" }}
-                >
+                <span className="text-xs font-bold px-3 py-1 rounded-full" style={{ background: "linear-gradient(135deg, #f5e6d3, #f0d9e8, #e8d5f0)", color: "#5a3e5c" }}>
                   active
                 </span>
               )}
             </Link>
 
-            {/* Contact */}
             <Link
               href="/contact"
               scroll={true}
               onClick={() => setIsMobileOpen(false)}
               className="flex items-center justify-between py-5 no-underline"
             >
-              <span
-                className="text-2xl font-bold"
-                style={{ color: pathname === "/contact" ? "#5a3e5c" : "#4a4458" }}
-              >
+              <span className="text-2xl font-bold" style={{ color: pathname === "/contact" ? "#5a3e5c" : "#4a4458" }}>
                 Contact
               </span>
               {pathname === "/contact" && (
-                <span
-                  className="text-xs font-bold px-3 py-1 rounded-full"
-                  style={{ background: "linear-gradient(135deg, #f5e6d3, #f0d9e8, #e8d5f0)", color: "#5a3e5c" }}
-                >
+                <span className="text-xs font-bold px-3 py-1 rounded-full" style={{ background: "linear-gradient(135deg, #f5e6d3, #f0d9e8, #e8d5f0)", color: "#5a3e5c" }}>
                   active
                 </span>
               )}
