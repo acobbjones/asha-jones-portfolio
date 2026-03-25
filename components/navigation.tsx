@@ -19,7 +19,17 @@ export function Navigation() {
   const [isWorkOpen, setIsWorkOpen] = useState(false)
   const [isMobileOpen, setIsMobileOpen] = useState(false)
   const [isMobileWorkOpen, setIsMobileWorkOpen] = useState(false)
+  const [showLogo, setShowLogo] = useState(true)
   const dropdownRef = useRef<HTMLDivElement>(null)
+
+  // Scroll threshold — hide logo past 150px, show when back within 150px
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowLogo(window.scrollY < 150)
+    }
+    window.addEventListener("scroll", handleScroll, { passive: true })
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
@@ -60,9 +70,18 @@ export function Navigation() {
       <div className="w-full mb-6 sticky top-0 z-50 px-6 pt-4">
         <div className="relative flex items-center w-full">
 
-          {/* Logo — left anchored */}
-          <Link href="/" scroll={true} className="flex items-center no-underline flex-shrink-0 z-10">
-            {/* Desktop: wordmark — h-16 */}
+          {/* Logo — fades out past 150px scroll threshold */}
+          <Link
+            href="/"
+            scroll={true}
+            className="flex items-center no-underline flex-shrink-0 z-10 transition-all duration-300"
+            style={{
+              opacity: showLogo ? 1 : 0,
+              pointerEvents: showLogo ? "auto" : "none",
+              transform: showLogo ? "translateY(0)" : "translateY(-6px)",
+            }}
+          >
+            {/* Desktop: wordmark */}
             <Image
               src="/images/logo-wordmark.png"
               alt="Asha Jones"
@@ -70,7 +89,7 @@ export function Navigation() {
               height={80}
               className="hidden md:block h-16 w-auto object-contain"
             />
-            {/* Mobile: A mark — h-14 */}
+            {/* Mobile: A mark */}
             <Image
               src="/images/logo-mark.png"
               alt="Asha Jones"
@@ -221,7 +240,6 @@ export function Navigation() {
             WebkitBackdropFilter: "blur(24px)",
           }}
         >
-          {/* Header */}
           <div className="flex items-center justify-between px-6 pt-6 pb-4 border-b border-[#e8d5f0]/60">
             <Link href="/" scroll={true} onClick={() => setIsMobileOpen(false)}>
               <Image
@@ -241,10 +259,8 @@ export function Navigation() {
             </button>
           </div>
 
-          {/* Links */}
           <nav className="flex flex-col flex-1 px-6 py-4" style={courierFont}>
 
-            {/* Home */}
             <Link
               href="/"
               scroll={true}
@@ -261,7 +277,6 @@ export function Navigation() {
               )}
             </Link>
 
-            {/* Work accordion */}
             <div className="border-b border-[#e8d5f0]/60">
               <button
                 onClick={() => setIsMobileWorkOpen(!isMobileWorkOpen)}
@@ -283,7 +298,6 @@ export function Navigation() {
                   />
                 </div>
               </button>
-
               {isMobileWorkOpen && (
                 <div className="pb-4 space-y-1 pl-2">
                   {caseStudies.map((study) => (
@@ -311,7 +325,6 @@ export function Navigation() {
               )}
             </div>
 
-            {/* About */}
             <Link
               href="/about"
               scroll={true}
@@ -328,7 +341,6 @@ export function Navigation() {
               )}
             </Link>
 
-            {/* Contact */}
             <Link
               href="/contact"
               scroll={true}
