@@ -172,8 +172,8 @@ export default function HomePage() {
                         <h2 className="text-xl font-bold" style={{ fontFamily: "Courier New, monospace", color: "#5a3e5c" }}>
                           Asha Cobb-Jones
                         </h2>
-                        <p className="text-xs text-gray-500 mt-1">HARRISBURG $ 4EVER, now BROOKLYN</p>
-                        <p className="text-xs text-gray-500">new york, Pennsylvania, United States</p>
+                        <p className="text-xs text-gray-500 mt-1">HARRISBURG $ 4EVER,</p>
+                        <p className="text-xs text-gray-500">Pennsylvania, United States</p>
                         <p className="text-xs text-gray-400 mt-2">Profile Views: <span className="font-bold text-gray-600">1810</span></p>
                         <p className="text-xs text-gray-400">Last Login: 2/20/2026</p>
                       </div>
