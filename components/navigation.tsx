@@ -57,7 +57,7 @@ export function Navigation() {
     <>
       <div className="w-full mb-6 sticky top-0 z-50 px-6 pt-4">
         {/* Outer row: logo left, pill absolutely centered */}
-        <div className="relative flex items-center">
+        <div className="relative flex items-center w-full">
 
           {/* Logo — left anchored */}
           <Link href="/" scroll={true} className="flex items-center no-underline flex-shrink-0 z-10">
@@ -66,7 +66,7 @@ export function Navigation() {
               alt="Asha Jones"
               width={200}
               height={80}
-              className="hidden md:block h-20 w-auto object-contain"
+              className="hidden md:block h-24 w-auto object-contain"
             />
             <Image
               src="/images/logo-mark.png"
