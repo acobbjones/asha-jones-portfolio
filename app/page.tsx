@@ -89,31 +89,31 @@ export default function HomePage() {
     {
       avatar: "from-purple-400 to-pink-400",
       name: "Deborah Farese — Sr. Director of Digital Experience, Vanderbilt",
-      date: "Posted on October 3, 2024",
+      date: "Posted on October 30, 2023",
       text: "Asha brought a level of strategic thinking to our navigation redesign that I didn't expect. She didn't just solve the UX problem — she helped us see the bigger picture across the entire ecosystem. Incredibly collaborative and always advocating for the user.",
     },
     {
       avatar: "from-blue-400 to-purple-500",
       name: "Albert Crews — Exec. Director of Strategy & Marketing, Vanderbilt",
-      date: "Posted on September 18, 2024",
+      date: "Posted on March 3, 2024",
       text: "Working with Asha on the Big VU project was a masterclass in cross-functional design leadership. She navigated complex stakeholder needs with grace and delivered a visual system that actually scaled. She's the kind of designer who makes the whole team better.",
     },
     {
       avatar: "from-cyan-400 to-purple-400",
       name: "Shahee Parker — CEO & Founder, CSV Stack",
-      date: "Posted on August 7, 2024",
+      date: "Posted on January 15, 2026",
       text: "Asha translated something really technical into something people actually want to use. She asked the right questions, pushed back when needed, and delivered a landing experience that speaks to both our technical users and the execs holding the budget. Huge value-add.",
     },
     {
       avatar: "from-pink-400 to-orange-400",
       name: "Stevannah Middleton — Owner, Sold by Stevannah",
-      date: "Posted on July 22, 2024",
+      date: "Posted on July 22, 2025",
       text: "I came to Asha with a vision and she exceeded it. My site looks exactly like the brand I've been building — luxurious, warm, and unforgettable. Clients comment on it constantly. If you need someone who truly listens AND delivers, she's your girl.",
     },
     {
       avatar: "from-green-400 to-cyan-500",
       name: "Brian Amador — UX Lead, Neighborly",
-      date: "Posted on May 14, 2024",
+      date: "Posted on April 14, 2021",
       text: "Asha is the real deal. Her accessibility work on the Neighborly redesign was thorough, thoughtful, and genuinely moved the needle for our users. She brought strong design system thinking and made sure nothing slipped through the cracks. Would work with her again in a heartbeat.",
     },
   ]
