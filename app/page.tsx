@@ -128,7 +128,6 @@ export default function HomePage() {
     return "https://i.imgur.com/FSCVOEt.png"
   }
 
-  // Shared welcome card content — used in both mobile and desktop
   const WelcomeCard = () => (
     <div className={cardShell}>
       <div className="bg-white/95 rounded-lg p-8">
@@ -454,7 +453,7 @@ export default function HomePage() {
                                   </div>
                                 )}
                                 {isActive && (
-                                  <div className="flex h-full w-full">
+                                  <div className="animate-fadeIn flex h-full w-full">
                                     <div className="w-3/5 h-full relative flex-shrink-0 overflow-hidden">
                                       <img
                                         src={projectImage(project.id)}
