@@ -93,7 +93,6 @@ function AuditPreviewCard() {
 export default function UXAuditPage() {
   const courier = { fontFamily: "Courier New, monospace" }
   const mutedPurple = "#7a6a82"
-  const star = <span style={{ color: "#c4a0cc" }}>✦ </span>
 
   const auditBullets = [
     "15–20 min Loom walkthrough of your site",
@@ -171,7 +170,6 @@ export default function UXAuditPage() {
               <div className="group bg-white/20 backdrop-blur-md border border-white/30 rounded-2xl p-1 shadow-xl hover:-translate-y-1 transition-all duration-300 relative flex flex-col">
                 <span className="absolute -top-3 -right-2 text-[#c4a0cc] text-lg rotate-12 pointer-events-none select-none z-10">✦</span>
                 <div className="bg-white/95 rounded-2xl p-8 flex flex-col flex-1 border-l-4 border-l-transparent group-hover:border-l-[#c4a0cc] transition-all duration-300">
-                  {/* Title + price */}
                   <div className="flex items-start justify-between mb-3">
                     <h2 className="text-2xl font-bold text-[#1F1F1F]" style={courier}>
                       UX Audit +<br />Action Plan
@@ -181,11 +179,10 @@ export default function UXAuditPage() {
                       <span className="text-sm text-[#7B6B9E] italic" style={courier}>Flat rate. No surprises.</span>
                     </div>
                   </div>
-                  {/* Description with inline star */}
+                  {/* Short description — no star */}
                   <p className="text-[#5a3e5c] text-sm font-medium leading-relaxed mb-6">
-                    {star}{"I'll show you exactly what's unclear, what's getting in the way, and what to fix first — so you can make improvements that actually move the needle."}
+                    {"I'll show you what's unclear, what's blocking users, and what to fix first."}
                   </p>
-                  {/* Bullets */}
                   <ul className="space-y-3 mb-6 flex-1">
                     {auditBullets.map((item, i) => (
                       <li key={i} className="flex items-start gap-3 text-sm text-[#374151]">
@@ -205,7 +202,6 @@ export default function UXAuditPage() {
               <div className="group bg-white/20 backdrop-blur-md border border-white/30 rounded-2xl p-1 shadow-xl hover:-translate-y-1 transition-all duration-300 relative flex flex-col">
                 <span className="absolute -top-2 left-[40%] text-[#f0d9e8] text-sm -rotate-6 pointer-events-none select-none z-10">✦</span>
                 <div className="bg-white/95 rounded-2xl p-8 flex flex-col flex-1 border-l-4 border-l-transparent group-hover:border-l-[#c4a0cc] transition-all duration-300">
-                  {/* Title + price */}
                   <div className="flex items-start justify-between mb-3">
                     <h2 className="text-2xl font-bold text-[#1F1F1F]" style={courier}>
                       Design Sprint
@@ -215,11 +211,10 @@ export default function UXAuditPage() {
                       <span className="text-sm text-[#7B6B9E] italic" style={courier}>Flat rate. No surprises.</span>
                     </div>
                   </div>
-                  {/* Description with inline star */}
+                  {/* Short description — no star */}
                   <p className="text-[#7B6B9E] text-sm leading-relaxed mb-6">
-                    {star}If you want help implementing improvements, I offer a focused sprint to redesign your core page and get it right.
+                    A focused sprint to redesign your core page and get it right.
                   </p>
-                  {/* Bullets */}
                   <ul className="space-y-3 mb-6 flex-1">
                     {sprintBullets.map((item, i) => (
                       <li key={i} className="flex items-start gap-3 text-sm text-[#374151]">
