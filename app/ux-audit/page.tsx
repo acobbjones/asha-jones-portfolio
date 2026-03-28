@@ -93,6 +93,7 @@ function AuditPreviewCard() {
 export default function UXAuditPage() {
   const courier = { fontFamily: "Courier New, monospace" }
   const mutedPurple = "#7a6a82"
+  const star = <span style={{ color: "#c4a0cc" }}>✦ </span>
 
   const auditBullets = [
     "15–20 min Loom walkthrough of your site",
@@ -124,9 +125,6 @@ export default function UXAuditPage() {
     { num: "03", label: "You get an action plan", desc: "A clear, prioritized document delivered within 48–72 hours." },
     { num: "04", label: "Optional sprint", desc: "Want help implementing? We can move into a design sprint." },
   ]
-
-  // Shared card inner styles — both cards use identical structure
-  const cardHeader = { minHeight: "170px" }
 
   return (
     <MySpaceLayout fluid>
@@ -165,7 +163,7 @@ export default function UXAuditPage() {
 
         <div id="details" className="max-w-5xl mx-auto px-6 py-16 space-y-16">
 
-          {/* Services Grid — equal height cards with aligned bullets */}
+          {/* Services Grid */}
           <FadeUp>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6" style={{ alignItems: "stretch" }}>
 
@@ -173,23 +171,22 @@ export default function UXAuditPage() {
               <div className="group bg-white/20 backdrop-blur-md border border-white/30 rounded-2xl p-1 shadow-xl hover:-translate-y-1 transition-all duration-300 relative flex flex-col">
                 <span className="absolute -top-3 -right-2 text-[#c4a0cc] text-lg rotate-12 pointer-events-none select-none z-10">✦</span>
                 <div className="bg-white/95 rounded-2xl p-8 flex flex-col flex-1 border-l-4 border-l-transparent group-hover:border-l-[#c4a0cc] transition-all duration-300">
-                  {/* Header — fixed height so bullets align */}
-                  <div style={cardHeader}>
-                    <div className="flex items-start justify-between mb-3">
-                      <h2 className="text-2xl font-bold text-[#1F1F1F]" style={courier}>
-                        UX Audit +<br />Action Plan
-                      </h2>
-                      <div className="flex flex-col items-end gap-1 ml-4 flex-shrink-0">
-                        <span className="text-sm font-bold px-3 py-1 rounded-full" style={{ background: "rgba(232,213,240,0.4)", color: "#5a3e5c", ...courier }}>$300–$500</span>
-                        <span className="text-sm text-[#7B6B9E] italic" style={courier}>Flat rate. No surprises.</span>
-                      </div>
+                  {/* Title + price */}
+                  <div className="flex items-start justify-between mb-3">
+                    <h2 className="text-2xl font-bold text-[#1F1F1F]" style={courier}>
+                      UX Audit +<br />Action Plan
+                    </h2>
+                    <div className="flex flex-col items-end gap-1 ml-4 flex-shrink-0">
+                      <span className="text-sm font-bold px-3 py-1 rounded-full" style={{ background: "rgba(232,213,240,0.4)", color: "#5a3e5c", ...courier }}>$300–$500</span>
+                      <span className="text-sm text-[#7B6B9E] italic" style={courier}>Flat rate. No surprises.</span>
                     </div>
-                    <p className="text-[#5a3e5c] text-sm font-medium leading-relaxed">
-                      {"I'll show you exactly what's unclear, what's getting in the way, and what to fix first — so you can make improvements that actually move the needle."}
-                    </p>
                   </div>
+                  {/* Description with inline star */}
+                  <p className="text-[#5a3e5c] text-sm font-medium leading-relaxed mb-6">
+                    {star}{"I'll show you exactly what's unclear, what's getting in the way, and what to fix first — so you can make improvements that actually move the needle."}
+                  </p>
                   {/* Bullets */}
-                  <ul className="space-y-3 mb-6">
+                  <ul className="space-y-3 mb-6 flex-1">
                     {auditBullets.map((item, i) => (
                       <li key={i} className="flex items-start gap-3 text-sm text-[#374151]">
                         <span style={{ color: "#c4a0cc", flexShrink: 0, marginTop: "2px" }}>✦</span>
@@ -197,7 +194,7 @@ export default function UXAuditPage() {
                       </li>
                     ))}
                   </ul>
-                  <p className="text-sm text-[#7B6B9E] mb-6 italic mt-auto" style={courier}>Delivered within 48–72 hours</p>
+                  <p className="text-sm text-[#7B6B9E] mb-6 italic" style={courier}>Delivered within 48–72 hours</p>
                   <a href="https://forms.gle/Spmj5KfBp7MxsF9t9" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center w-full px-6 py-3 rounded-full font-bold text-sm transition-all duration-200 hover:-translate-y-0.5 hover:underline" style={{ ...tier1Btn, ...courier }}>
                     Request a UX Audit →
                   </a>
@@ -208,23 +205,22 @@ export default function UXAuditPage() {
               <div className="group bg-white/20 backdrop-blur-md border border-white/30 rounded-2xl p-1 shadow-xl hover:-translate-y-1 transition-all duration-300 relative flex flex-col">
                 <span className="absolute -top-2 left-[40%] text-[#f0d9e8] text-sm -rotate-6 pointer-events-none select-none z-10">✦</span>
                 <div className="bg-white/95 rounded-2xl p-8 flex flex-col flex-1 border-l-4 border-l-transparent group-hover:border-l-[#c4a0cc] transition-all duration-300">
-                  {/* Header — same fixed height */}
-                  <div style={cardHeader}>
-                    <div className="flex items-start justify-between mb-3">
-                      <h2 className="text-2xl font-bold text-[#1F1F1F]" style={courier}>
-                        Design Sprint
-                      </h2>
-                      <div className="flex flex-col items-end gap-1 ml-4 flex-shrink-0">
-                        <span className="text-sm font-bold px-3 py-1 rounded-full" style={{ background: "rgba(232,213,240,0.4)", color: "#5a3e5c", ...courier }}>$1,500–$3,500</span>
-                        <span className="text-sm text-[#7B6B9E] italic" style={courier}>Flat rate. No surprises.</span>
-                      </div>
+                  {/* Title + price */}
+                  <div className="flex items-start justify-between mb-3">
+                    <h2 className="text-2xl font-bold text-[#1F1F1F]" style={courier}>
+                      Design Sprint
+                    </h2>
+                    <div className="flex flex-col items-end gap-1 ml-4 flex-shrink-0">
+                      <span className="text-sm font-bold px-3 py-1 rounded-full" style={{ background: "rgba(232,213,240,0.4)", color: "#5a3e5c", ...courier }}>$1,500–$3,500</span>
+                      <span className="text-sm text-[#7B6B9E] italic" style={courier}>Flat rate. No surprises.</span>
                     </div>
-                    <p className="text-[#7B6B9E] text-sm leading-relaxed">
-                      If you want help implementing improvements, I offer a focused sprint to redesign your core page and get it right.
-                    </p>
                   </div>
+                  {/* Description with inline star */}
+                  <p className="text-[#7B6B9E] text-sm leading-relaxed mb-6">
+                    {star}If you want help implementing improvements, I offer a focused sprint to redesign your core page and get it right.
+                  </p>
                   {/* Bullets */}
-                  <ul className="space-y-3 mb-6">
+                  <ul className="space-y-3 mb-6 flex-1">
                     {sprintBullets.map((item, i) => (
                       <li key={i} className="flex items-start gap-3 text-sm text-[#374151]">
                         <span style={{ color: "#c4a0cc", flexShrink: 0, marginTop: "2px" }}>✦</span>
@@ -232,7 +228,7 @@ export default function UXAuditPage() {
                       </li>
                     ))}
                   </ul>
-                  <p className="text-sm text-[#7B6B9E] mb-6 italic mt-auto" style={courier}>2-week turnaround from project start</p>
+                  <p className="text-sm text-[#7B6B9E] mb-6 italic" style={courier}>2-week turnaround from project start</p>
                   <a href="mailto:asha.cobbjones@gmail.com?subject=Design Sprint Inquiry" className="inline-flex items-center justify-center w-full px-6 py-3 rounded-full font-bold text-sm transition-all duration-200 hover:-translate-y-0.5 hover:underline" style={{ ...tier2Btn, ...courier }}>
                     Get In Touch →
                   </a>
