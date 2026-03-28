@@ -468,8 +468,7 @@ export default function HomePage() {
                                 )}
                                 {isActive && (
                                   <div className="flex h-full w-full">
-                                    {/* Image — fills all remaining space */}
-                                    <div className="flex-1 h-full relative overflow-hidden">
+                                    <div className="h-full relative overflow-hidden" style={{ width: "calc(100% - 280px)" }}>
                                       <img
                                         src={projectImage(project.id)}
                                         alt={project.title}
