@@ -138,11 +138,15 @@ export default function UXAuditPage() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <HeroFadeUp>
                 <span className="text-xs font-semibold tracking-[0.25em] uppercase text-[#7B6B9E] mb-4 block" style={courier}>Services</span>
-                <h1 className="text-5xl sm:text-6xl font-bold text-[#1F1F1F] mb-6 max-w-3xl leading-tight" style={courier}>
+                <h1 className="text-5xl sm:text-6xl font-bold text-[#1F1F1F] mb-4 max-w-3xl leading-tight" style={courier}>
                   Your website<br />shouldn't be<br />confusing.
                 </h1>
-                <p className="text-lg sm:text-xl text-[#7B6B9E] max-w-xl mb-8 leading-relaxed">
+                <p className="text-lg sm:text-xl text-[#7B6B9E] max-w-xl mb-3 leading-relaxed">
                   UX audits and focused redesigns to help your site communicate clearly and convert.
+                </p>
+                {/* Bridge line — translates UX for non-designers */}
+                <p className="text-sm text-[#7a6a82] max-w-xl mb-8 leading-relaxed italic">
+                  In simple terms: I help you understand why your website isn't working — and exactly what to fix.
                 </p>
                 <div className="flex flex-wrap gap-4">
                   <a href="https://forms.gle/Spmj5KfBp7MxsF9t9" target="_blank" rel="noopener noreferrer" className="inline-flex items-center px-8 py-3 rounded-full font-bold text-sm transition-all duration-200 hover:-translate-y-0.5 hover:underline" style={{ ...tier1Btn, ...courier }}>
@@ -179,7 +183,6 @@ export default function UXAuditPage() {
                       <span className="text-sm text-[#7B6B9E] italic" style={courier}>Flat rate. No surprises.</span>
                     </div>
                   </div>
-                  {/* Short description — no star */}
                   <p className="text-[#5a3e5c] text-sm font-medium leading-relaxed mb-6">
                     {"I'll show you what's unclear, what's blocking users, and what to fix first."}
                   </p>
@@ -211,7 +214,6 @@ export default function UXAuditPage() {
                       <span className="text-sm text-[#7B6B9E] italic" style={courier}>Flat rate. No surprises.</span>
                     </div>
                   </div>
-                  {/* Short description — no star */}
                   <p className="text-[#7B6B9E] text-sm leading-relaxed mb-6">
                     A focused sprint to redesign your core page and get it right.
                   </p>
@@ -266,6 +268,48 @@ export default function UXAuditPage() {
                       <p className="text-xs text-[#7B6B9E] leading-relaxed">{step.desc}</p>
                     </div>
                   ))}
+                </div>
+              </div>
+            </div>
+          </FadeUp>
+
+          {/* What is UX? — Education section for small business owners */}
+          <FadeUp>
+            <div className="group bg-white/20 backdrop-blur-md border border-white/30 rounded-2xl p-1 shadow-xl relative">
+              <span className="absolute -top-3 left-[20%] text-[#f5e6d3] text-sm rotate-12 pointer-events-none select-none">✦</span>
+              <span className="absolute top-6 right-[5%] text-[#e8d5f0] text-xs -rotate-6 pointer-events-none select-none">✦</span>
+              <div className="bg-white/95 rounded-2xl p-8 border-l-4 border-l-transparent group-hover:border-l-[#c4a0cc] transition-all duration-300">
+                <span className="text-xs font-semibold tracking-[0.25em] uppercase text-[#7B6B9E] mb-4 block" style={courier}>
+                  A quick explanation
+                </span>
+                <h2 className="text-2xl font-bold text-[#1F1F1F] mb-8" style={courier}>
+                  Not sure what UX means?
+                </h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  {/* What is UX */}
+                  <div className="space-y-3">
+                    <h3 className="text-lg font-bold text-[#1F1F1F]" style={courier}>
+                      What is UX (User Experience)?
+                    </h3>
+                    <p className="text-sm text-[#4A4268] leading-relaxed">
+                      UX is how people feel when they use your website — can they find what they need? Do they trust you? Do they know what to do next?
+                    </p>
+                    <p className="text-sm text-[#4A4268] leading-relaxed">
+                      When that experience breaks down, people leave. And when people leave, you lose business. Good UX makes it easy for visitors to understand what you offer and take action.
+                    </p>
+                  </div>
+                  {/* What is a UX audit */}
+                  <div className="space-y-3">
+                    <h3 className="text-lg font-bold text-[#1F1F1F]" style={courier}>
+                      What is a UX audit?
+                    </h3>
+                    <p className="text-sm text-[#4A4268] leading-relaxed">
+                      A UX audit is a focused review of your website that identifies what's unclear, what's getting in the way, and what to improve first.
+                    </p>
+                    <p className="text-sm text-[#4A4268] leading-relaxed">
+                      Instead of guessing why your site isn't working, you get a clear, prioritized plan — so every change you make actually moves the needle.
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
