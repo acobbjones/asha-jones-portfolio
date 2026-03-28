@@ -14,6 +14,14 @@ const caseStudies = [
   { href: "/work/csv-stack-ai", label: "CSV Stack" },
 ]
 
+// Button style tokens
+const tier1Btn = {
+  background: "#e8d5f0",
+  color: "#5a3e5c",
+  border: "1.5px solid #c4a0cc",
+  boxShadow: "0 2px 10px rgba(196,160,204,0.25)",
+}
+
 export function Navigation() {
   const pathname = usePathname()
   const [isWorkOpen, setIsWorkOpen] = useState(false)
@@ -24,18 +32,14 @@ export function Navigation() {
   const dropdownRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    const handleScroll = () => {
-      setShowLogo(window.scrollY < 150)
-    }
+    const handleScroll = () => setShowLogo(window.scrollY < 150)
     window.addEventListener("scroll", handleScroll, { passive: true })
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
   useEffect(() => {
     if (isMobileOpen) {
-      requestAnimationFrame(() => {
-        requestAnimationFrame(() => setMenuVisible(true))
-      })
+      requestAnimationFrame(() => requestAnimationFrame(() => setMenuVisible(true)))
     } else {
       setMenuVisible(false)
     }
@@ -113,7 +117,7 @@ export function Navigation() {
             />
           </Link>
 
-          {/* Desktop nav pill */}
+          {/* Desktop nav pill — absolutely centered */}
           <div className="hidden md:flex absolute left-1/2 -translate-x-1/2">
             <div
               className="rounded-full px-4 py-2 flex items-center gap-2"
@@ -219,21 +223,24 @@ export function Navigation() {
                   Contact
                 </Link>
 
-                {/* UX Audits — desktop, after Contact */}
-                <Link
-                  href="/ux-audit"
-                  scroll={true}
-                  className={cn(
-                    "px-5 py-2 rounded-full transition-all cursor-pointer font-bold no-underline text-sm hover:underline",
-                    isAuditPage ? "text-[#5a3e5c]" : "text-[#4a4458] hover:bg-black/10"
-                  )}
-                  style={{ ...courierFont, ...(isAuditPage && activePillStyle) }}
-                >
-                  UX Audits
-                </Link>
-
               </nav>
             </div>
+          </div>
+
+          {/* UX Audits CTA — top right, outside pill, desktop only */}
+          <div className="hidden md:flex ml-auto">
+            <Link
+              href="/ux-audit"
+              scroll={true}
+              className="px-5 py-2 rounded-full font-bold text-sm transition-all duration-200 hover:-translate-y-0.5 hover:underline no-underline"
+              style={{
+                ...courierFont,
+                ...tier1Btn,
+                ...(isAuditPage && { boxShadow: "0 0 0 2px #c4a0cc, 0 2px 10px rgba(196,160,204,0.3)" }),
+              }}
+            >
+              ✦ UX Audits
+            </Link>
           </div>
 
           {/* Mobile: hamburger pill */}
@@ -286,7 +293,6 @@ export function Navigation() {
               transition: "transform 350ms cubic-bezier(0.32, 0.72, 0, 1)",
             }}
           >
-            {/* Header */}
             <div className="flex items-center justify-between px-6 pt-6 pb-4 border-b border-[#e8d5f0]/60">
               <Link href="/" scroll={true} onClick={handleCloseMenu}>
                 <Image
@@ -306,7 +312,6 @@ export function Navigation() {
               </button>
             </div>
 
-            {/* Mobile links */}
             <nav className="flex flex-col flex-1 px-6 py-4 overflow-y-auto" style={courierFont}>
 
               <Link
@@ -325,7 +330,6 @@ export function Navigation() {
                 )}
               </Link>
 
-              {/* Work accordion */}
               <div className="border-b border-[#e8d5f0]/60">
                 <button
                   onClick={() => setIsMobileWorkOpen(!isMobileWorkOpen)}
@@ -406,26 +410,16 @@ export function Navigation() {
                 )}
               </Link>
 
-              {/* UX Audits — mobile, pinned at bottom */}
-              <div className="mt-auto pt-6 border-t border-[#e8d5f0]/60">
+              {/* UX Audits — pinned at bottom of mobile panel, Tier 1 style */}
+              <div className="mt-auto pt-6">
                 <Link
                   href="/ux-audit"
                   scroll={true}
                   onClick={handleCloseMenu}
-                  className="flex items-center justify-between py-4 no-underline hover:underline"
+                  className="flex items-center justify-center w-full py-4 rounded-full font-bold text-sm no-underline hover:underline transition-all duration-200 hover:-translate-y-0.5"
+                  style={{ ...courierFont, ...tier1Btn }}
                 >
-                  <span className="text-2xl font-bold" style={{ color: isAuditPage ? "#5a3e5c" : "#4a4458", ...courierFont }}>
-                    UX Audits
-                  </span>
-                  {isAuditPage ? (
-                    <span className="text-xs font-bold px-3 py-1 rounded-full" style={{ background: "linear-gradient(135deg, #f5e6d3, #f0d9e8, #e8d5f0)", color: "#5a3e5c" }}>
-                      active
-                    </span>
-                  ) : (
-                    <span className="text-xs font-bold px-3 py-1 rounded-full" style={{ background: "linear-gradient(135deg, #f5e6d3, #f0d9e8, #e8d5f0)", color: "#5a3e5c" }}>
-                      ✦ new
-                    </span>
-                  )}
+                  ✦ UX Audits
                 </Link>
               </div>
 
