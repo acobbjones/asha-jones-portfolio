@@ -475,7 +475,8 @@ export default function HomePage() {
                                         className="object-cover w-full h-full"
                                       />
                                     </div>
-                                    <div className="w-2/5 bg-white/95 p-4 overflow-y-auto flex flex-col justify-between text-sm">
+                                    <div className="w-2/5 bg-white/95 p-4 overflow-y-auto flex flex-col justify-between text-sm"
+  style={{ opacity: contentVisible ? 1 : 0, transition: "opacity 150ms ease-in-out" }}>
                                       <div className="space-y-3">
                                         <p className="text-xs text-gray-400 uppercase tracking-widest">{project.year} · Case Study</p>
                                         <h3 className="text-xl font-bold text-gray-800" style={{ fontFamily: "Courier New, monospace" }}>{project.title}</h3>
