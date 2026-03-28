@@ -508,7 +508,7 @@ export default function HomePage() {
                         <span className="text-xs text-gray-400">February 2026</span>
                       </div>
                       <p className="text-gray-500 mb-4">
-                        {"Lately I've been deep in the world of vibecoding — building real interfaces through conversation and iteration, which honestly feels like the most natural extension of design thinking I've found yet. I'm also exploring AI agents and voice design, because the next frontier of UX isn't just screens. It's systems that think, speak, and respond. Excited to see where this takes me. 👀"}
+                        {"Lately I've been deep in the world of vibecoding — building real interfaces through conversation and iteration, which feels like the most natural extension of design thinking I've found yet. With a background in languages and linguistics, conversational design isn't just a career pivot for me — it's where everything I already know converges. I'm exploring AI agents, voice interfaces, and agentic systems, because the next frontier of UX isn't just screens. It's systems that think, speak, and respond. Excited to see where this takes me.👀"}
                       </p>
                       <div className="flex gap-2 flex-wrap">
                         <span className="px-2 py-1 rounded text-xs bg-pink-50 text-pink-600">Vibecoding</span>
