@@ -19,12 +19,11 @@ export default function HomePage() {
 
   const handlePanelClick = (id: string) => {
     if (id === activePanel) return
-    // Fade out instantly, switch panel, then fade in after expansion
     setContentVisible(false)
     setTimeout(() => {
       setActivePanel(id)
-      setTimeout(() => setContentVisible(true), 350)
-    }, 50)
+      setTimeout(() => setContentVisible(true), 150)
+    }, 16)
   }
 
   const topProjects = [
@@ -451,6 +450,10 @@ export default function HomePage() {
                                   "relative overflow-hidden rounded-lg transition-all duration-500 ease-in-out " +
                                   (isActive ? "flex-[4]" : "flex-[0.4] cursor-pointer hover:brightness-110")
                                 }
+                                style={isActive ? {
+                                  opacity: contentVisible ? 1 : 0,
+                                  transition: "flex 500ms ease-in-out, opacity 200ms ease-in-out",
+                                } : {}}
                                 onClick={() => handlePanelClick(project.id)}
                               >
                                 {!isActive && (
@@ -464,13 +467,7 @@ export default function HomePage() {
                                   </div>
                                 )}
                                 {isActive && (
-                                  <div
-                                    className="flex h-full w-full"
-                                    style={{
-                                      opacity: contentVisible ? 1 : 0,
-                                      transition: "opacity 300ms ease-in-out",
-                                    }}
-                                  >
+                                  <div className="flex h-full w-full">
                                     <div className="w-3/5 h-full relative flex-shrink-0 overflow-hidden">
                                       <img
                                         src={projectImage(project.id)}
