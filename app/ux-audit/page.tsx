@@ -4,7 +4,6 @@ import Link from "next/link"
 import { FadeUp, HeroFadeUp } from "@/components/scroll-animations"
 import { MySpaceLayout } from "@/components/myspace-layout"
 
-// Button style tokens
 const tier1Btn = {
   background: "#e8d5f0",
   color: "#5a3e5c",
@@ -26,21 +25,8 @@ function AuditPreviewCard() {
       <span className="absolute top-[20%] -right-4 text-[#f0d9e8] text-sm -rotate-6 pointer-events-none select-none">✦</span>
       <span className="absolute bottom-[15%] -left-3 text-[#f5e6d3] text-xs rotate-45 pointer-events-none select-none">✦</span>
       <span className="absolute -bottom-3 right-[20%] text-[#e8d5f0] text-base rotate-6 pointer-events-none select-none">✦</span>
-      <div
-        className="absolute inset-0 rounded-3xl blur-3xl opacity-40 pointer-events-none"
-        style={{ background: "radial-gradient(ellipse at 60% 40%, #e8d5f0 0%, #f0d9e8 40%, transparent 70%)", transform: "scale(1.15)" }}
-      />
-      <div
-        className="relative rounded-3xl overflow-hidden"
-        style={{
-          background: "rgba(255,255,255,0.55)",
-          backdropFilter: "blur(20px)",
-          WebkitBackdropFilter: "blur(20px)",
-          border: "1px solid rgba(255,255,255,0.7)",
-          boxShadow: "0 8px 40px rgba(196,160,204,0.2), inset 0 1px 0 rgba(255,255,255,0.8)",
-          padding: "28px",
-        }}
-      >
+      <div className="absolute inset-0 rounded-3xl blur-3xl opacity-40 pointer-events-none" style={{ background: "radial-gradient(ellipse at 60% 40%, #e8d5f0 0%, #f0d9e8 40%, transparent 70%)", transform: "scale(1.15)" }} />
+      <div className="relative rounded-3xl overflow-hidden" style={{ background: "rgba(255,255,255,0.55)", backdropFilter: "blur(20px)", WebkitBackdropFilter: "blur(20px)", border: "1px solid rgba(255,255,255,0.7)", boxShadow: "0 8px 40px rgba(196,160,204,0.2), inset 0 1px 0 rgba(255,255,255,0.8)", padding: "28px" }}>
         <div className="flex items-center gap-2 mb-5">
           <div className="w-3 h-3 rounded-full bg-[#f5c2c7]" />
           <div className="w-3 h-3 rounded-full bg-[#fde68a]" />
@@ -53,9 +39,7 @@ function AuditPreviewCard() {
           <div className="h-7 rounded-lg flex items-center gap-2 px-3" style={{ background: "rgba(200,180,220,0.15)", border: "1px solid rgba(200,180,220,0.2)" }}>
             <div className="w-12 h-2 rounded-full" style={{ background: "#c4a0cc" }} />
             <div className="flex gap-2 ml-auto">
-              {[20, 16, 18, 14].map((w, i) => (
-                <div key={i} className="h-2 rounded-full" style={{ width: `${w}px`, background: "rgba(196,160,204,0.4)" }} />
-              ))}
+              {[20, 16, 18, 14].map((w, i) => (<div key={i} className="h-2 rounded-full" style={{ width: `${w}px`, background: "rgba(196,160,204,0.4)" }} />))}
             </div>
           </div>
           <div className="rounded-xl p-4 relative overflow-hidden" style={{ background: "linear-gradient(135deg, #f5e6d3 0%, #f0d9e8 60%, #e8d5f0 100%)", minHeight: "90px" }}>
@@ -64,9 +48,7 @@ function AuditPreviewCard() {
             <div className="w-20 h-6 rounded-full" style={{ background: "rgba(196,160,204,0.6)" }} />
             <div className="absolute top-2 right-3 flex items-start gap-1">
               <div className="text-[#c4a0cc] text-lg leading-none" style={{ fontFamily: "Courier New, monospace" }}>↙</div>
-              <div className="rounded-lg px-2 py-1 text-[9px] font-bold leading-tight max-w-[80px]" style={{ background: "#5a3e5c", color: "white", fontFamily: "Courier New, monospace" }}>
-                CTA unclear
-              </div>
+              <div className="rounded-lg px-2 py-1 text-[9px] font-bold leading-tight max-w-[80px]" style={{ background: "#5a3e5c", color: "white", fontFamily: "Courier New, monospace" }}>CTA unclear</div>
             </div>
           </div>
           <div className="grid grid-cols-2 gap-2">
@@ -143,6 +125,9 @@ export default function UXAuditPage() {
     { num: "04", label: "Optional sprint", desc: "Want help implementing? We can move into a design sprint." },
   ]
 
+  // Shared card inner styles — both cards use identical structure
+  const cardHeader = { minHeight: "170px" }
+
   return (
     <MySpaceLayout fluid>
       <div className="min-h-screen">
@@ -152,13 +137,10 @@ export default function UXAuditPage() {
           <span className="absolute top-10 left-[5%] text-[#f5e6d3] text-lg rotate-12 pointer-events-none select-none opacity-70">✦</span>
           <span className="absolute bottom-12 left-[20%] text-[#f0d9e8] text-xs rotate-45 pointer-events-none select-none opacity-60">✦</span>
           <span className="absolute top-1/3 left-[42%] text-[#e8d5f0] text-sm -rotate-6 pointer-events-none select-none opacity-50">✦</span>
-
           <div className="max-w-[1200px] mx-auto px-6 py-[70px]">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <HeroFadeUp>
-                <span className="text-xs font-semibold tracking-[0.25em] uppercase text-[#7B6B9E] mb-4 block" style={courier}>
-                  Services
-                </span>
+                <span className="text-xs font-semibold tracking-[0.25em] uppercase text-[#7B6B9E] mb-4 block" style={courier}>Services</span>
                 <h1 className="text-5xl sm:text-6xl font-bold text-[#1F1F1F] mb-6 max-w-3xl leading-tight" style={courier}>
                   Your website<br />shouldn't be<br />confusing.
                 </h1>
@@ -166,28 +148,16 @@ export default function UXAuditPage() {
                   UX audits and focused redesigns to help your site communicate clearly and convert.
                 </p>
                 <div className="flex flex-wrap gap-4">
-                  <a
-                    href="https://forms.gle/Spmj5KfBp7MxsF9t9"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center px-8 py-3 rounded-full font-bold text-sm transition-all duration-200 hover:-translate-y-0.5 hover:underline"
-                    style={{ ...tier1Btn, ...courier }}
-                  >
+                  <a href="https://forms.gle/Spmj5KfBp7MxsF9t9" target="_blank" rel="noopener noreferrer" className="inline-flex items-center px-8 py-3 rounded-full font-bold text-sm transition-all duration-200 hover:-translate-y-0.5 hover:underline" style={{ ...tier1Btn, ...courier }}>
                     Get a Quick UX Review
                   </a>
-                  <a
-                    href="#details"
-                    className="inline-flex items-center px-8 py-3 rounded-full font-bold text-sm transition-all duration-200 hover:-translate-y-0.5 hover:underline"
-                    style={{ ...courier, color: mutedPurple, border: "1px solid rgba(200,180,220,0.4)", background: "rgba(255,255,255,0.5)" }}
-                  >
+                  <a href="#details" className="inline-flex items-center px-8 py-3 rounded-full font-bold text-sm transition-all duration-200 hover:-translate-y-0.5 hover:underline" style={{ ...courier, color: mutedPurple, border: "1px solid rgba(200,180,220,0.4)", background: "rgba(255,255,255,0.5)" }}>
                     View Details
                   </a>
                 </div>
               </HeroFadeUp>
               <div className="hidden lg:flex items-center justify-center">
-                <HeroFadeUp>
-                  <AuditPreviewCard />
-                </HeroFadeUp>
+                <HeroFadeUp><AuditPreviewCard /></HeroFadeUp>
               </div>
             </div>
           </div>
@@ -195,24 +165,22 @@ export default function UXAuditPage() {
 
         <div id="details" className="max-w-5xl mx-auto px-6 py-16 space-y-16">
 
-          {/* Services Grid */}
+          {/* Services Grid — equal height cards with aligned bullets */}
           <FadeUp>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6" style={{ alignItems: "stretch" }}>
 
               {/* UX Audit Card */}
-              <div className="group bg-white/20 backdrop-blur-md border border-white/30 rounded-2xl p-1 shadow-xl hover:-translate-y-1 transition-all duration-300 relative">
+              <div className="group bg-white/20 backdrop-blur-md border border-white/30 rounded-2xl p-1 shadow-xl hover:-translate-y-1 transition-all duration-300 relative flex flex-col">
                 <span className="absolute -top-3 -right-2 text-[#c4a0cc] text-lg rotate-12 pointer-events-none select-none z-10">✦</span>
-                <div className="bg-white/95 rounded-2xl p-8 flex flex-col border-l-4 border-l-transparent group-hover:border-l-[#c4a0cc] transition-all duration-300">
-                  {/* Fixed-height header so bullets align across both cards */}
-                  <div className="mb-6" style={{ minHeight: "140px" }}>
-                    <div className="flex items-start justify-between mb-2">
+                <div className="bg-white/95 rounded-2xl p-8 flex flex-col flex-1 border-l-4 border-l-transparent group-hover:border-l-[#c4a0cc] transition-all duration-300">
+                  {/* Header — fixed height so bullets align */}
+                  <div style={cardHeader}>
+                    <div className="flex items-start justify-between mb-3">
                       <h2 className="text-2xl font-bold text-[#1F1F1F]" style={courier}>
                         UX Audit +<br />Action Plan
                       </h2>
                       <div className="flex flex-col items-end gap-1 ml-4 flex-shrink-0">
-                        <span className="text-sm font-bold px-3 py-1 rounded-full" style={{ background: "rgba(232,213,240,0.4)", color: "#5a3e5c", ...courier }}>
-                          $300–$500
-                        </span>
+                        <span className="text-sm font-bold px-3 py-1 rounded-full" style={{ background: "rgba(232,213,240,0.4)", color: "#5a3e5c", ...courier }}>$300–$500</span>
                         <span className="text-sm text-[#7B6B9E] italic" style={courier}>Flat rate. No surprises.</span>
                       </div>
                     </div>
@@ -220,6 +188,7 @@ export default function UXAuditPage() {
                       {"I'll show you exactly what's unclear, what's getting in the way, and what to fix first — so you can make improvements that actually move the needle."}
                     </p>
                   </div>
+                  {/* Bullets */}
                   <ul className="space-y-3 mb-6">
                     {auditBullets.map((item, i) => (
                       <li key={i} className="flex items-start gap-3 text-sm text-[#374151]">
@@ -228,35 +197,25 @@ export default function UXAuditPage() {
                       </li>
                     ))}
                   </ul>
-                  <p className="text-sm text-[#7B6B9E] mb-6 italic" style={courier}>
-                    Delivered within 48–72 hours
-                  </p>
-                  <a
-                    href="https://forms.gle/Spmj5KfBp7MxsF9t9"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center w-full px-6 py-3 rounded-full font-bold text-sm transition-all duration-200 hover:-translate-y-0.5 hover:underline mt-auto"
-                    style={{ ...tier1Btn, ...courier }}
-                  >
+                  <p className="text-sm text-[#7B6B9E] mb-6 italic mt-auto" style={courier}>Delivered within 48–72 hours</p>
+                  <a href="https://forms.gle/Spmj5KfBp7MxsF9t9" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center w-full px-6 py-3 rounded-full font-bold text-sm transition-all duration-200 hover:-translate-y-0.5 hover:underline" style={{ ...tier1Btn, ...courier }}>
                     Request a UX Audit →
                   </a>
                 </div>
               </div>
 
               {/* Design Sprint Card */}
-              <div className="group bg-white/20 backdrop-blur-md border border-white/30 rounded-2xl p-1 shadow-xl hover:-translate-y-1 transition-all duration-300 relative">
+              <div className="group bg-white/20 backdrop-blur-md border border-white/30 rounded-2xl p-1 shadow-xl hover:-translate-y-1 transition-all duration-300 relative flex flex-col">
                 <span className="absolute -top-2 left-[40%] text-[#f0d9e8] text-sm -rotate-6 pointer-events-none select-none z-10">✦</span>
-                <div className="bg-white/95 rounded-2xl p-8 flex flex-col border-l-4 border-l-transparent group-hover:border-l-[#c4a0cc] transition-all duration-300">
-                  {/* Fixed-height header — same minHeight as audit card */}
-                  <div className="mb-6" style={{ minHeight: "140px" }}>
-                    <div className="flex items-start justify-between mb-2">
+                <div className="bg-white/95 rounded-2xl p-8 flex flex-col flex-1 border-l-4 border-l-transparent group-hover:border-l-[#c4a0cc] transition-all duration-300">
+                  {/* Header — same fixed height */}
+                  <div style={cardHeader}>
+                    <div className="flex items-start justify-between mb-3">
                       <h2 className="text-2xl font-bold text-[#1F1F1F]" style={courier}>
                         Design Sprint
                       </h2>
                       <div className="flex flex-col items-end gap-1 ml-4 flex-shrink-0">
-                        <span className="text-sm font-bold px-3 py-1 rounded-full" style={{ background: "rgba(232,213,240,0.4)", color: "#5a3e5c", ...courier }}>
-                          $1,500–$3,500
-                        </span>
+                        <span className="text-sm font-bold px-3 py-1 rounded-full" style={{ background: "rgba(232,213,240,0.4)", color: "#5a3e5c", ...courier }}>$1,500–$3,500</span>
                         <span className="text-sm text-[#7B6B9E] italic" style={courier}>Flat rate. No surprises.</span>
                       </div>
                     </div>
@@ -264,6 +223,7 @@ export default function UXAuditPage() {
                       If you want help implementing improvements, I offer a focused sprint to redesign your core page and get it right.
                     </p>
                   </div>
+                  {/* Bullets */}
                   <ul className="space-y-3 mb-6">
                     {sprintBullets.map((item, i) => (
                       <li key={i} className="flex items-start gap-3 text-sm text-[#374151]">
@@ -272,18 +232,13 @@ export default function UXAuditPage() {
                       </li>
                     ))}
                   </ul>
-                  <p className="text-sm text-[#7B6B9E] mb-6 italic" style={courier}>
-                    2-week turnaround from project start
-                  </p>
-                  <a
-                    href="mailto:asha.cobbjones@gmail.com?subject=Design Sprint Inquiry"
-                    className="inline-flex items-center justify-center w-full px-6 py-3 rounded-full font-bold text-sm transition-all duration-200 hover:-translate-y-0.5 hover:underline mt-auto"
-                    style={{ ...tier2Btn, ...courier }}
-                  >
+                  <p className="text-sm text-[#7B6B9E] mb-6 italic mt-auto" style={courier}>2-week turnaround from project start</p>
+                  <a href="mailto:asha.cobbjones@gmail.com?subject=Design Sprint Inquiry" className="inline-flex items-center justify-center w-full px-6 py-3 rounded-full font-bold text-sm transition-all duration-200 hover:-translate-y-0.5 hover:underline" style={{ ...tier2Btn, ...courier }}>
                     Get In Touch →
                   </a>
                 </div>
               </div>
+
             </div>
           </FadeUp>
 
@@ -325,18 +280,13 @@ export default function UXAuditPage() {
             </div>
           </FadeUp>
 
-          {/* Proof Section */}
+          {/* Proof */}
           <FadeUp>
             <div className="text-center space-y-4 relative">
               <span className="absolute -top-4 left-[20%] text-[#f5e6d3] text-sm rotate-12 pointer-events-none select-none">✦</span>
               <span className="absolute -bottom-2 right-[18%] text-[#e8d5f0] text-xs -rotate-6 pointer-events-none select-none">✦</span>
               <p className="text-[#7B6B9E] text-lg">Want to see my work?</p>
-              <Link
-                href="/work"
-                scroll={true}
-                className="inline-flex items-center px-8 py-3 rounded-full font-bold text-sm transition-all duration-200 hover:-translate-y-0.5 hover:underline no-underline"
-                style={{ ...tier2Btn, ...courier }}
-              >
+              <Link href="/work" scroll={true} className="inline-flex items-center px-8 py-3 rounded-full font-bold text-sm transition-all duration-200 hover:-translate-y-0.5 hover:underline no-underline" style={{ ...tier2Btn, ...courier }}>
                 View Portfolio →
               </Link>
             </div>
@@ -349,27 +299,15 @@ export default function UXAuditPage() {
               <span className="absolute top-6 right-[6%] text-[#e8d5f0] text-sm -rotate-6 pointer-events-none select-none">✦</span>
               <span className="absolute bottom-6 left-[45%] text-[#f0d9e8] text-xs rotate-45 pointer-events-none select-none">✦</span>
               <div className="bg-white/95 rounded-2xl p-10 text-center border-l-4 border-l-transparent group-hover:border-l-[#c4a0cc] transition-all duration-300">
-                <h2 className="text-3xl font-bold text-[#1F1F1F] mb-3" style={courier}>
-                  Let's improve your site.
-                </h2>
+                <h2 className="text-3xl font-bold text-[#1F1F1F] mb-3" style={courier}>Let's improve your site.</h2>
                 <p className="text-[#7B6B9E] mb-8 max-w-md mx-auto leading-relaxed">
                   If you're interested, reach out via email or request a quick review. I'll get back to you within 24 hours.
                 </p>
                 <div className="flex flex-wrap gap-4 justify-center">
-                  <a
-                    href="https://forms.gle/Spmj5KfBp7MxsF9t9"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center px-8 py-3 rounded-full font-bold text-sm transition-all duration-200 hover:-translate-y-0.5 hover:underline"
-                    style={{ ...tier1Btn, ...courier }}
-                  >
+                  <a href="https://forms.gle/Spmj5KfBp7MxsF9t9" target="_blank" rel="noopener noreferrer" className="inline-flex items-center px-8 py-3 rounded-full font-bold text-sm transition-all duration-200 hover:-translate-y-0.5 hover:underline" style={{ ...tier1Btn, ...courier }}>
                     Get a Quick UX Review →
                   </a>
-                  <a
-                    href="mailto:asha.cobbjones@gmail.com"
-                    className="inline-flex items-center px-8 py-3 rounded-full font-bold text-sm transition-all duration-200 hover:-translate-y-0.5 hover:underline"
-                    style={{ ...courier, color: mutedPurple, border: "1px solid rgba(200,180,220,0.4)", background: "rgba(255,255,255,0.5)" }}
-                  >
+                  <a href="mailto:asha.cobbjones@gmail.com" className="inline-flex items-center px-8 py-3 rounded-full font-bold text-sm transition-all duration-200 hover:-translate-y-0.5 hover:underline" style={{ ...courier, color: mutedPurple, border: "1px solid rgba(200,180,220,0.4)", background: "rgba(255,255,255,0.5)" }}>
                     Email Me
                   </a>
                 </div>
@@ -377,7 +315,7 @@ export default function UXAuditPage() {
             </div>
           </FadeUp>
 
-          {/* Urgency footer */}
+          {/* Urgency */}
           <FadeUp>
             <div className="text-center pt-4 border-t border-purple-100 relative">
               <span className="absolute -top-3 right-[30%] text-[#f5e6d3] text-sm rotate-6 pointer-events-none select-none">✦</span>
