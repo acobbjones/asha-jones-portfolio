@@ -279,7 +279,7 @@ export default function UXAuditPage() {
                   <div className="mb-6">
                     <div className="flex items-start justify-between mb-2">
                       <h2 className="text-2xl font-bold text-[#1F1F1F]" style={courier}>
-                        Website Clarity<br />Sprint
+                        Design Sprint
                       </h2>
                       <div className="flex flex-col items-end gap-1 ml-4 flex-shrink-0">
                         <span className="text-sm font-bold px-3 py-1 rounded-full" style={{ background: "rgba(232,213,240,0.4)", color: "#5a3e5c", ...courier }}>
