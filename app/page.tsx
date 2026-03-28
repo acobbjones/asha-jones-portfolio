@@ -468,15 +468,23 @@ export default function HomePage() {
                                 )}
                                 {isActive && (
                                   <div className="flex h-full w-full">
-                                    <div className="w-3/5 h-full relative flex-shrink-0 overflow-hidden">
+                                    {/* Image — fills all remaining space */}
+                                    <div className="flex-1 h-full relative overflow-hidden">
                                       <img
                                         src={projectImage(project.id)}
                                         alt={project.title}
                                         className="object-cover w-full h-full"
                                       />
                                     </div>
-                                    <div className="w-2/5 bg-white/95 p-4 overflow-y-auto flex flex-col justify-between text-sm"
-  style={{ opacity: contentVisible ? 1 : 0, transition: "opacity 150ms ease-in-out" }}>
+                                    {/* Text panel — fixed width, fades in after expansion */}
+                                    <div
+                                      className="flex-shrink-0 bg-white/95 p-4 overflow-y-auto flex flex-col justify-between text-sm"
+                                      style={{
+                                        width: "280px",
+                                        opacity: contentVisible ? 1 : 0,
+                                        transition: "opacity 250ms ease-in-out",
+                                      }}
+                                    >
                                       <div className="space-y-3">
                                         <p className="text-xs text-gray-400 uppercase tracking-widest">{project.year} · Case Study</p>
                                         <h3 className="text-xl font-bold text-gray-800" style={{ fontFamily: "Courier New, monospace" }}>{project.title}</h3>
