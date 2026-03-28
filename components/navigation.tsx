@@ -23,7 +23,6 @@ export function Navigation() {
   const [menuVisible, setMenuVisible] = useState(false)
   const dropdownRef = useRef<HTMLDivElement>(null)
 
-  // Scroll threshold — hide logo past 150px on both desktop and mobile
   useEffect(() => {
     const handleScroll = () => {
       setShowLogo(window.scrollY < 150)
@@ -32,10 +31,8 @@ export function Navigation() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
-  // Animate menu in after mount
   useEffect(() => {
     if (isMobileOpen) {
-      // Small delay so the element renders before animating
       requestAnimationFrame(() => {
         requestAnimationFrame(() => setMenuVisible(true))
       })
@@ -74,6 +71,7 @@ export function Navigation() {
   }
 
   const isWorkPage = pathname.startsWith("/work") || pathname === "/more-work"
+  const isAuditPage = pathname === "/ux-audit"
 
   const activePillStyle = {
     background: "linear-gradient(135deg, #f5e6d3 0%, #f0d9e8 50%, #e8d5f0 100%)",
@@ -88,7 +86,7 @@ export function Navigation() {
       <div className="w-full mb-6 sticky top-0 z-50 px-6 pt-4">
         <div className="relative flex items-center w-full">
 
-          {/* Logo — fades out past 150px scroll threshold (desktop + mobile) */}
+          {/* Logo */}
           <Link
             href="/"
             scroll={true}
@@ -99,7 +97,6 @@ export function Navigation() {
               transform: showLogo ? "translateY(0)" : "translateY(-6px)",
             }}
           >
-            {/* Desktop: wordmark */}
             <Image
               src="/images/logo-wordmark.png"
               alt="Asha Jones"
@@ -107,7 +104,6 @@ export function Navigation() {
               height={80}
               className="hidden md:block h-16 w-auto object-contain"
             />
-            {/* Mobile: A mark */}
             <Image
               src="/images/logo-mark.png"
               alt="Asha Jones"
@@ -117,7 +113,7 @@ export function Navigation() {
             />
           </Link>
 
-          {/* Nav pill — absolutely centered on desktop */}
+          {/* Desktop nav pill */}
           <div className="hidden md:flex absolute left-1/2 -translate-x-1/2">
             <div
               className="rounded-full px-4 py-2 flex items-center gap-2"
@@ -130,11 +126,12 @@ export function Navigation() {
               }}
             >
               <nav className="flex items-center gap-2 relative" style={courierFont}>
+
                 <Link
                   href="/"
                   scroll={true}
                   className={cn(
-                    "px-5 py-2 rounded-full transition-all cursor-pointer font-bold no-underline text-sm",
+                    "px-5 py-2 rounded-full transition-all cursor-pointer font-bold no-underline text-sm hover:underline",
                     pathname === "/" ? "text-[#5a3e5c]" : "text-[#4a4458] hover:bg-black/10"
                   )}
                   style={{ ...courierFont, ...(pathname === "/" && activePillStyle) }}
@@ -147,7 +144,7 @@ export function Navigation() {
                     onClick={() => setIsWorkOpen(!isWorkOpen)}
                     onBlur={() => setTimeout(() => setIsWorkOpen(false), 200)}
                     className={cn(
-                      "flex items-center gap-1 px-5 py-2 rounded-full font-bold transition-all cursor-pointer text-sm",
+                      "flex items-center gap-1 px-5 py-2 rounded-full font-bold transition-all cursor-pointer text-sm hover:underline",
                       isWorkPage ? "text-[#5a3e5c]" : "text-[#4a4458] hover:bg-black/10"
                     )}
                     style={{ ...courierFont, ...(isWorkPage && activePillStyle) }}
@@ -202,7 +199,7 @@ export function Navigation() {
                   href="/about"
                   scroll={true}
                   className={cn(
-                    "px-5 py-2 rounded-full transition-all cursor-pointer font-bold no-underline text-sm",
+                    "px-5 py-2 rounded-full transition-all cursor-pointer font-bold no-underline text-sm hover:underline",
                     pathname === "/about" ? "text-[#5a3e5c]" : "text-[#4a4458] hover:bg-black/10"
                   )}
                   style={{ ...courierFont, ...(pathname === "/about" && activePillStyle) }}
@@ -214,18 +211,32 @@ export function Navigation() {
                   href="/contact"
                   scroll={true}
                   className={cn(
-                    "px-5 py-2 rounded-full transition-all cursor-pointer font-bold no-underline text-sm",
+                    "px-5 py-2 rounded-full transition-all cursor-pointer font-bold no-underline text-sm hover:underline",
                     pathname === "/contact" ? "text-[#5a3e5c]" : "text-[#4a4458] hover:bg-black/10"
                   )}
                   style={{ ...courierFont, ...(pathname === "/contact" && activePillStyle) }}
                 >
                   Contact
                 </Link>
+
+                {/* UX Audits — desktop, after Contact */}
+                <Link
+                  href="/ux-audit"
+                  scroll={true}
+                  className={cn(
+                    "px-5 py-2 rounded-full transition-all cursor-pointer font-bold no-underline text-sm hover:underline",
+                    isAuditPage ? "text-[#5a3e5c]" : "text-[#4a4458] hover:bg-black/10"
+                  )}
+                  style={{ ...courierFont, ...(isAuditPage && activePillStyle) }}
+                >
+                  UX Audits
+                </Link>
+
               </nav>
             </div>
           </div>
 
-          {/* Mobile: hamburger pill on the right */}
+          {/* Mobile: hamburger pill */}
           <div
             className="md:hidden ml-auto rounded-full px-3 py-2"
             style={{
@@ -248,10 +259,9 @@ export function Navigation() {
         </div>
       </div>
 
-      {/* Mobile menu overlay — slides in from the right */}
+      {/* Mobile menu overlay */}
       {isMobileOpen && (
         <>
-          {/* Backdrop */}
           <div
             className="fixed inset-0 z-[99]"
             style={{
@@ -263,7 +273,6 @@ export function Navigation() {
             onClick={handleCloseMenu}
           />
 
-          {/* Panel — slides in from right */}
           <div
             className="fixed top-0 right-0 h-full z-[100] flex flex-col"
             style={{
@@ -297,14 +306,14 @@ export function Navigation() {
               </button>
             </div>
 
-            {/* Links */}
-            <nav className="flex flex-col flex-1 px-6 py-4" style={courierFont}>
+            {/* Mobile links */}
+            <nav className="flex flex-col flex-1 px-6 py-4 overflow-y-auto" style={courierFont}>
 
               <Link
                 href="/"
                 scroll={true}
                 onClick={handleCloseMenu}
-                className="flex items-center justify-between py-5 border-b border-[#e8d5f0]/60 no-underline"
+                className="flex items-center justify-between py-5 border-b border-[#e8d5f0]/60 no-underline hover:underline"
               >
                 <span className="text-2xl font-bold" style={{ color: pathname === "/" ? "#5a3e5c" : "#4a4458", ...courierFont }}>
                   Home
@@ -320,7 +329,7 @@ export function Navigation() {
               <div className="border-b border-[#e8d5f0]/60">
                 <button
                   onClick={() => setIsMobileWorkOpen(!isMobileWorkOpen)}
-                  className="w-full flex items-center justify-between py-5"
+                  className="w-full flex items-center justify-between py-5 hover:underline"
                 >
                   <span className="text-2xl font-bold" style={{ color: isWorkPage ? "#5a3e5c" : "#4a4458", ...courierFont }}>
                     Work
@@ -369,7 +378,7 @@ export function Navigation() {
                 href="/about"
                 scroll={true}
                 onClick={handleCloseMenu}
-                className="flex items-center justify-between py-5 border-b border-[#e8d5f0]/60 no-underline"
+                className="flex items-center justify-between py-5 border-b border-[#e8d5f0]/60 no-underline hover:underline"
               >
                 <span className="text-2xl font-bold" style={{ color: pathname === "/about" ? "#5a3e5c" : "#4a4458", ...courierFont }}>
                   About
@@ -385,7 +394,7 @@ export function Navigation() {
                 href="/contact"
                 scroll={true}
                 onClick={handleCloseMenu}
-                className="flex items-center justify-between py-5 no-underline"
+                className="flex items-center justify-between py-5 border-b border-[#e8d5f0]/60 no-underline hover:underline"
               >
                 <span className="text-2xl font-bold" style={{ color: pathname === "/contact" ? "#5a3e5c" : "#4a4458", ...courierFont }}>
                   Contact
@@ -396,6 +405,29 @@ export function Navigation() {
                   </span>
                 )}
               </Link>
+
+              {/* UX Audits — mobile, pinned at bottom */}
+              <div className="mt-auto pt-6 border-t border-[#e8d5f0]/60">
+                <Link
+                  href="/ux-audit"
+                  scroll={true}
+                  onClick={handleCloseMenu}
+                  className="flex items-center justify-between py-4 no-underline hover:underline"
+                >
+                  <span className="text-2xl font-bold" style={{ color: isAuditPage ? "#5a3e5c" : "#4a4458", ...courierFont }}>
+                    UX Audits
+                  </span>
+                  {isAuditPage ? (
+                    <span className="text-xs font-bold px-3 py-1 rounded-full" style={{ background: "linear-gradient(135deg, #f5e6d3, #f0d9e8, #e8d5f0)", color: "#5a3e5c" }}>
+                      active
+                    </span>
+                  ) : (
+                    <span className="text-xs font-bold px-3 py-1 rounded-full" style={{ background: "linear-gradient(135deg, #f5e6d3, #f0d9e8, #e8d5f0)", color: "#5a3e5c" }}>
+                      ✦ new
+                    </span>
+                  )}
+                </Link>
+              </div>
 
             </nav>
           </div>
