@@ -126,7 +126,7 @@ export default function UXAuditPage() {
   ]
 
   // Shared card inner styles — both cards use identical structure
-  const cardHeader = { minHeight: "170px" }
+  const cardHeader = { minHeight: "200px" }
 
   return (
     <MySpaceLayout fluid>
