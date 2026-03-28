@@ -7,6 +7,21 @@ import Link from "next/link"
 import { FadeUp, HeroFadeUp, StaggerReveal, StaggerItem } from "@/components/scroll-animations"
 import { Navigation } from "@/components/navigation"
 
+// Button style tokens
+const tier1Btn = {
+  background: "#e8d5f0",
+  color: "#5a3e5c",
+  border: "1.5px solid #c4a0cc",
+  boxShadow: "0 2px 10px rgba(196,160,204,0.25)",
+}
+
+const tier2Btn = {
+  background: "linear-gradient(135deg, #f5e6d3 0%, #f0d9e8 50%, #e8d5f0 100%)",
+  color: "#5a3e5c",
+  border: "1px solid rgba(240,210,230,0.6)",
+  boxShadow: "0 2px 12px rgba(200,160,200,0.2)",
+}
+
 export default function HomePage() {
   const [isWorkOpen, setIsWorkOpen] = useState(false)
   const [isPlaying, setIsPlaying] = useState(false)
@@ -130,6 +145,7 @@ export default function HomePage() {
 
   const cardShell = "bg-white/20 backdrop-blur-md border border-white/30 rounded-lg p-1 shadow-xl"
   const cardInner = "bg-white/95 rounded-lg p-4"
+  const courierFont = { fontFamily: "Courier New, monospace" }
 
   const projectImage = (id: string) => {
     if (id === "vanderbilt-navigation") return "https://i.imgur.com/qreL6eJ.png"
@@ -158,13 +174,14 @@ export default function HomePage() {
         <p className="text-base text-gray-400 mb-6" style={{ fontFamily: "Courier New, monospace" }}>
           remote-friendly ✦ open to nyc/nj ✦ dc ✦ nc
         </p>
+        {/* Tier 2 — exploration */}
         <Link
           href="/work"
           scroll={true}
-          className="inline-flex items-center gap-1 px-6 py-2 rounded-full font-bold transition-all duration-200 text-sm active:-translate-y-0.5"
-          style={{ background: "linear-gradient(135deg, #f5e6d3 0%, #f0d9e8 50%, #e8d5f0 100%)", color: "#5a3e5c", border: "1px solid rgba(240,210,230,0.6)", boxShadow: "0 2px 12px rgba(200,160,200,0.2)", textDecoration: "none" }}
+          className="inline-flex items-center gap-1 px-6 py-2 rounded-full font-bold transition-all duration-200 text-sm active:-translate-y-0.5 no-underline hover:underline"
+          style={{ ...tier2Btn, ...courierFont }}
         >
-          <span style={{ textDecoration: "none" }} onMouseEnter={e => (e.currentTarget.style.textDecoration = "underline")} onMouseLeave={e => (e.currentTarget.style.textDecoration = "none")}>View My Work →</span>
+          View My Work →
         </Link>
       </div>
     </div>
@@ -262,18 +279,13 @@ export default function HomePage() {
                       ))}
                     </div>
                     <p className="text-xs mt-3 text-center" style={{ color: "#6b7fd4" }}>www.myspace.com/ashacobbjonesux</p>
+                    {/* Tier 1 — revenue CTA */}
                     <Link
                       href="/contact"
-                      className="block w-full mt-3 py-2 rounded-full font-bold text-sm text-center transition-all duration-200 active:-translate-y-0.5"
-                      style={{ background: "linear-gradient(135deg, #f5e6d3 0%, #f0d9e8 50%, #e8d5f0 100%)", color: "#5a3e5c", border: "1px solid rgba(240,210,230,0.6)", boxShadow: "0 2px 12px rgba(200,160,200,0.2)", textDecoration: "none" }}
+                      className="block w-full mt-3 py-2 rounded-full font-bold text-sm text-center transition-all duration-200 active:-translate-y-0.5 no-underline hover:underline"
+                      style={{ ...tier1Btn, fontFamily: "Courier New, monospace" }}
                     >
-                      <span
-                        onMouseEnter={e => (e.currentTarget.style.textDecoration = "underline")}
-                        onMouseLeave={e => (e.currentTarget.style.textDecoration = "none")}
-                        style={{ textDecoration: "none" }}
-                      >
-                        Send Message
-                      </span>
+                      Send Message
                     </Link>
                   </div>
                 </div>
@@ -398,7 +410,7 @@ export default function HomePage() {
                       Featured Case Studies
                     </h2>
 
-                    {/* MOBILE: fully expanded stacked cards */}
+                    {/* MOBILE: stacked cards */}
                     <div className="flex flex-col gap-4 md:hidden">
                       {featuredProjects.map((project) => (
                         <div key={project.id} className={cardShell}>
@@ -419,15 +431,12 @@ export default function HomePage() {
                                   <span key={tag.name} className={"px-2 py-1 rounded text-xs font-medium " + tag.bg + " " + tag.text}>{tag.name}</span>
                                 ))}
                               </div>
+                              {/* Tier 2 — exploration */}
                               <Link
                                 href={"/work/" + project.id}
                                 scroll={true}
-                                className="inline-block mt-2 px-4 py-2 rounded-full text-sm font-bold no-underline"
-                                style={{
-                                  background: "linear-gradient(135deg, #f5e6d3 0%, #f0d9e8 50%, #e8d5f0 100%)",
-                                  color: "#5a3e5c",
-                                  border: "1px solid rgba(240,210,230,0.6)",
-                                }}
+                                className="inline-block mt-2 px-4 py-2 rounded-full text-sm font-bold no-underline hover:underline"
+                                style={{ ...tier2Btn, fontFamily: "Courier New, monospace" }}
                               >
                                 View Case Study →
                               </Link>
@@ -475,7 +484,6 @@ export default function HomePage() {
                                         className="object-cover w-full h-full"
                                       />
                                     </div>
-                                    {/* Text panel — fixed width, fades in after expansion */}
                                     <div
                                       className="flex-shrink-0 bg-white/95 p-4 overflow-y-auto flex flex-col justify-between text-sm"
                                       style={{
@@ -496,15 +504,12 @@ export default function HomePage() {
                                         </div>
                                         <p className="text-gray-500 text-xs">Impact: {project.impact}</p>
                                       </div>
+                                      {/* Tier 2 — exploration */}
                                       <Link
                                         href={"/work/" + project.id}
                                         scroll={true}
-                                        className="inline-block mt-4 px-4 py-2 rounded-full text-sm font-bold w-fit no-underline transition-all"
-                                        style={{
-                                          background: "linear-gradient(135deg, #f5e6d3 0%, #f0d9e8 50%, #e8d5f0 100%)",
-                                          color: "#5a3e5c",
-                                          border: "1px solid rgba(240,210,230,0.6)",
-                                        }}
+                                        className="inline-block mt-4 px-4 py-2 rounded-full text-sm font-bold w-fit no-underline hover:underline transition-all"
+                                        style={{ ...tier2Btn, fontFamily: "Courier New, monospace" }}
                                       >
                                         View Case Study →
                                       </Link>
