@@ -850,7 +850,7 @@ export default function AboutPage() {
                   </button>
                 </a>
                 <Link href="/contact" style={{ textDecoration: "none" }}>
-                  <button className="rounded-full px-8 py-3 font-bold transition-all duration-200 flex items-center gap-2 active:-translate-y-0.5" style={{ background: "linear-gradient(135deg, #f5e6d3 0%, #f0d9e8 50%, #e8d5f0 100%)", color: "#5a3e5c", border: "1px solid rgba(240,210,230,0.6)", boxShadow: "0 2px 12px rgba(200,160,200,0.2)" }}>
+                  <button className="rounded-full px-8 py-3 font-bold transition-all duration-200 flex items-center gap-2 active:-translate-y-0.5" style={{ background: "#e8d5f0", color: "#5a3e5c", border: "1.5px solid #c4a0cc", boxShadow: "0 2px 10px rgba(196,160,204,0.25)" }}>
                     <span
                       onMouseEnter={e => (e.currentTarget.style.textDecoration = "underline")}
                       onMouseLeave={e => (e.currentTarget.style.textDecoration = "none")}
