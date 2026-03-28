@@ -11,10 +11,21 @@ export default function HomePage() {
   const [isWorkOpen, setIsWorkOpen] = useState(false)
   const [isPlaying, setIsPlaying] = useState(false)
   const [activePanel, setActivePanel] = useState("vanderbilt-navigation")
+  const [contentVisible, setContentVisible] = useState(true)
 
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [])
+
+  const handlePanelClick = (id: string) => {
+    if (id === activePanel) return
+    // Fade out instantly, switch panel, then fade in after expansion
+    setContentVisible(false)
+    setTimeout(() => {
+      setActivePanel(id)
+      setTimeout(() => setContentVisible(true), 350)
+    }, 50)
+  }
 
   const topProjects = [
     { id: 1, name: "Big VU Nav", href: "/work/vanderbilt-navigation", logo: "https://i.imgur.com/AlGkbfy.png" },
@@ -388,7 +399,7 @@ export default function HomePage() {
                       Featured Case Studies
                     </h2>
 
-                    {/* MOBILE: fully expanded stacked cards, no accordion */}
+                    {/* MOBILE: fully expanded stacked cards */}
                     <div className="flex flex-col gap-4 md:hidden">
                       {featuredProjects.map((project) => (
                         <div key={project.id} className={cardShell}>
@@ -440,7 +451,7 @@ export default function HomePage() {
                                   "relative overflow-hidden rounded-lg transition-all duration-500 ease-in-out " +
                                   (isActive ? "flex-[4]" : "flex-[0.4] cursor-pointer hover:brightness-110")
                                 }
-                                onClick={() => !isActive && setActivePanel(project.id)}
+                                onClick={() => handlePanelClick(project.id)}
                               >
                                 {!isActive && (
                                   <div className={"w-full h-full bg-gradient-to-br " + project.mainImage + " flex items-center justify-center"}>
@@ -453,7 +464,13 @@ export default function HomePage() {
                                   </div>
                                 )}
                                 {isActive && (
-                                  <div className="animate-fadeIn flex h-full w-full">
+                                  <div
+                                    className="flex h-full w-full"
+                                    style={{
+                                      opacity: contentVisible ? 1 : 0,
+                                      transition: "opacity 300ms ease-in-out",
+                                    }}
+                                  >
                                     <div className="w-3/5 h-full relative flex-shrink-0 overflow-hidden">
                                       <img
                                         src={projectImage(project.id)}
@@ -508,7 +525,7 @@ export default function HomePage() {
                         <span className="text-xs text-gray-400">February 2026</span>
                       </div>
                       <p className="text-gray-500 mb-4">
-                        {"Lately I've been deep in the world of vibecoding — building real interfaces through conversation and iteration, which feels like the most natural extension of design thinking I've found yet. With a background in languages and linguistics, conversational design isn't just a career pivot for me — it's where everything I already know converges. I'm exploring AI agents, voice interfaces, and agentic systems, because the next frontier of UX isn't just screens. It's systems that think, speak, and respond. Excited to see where this takes me.👀"}
+                        {"Lately I've been deep in the world of vibecoding — building real interfaces through conversation and iteration, which feels like the most natural extension of design thinking I've found yet. With a background in languages and linguistics, conversational design isn't just a career pivot for me — it's where everything I already know converges. I'm exploring AI agents, voice interfaces, and agentic systems, because the next frontier of UX isn't just screens. It's systems that think, speak, and respond. Excited to see where this takes me. 👀"}
                       </p>
                       <div className="flex gap-2 flex-wrap">
                         <span className="px-2 py-1 rounded text-xs bg-pink-50 text-pink-600">Vibecoding</span>
