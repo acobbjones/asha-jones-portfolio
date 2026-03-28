@@ -1,1 +1,271 @@
+"use client"
+
+import Link from "next/link"
+import { FadeUp, HeroFadeUp } from "@/components/scroll-animations"
+import { Navigation } from "@/components/navigation"
+import { MySpaceLayout } from "@/components/myspace-layout"
+
+export default function UXAuditPage() {
+  const cardShell = "bg-white/20 backdrop-blur-md border border-white/30 rounded-2xl p-1 shadow-xl"
+  const cardInner = "bg-white/95 rounded-2xl p-8"
+  const courier = { fontFamily: "Courier New, monospace" }
+  const purple = "#5a3e5c"
+  const mutedPurple = "#7a6a82"
+  const btnStyle = {
+    background: "linear-gradient(135deg, #f5e6d3 0%, #f0d9e8 50%, #e8d5f0 100%)",
+    color: purple,
+    border: "1px solid rgba(240,210,230,0.6)",
+    boxShadow: "0 2px 12px rgba(200,160,200,0.2)",
+  }
+
+  const auditBullets = [
+    "15–20 min Loom walkthrough of your site",
+    "Top UX issues impacting clarity and conversion",
+    "Clear, prioritized action steps",
+    "Light messaging suggestions (where needed)",
+    "Optional wireframe direction",
+  ]
+
+  const sprintBullets = [
+    "1 core page redesign (homepage or landing page)",
+    "UX + UI improvements",
+    "Improved layout, hierarchy, and flow",
+    "Mobile optimization",
+    "2 revision rounds",
+    "Optional Framer implementation",
+  ]
+
+  const whoItIsFor = [
+    "You have a website, but it's not performing as expected",
+    "Your messaging feels unclear or too broad",
+    "Users aren't taking action",
+    "You want clarity without a long redesign process",
+  ]
+
+  const steps = [
+    { num: "01", label: "Request an audit", desc: "Fill out a short form so I understand your site and goals." },
+    { num: "02", label: "I review your site", desc: "I do a deep UX review and record a Loom walkthrough." },
+    { num: "03", label: "You get an action plan", desc: "A clear, prioritized document delivered within 48–72 hours." },
+    { num: "04", label: "Optional sprint", desc: "Want help implementing? We can move into a design sprint." },
+  ]
+
+  return (
+    <MySpaceLayout fluid>
+      <div className="min-h-screen">
+
+        {/* Hero */}
+        <section className="w-full border-b border-purple-100 bg-transparent">
+          <div className="max-w-[1200px] mx-auto px-6 py-[70px]">
+            <HeroFadeUp>
+              <span className="text-xs font-semibold tracking-[0.25em] uppercase text-[#7B6B9E] mb-4 block" style={courier}>
+                Services
+              </span>
+              <h1 className="text-5xl sm:text-6xl font-bold text-[#1F1F1F] mb-6 max-w-3xl leading-tight" style={courier}>
+                UX Audits &<br />Design Sprints
+              </h1>
+              <p className="text-lg sm:text-xl text-[#7B6B9E] max-w-2xl mb-8 leading-relaxed">
+                Fast, focused improvements to help your website communicate clearly, guide users effectively, and convert with less friction — without a long redesign process.
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <a
+                  href="https://forms.gle/Spmj5KfBp7MxsF9t9"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center px-8 py-3 rounded-full font-bold text-sm transition-all duration-200 hover:-translate-y-0.5"
+                  style={{ ...btnStyle, ...courier }}
+                >
+                  Request an Audit
+                </a>
+                <a
+                  href="#details"
+                  className="inline-flex items-center px-8 py-3 rounded-full font-bold text-sm transition-all duration-200 hover:-translate-y-0.5"
+                  style={{ ...courier, color: mutedPurple, border: "1px solid rgba(200,180,220,0.4)", background: "rgba(255,255,255,0.5)" }}
+                >
+                  View Details
+                </a>
+              </div>
+            </HeroFadeUp>
+          </div>
+        </section>
+
+        <div id="details" className="max-w-5xl mx-auto px-6 py-16 space-y-16">
+
+          {/* Services Grid */}
+          <FadeUp>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+              {/* UX Audit Card */}
+              <div className="group bg-white/20 backdrop-blur-md border border-white/30 rounded-2xl p-1 shadow-xl hover:-translate-y-1 transition-all duration-300">
+                <div className="bg-white/95 rounded-2xl p-8 h-full flex flex-col border-l-4 border-l-transparent group-hover:border-l-[#c4a0cc] transition-all duration-300">
+                  <div className="mb-6">
+                    <div className="flex items-start justify-between mb-3">
+                      <h2 className="text-2xl font-bold text-[#1F1F1F]" style={courier}>
+                        UX Audit +<br />Action Plan
+                      </h2>
+                      <span className="text-sm font-bold px-3 py-1 rounded-full flex-shrink-0 ml-4" style={{ background: "rgba(232,213,240,0.4)", color: purple, ...courier }}>
+                        $300–$500
+                      </span>
+                    </div>
+                    <p className="text-[#7B6B9E] text-sm leading-relaxed">
+                      A focused review of your website to identify what's unclear, what's getting in the way, and what to improve first.
+                    </p>
+                  </div>
+                  <ul className="space-y-3 mb-6 flex-1">
+                    {auditBullets.map((item, i) => (
+                      <li key={i} className="flex items-start gap-3 text-sm text-[#374151]">
+                        <span style={{ color: "#c4a0cc", flexShrink: 0, marginTop: "2px" }}>✦</span>
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                  <p className="text-xs text-[#7B6B9E] mb-6 italic" style={courier}>
+                    Delivered within 48–72 hours
+                  </p>
+                  <a
+                    href="https://forms.gle/Spmj5KfBp7MxsF9t9"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center w-full px-6 py-3 rounded-full font-bold text-sm transition-all duration-200 hover:-translate-y-0.5"
+                    style={{ ...btnStyle, ...courier }}
+                  >
+                    Request an Audit →
+                  </a>
+                </div>
+              </div>
+
+              {/* Design Sprint Card */}
+              <div className="group bg-white/20 backdrop-blur-md border border-white/30 rounded-2xl p-1 shadow-xl hover:-translate-y-1 transition-all duration-300">
+                <div className="bg-white/95 rounded-2xl p-8 h-full flex flex-col border-l-4 border-l-transparent group-hover:border-l-[#c4a0cc] transition-all duration-300">
+                  <div className="mb-6">
+                    <div className="flex items-start justify-between mb-3">
+                      <h2 className="text-2xl font-bold text-[#1F1F1F]" style={courier}>
+                        2-Week Website<br />Clarity Sprint
+                      </h2>
+                      <span className="text-sm font-bold px-3 py-1 rounded-full flex-shrink-0 ml-4" style={{ background: "rgba(232,213,240,0.4)", color: purple, ...courier }}>
+                        $1,500–$3,500
+                      </span>
+                    </div>
+                    <p className="text-[#7B6B9E] text-sm leading-relaxed">
+                      If you want help implementing improvements, I offer a focused sprint to redesign your core page.
+                    </p>
+                  </div>
+                  <ul className="space-y-3 mb-6 flex-1">
+                    {sprintBullets.map((item, i) => (
+                      <li key={i} className="flex items-start gap-3 text-sm text-[#374151]">
+                        <span style={{ color: "#c4a0cc", flexShrink: 0, marginTop: "2px" }}>✦</span>
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                  <p className="text-xs text-[#7B6B9E] mb-6 italic" style={courier}>
+                    2-week turnaround from project start
+                  </p>
+                  <a
+                    href="mailto:asha.cobbjones@gmail.com?subject=Design Sprint Inquiry"
+                    className="inline-flex items-center justify-center w-full px-6 py-3 rounded-full font-bold text-sm transition-all duration-200 hover:-translate-y-0.5"
+                    style={{ ...courier, color: mutedPurple, border: "1px solid rgba(200,180,220,0.4)", background: "rgba(255,255,255,0.5)" }}
+                  >
+                    Get In Touch →
+                  </a>
+                </div>
+              </div>
+            </div>
+          </FadeUp>
+
+          {/* Who This Is For */}
+          <FadeUp>
+            <div className="group bg-white/20 backdrop-blur-md border border-white/30 rounded-2xl p-1 shadow-xl">
+              <div className="bg-white/95 rounded-2xl p-8 border-l-4 border-l-transparent group-hover:border-l-[#c4a0cc] transition-all duration-300">
+                <h2 className="text-2xl font-bold text-[#1F1F1F] mb-6" style={courier}>Who This Is For</h2>
+                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {whoItIsFor.map((item, i) => (
+                    <li key={i} className="flex items-start gap-3 text-sm text-[#374151]">
+                      <span style={{ color: "#c4a0cc", flexShrink: 0, marginTop: "2px" }}>✦</span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </FadeUp>
+
+          {/* How It Works */}
+          <FadeUp>
+            <div className="group bg-white/20 backdrop-blur-md border border-white/30 rounded-2xl p-1 shadow-xl">
+              <div className="bg-white/95 rounded-2xl p-8 border-l-4 border-l-transparent group-hover:border-l-[#c4a0cc] transition-all duration-300">
+                <h2 className="text-2xl font-bold text-[#1F1F1F] mb-8" style={courier}>How It Works</h2>
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+                  {steps.map((step, i) => (
+                    <div key={i} className="space-y-2">
+                      <p className="text-3xl font-bold" style={{ color: "#e8d5f0", ...courier }}>{step.num}</p>
+                      <p className="font-bold text-sm text-[#1F1F1F]" style={courier}>{step.label}</p>
+                      <p className="text-xs text-[#7B6B9E] leading-relaxed">{step.desc}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </FadeUp>
+
+          {/* Proof Section */}
+          <FadeUp>
+            <div className="text-center space-y-4">
+              <p className="text-[#7B6B9E] text-lg">Want to see my work?</p>
+              <Link
+                href="/work"
+                scroll={true}
+                className="inline-flex items-center px-8 py-3 rounded-full font-bold text-sm transition-all duration-200 hover:-translate-y-0.5"
+                style={{ ...btnStyle, ...courier }}
+              >
+                View Portfolio →
+              </Link>
+            </div>
+          </FadeUp>
+
+          {/* Final CTA */}
+          <FadeUp>
+            <div className="group bg-white/20 backdrop-blur-md border border-white/30 rounded-2xl p-1 shadow-xl">
+              <div className="bg-white/95 rounded-2xl p-10 text-center border-l-4 border-l-transparent group-hover:border-l-[#c4a0cc] transition-all duration-300">
+                <h2 className="text-3xl font-bold text-[#1F1F1F] mb-3" style={courier}>
+                  Let's improve your site.
+                </h2>
+                <p className="text-[#7B6B9E] mb-8 max-w-md mx-auto leading-relaxed">
+                  If you're interested, reach out via email or request a quick review. I'll get back to you within 24 hours.
+                </p>
+                <div className="flex flex-wrap gap-4 justify-center">
+                  <a
+                    href="https://forms.gle/Spmj5KfBp7MxsF9t9"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center px-8 py-3 rounded-full font-bold text-sm transition-all duration-200 hover:-translate-y-0.5"
+                    style={{ ...btnStyle, ...courier }}
+                  >
+                    Request an Audit →
+                  </a>
+                  <a
+                    href="mailto:asha.cobbjones@gmail.com"
+                    className="inline-flex items-center px-8 py-3 rounded-full font-bold text-sm transition-all duration-200 hover:-translate-y-0.5"
+                    style={{ ...courier, color: mutedPurple, border: "1px solid rgba(200,180,220,0.4)", background: "rgba(255,255,255,0.5)" }}
+                  >
+                    Email Me
+                  </a>
+                </div>
+              </div>
+            </div>
+          </FadeUp>
+
+          {/* Footer note */}
+          <FadeUp>
+            <div className="text-center pt-4 border-t border-purple-100">
+              <p className="text-sm text-[#7B6B9E]/80 italic">
+                PS: Audits are first-come, first-served — I take a limited number each month.
+              </p>
+            </div>
+          </FadeUp>
+
+        </div>
+      </div>
+    </MySpaceLayout>
+  )
+}
 
