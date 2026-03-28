@@ -2,21 +2,26 @@
 
 import Link from "next/link"
 import { FadeUp, HeroFadeUp } from "@/components/scroll-animations"
-import { Navigation } from "@/components/navigation"
 import { MySpaceLayout } from "@/components/myspace-layout"
 
+// Button style tokens
+const tier1Btn = {
+  background: "#e8d5f0",
+  color: "#5a3e5c",
+  border: "1.5px solid #c4a0cc",
+  boxShadow: "0 2px 10px rgba(196,160,204,0.25)",
+}
+
+const tier2Btn = {
+  background: "linear-gradient(135deg, #f5e6d3 0%, #f0d9e8 50%, #e8d5f0 100%)",
+  color: "#5a3e5c",
+  border: "1px solid rgba(240,210,230,0.6)",
+  boxShadow: "0 2px 12px rgba(200,160,200,0.2)",
+}
+
 export default function UXAuditPage() {
-  const cardShell = "bg-white/20 backdrop-blur-md border border-white/30 rounded-2xl p-1 shadow-xl"
-  const cardInner = "bg-white/95 rounded-2xl p-8"
   const courier = { fontFamily: "Courier New, monospace" }
-  const purple = "#5a3e5c"
   const mutedPurple = "#7a6a82"
-  const btnStyle = {
-    background: "linear-gradient(135deg, #f5e6d3 0%, #f0d9e8 50%, #e8d5f0 100%)",
-    color: purple,
-    border: "1px solid rgba(240,210,230,0.6)",
-    boxShadow: "0 2px 12px rgba(200,160,200,0.2)",
-  }
 
   const auditBullets = [
     "15–20 min Loom walkthrough of your site",
@@ -67,18 +72,20 @@ export default function UXAuditPage() {
                 Fast, focused improvements to help your website communicate clearly, guide users effectively, and convert with less friction — without a long redesign process.
               </p>
               <div className="flex flex-wrap gap-4">
+                {/* Tier 1 — primary revenue CTA */}
                 <a
                   href="https://forms.gle/Spmj5KfBp7MxsF9t9"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center px-8 py-3 rounded-full font-bold text-sm transition-all duration-200 hover:-translate-y-0.5"
-                  style={{ ...btnStyle, ...courier }}
+                  className="inline-flex items-center px-8 py-3 rounded-full font-bold text-sm transition-all duration-200 hover:-translate-y-0.5 hover:underline"
+                  style={{ ...tier1Btn, ...courier }}
                 >
                   Request an Audit
                 </a>
+                {/* Tier 2 — secondary exploration */}
                 <a
                   href="#details"
-                  className="inline-flex items-center px-8 py-3 rounded-full font-bold text-sm transition-all duration-200 hover:-translate-y-0.5"
+                  className="inline-flex items-center px-8 py-3 rounded-full font-bold text-sm transition-all duration-200 hover:-translate-y-0.5 hover:underline"
                   style={{ ...courier, color: mutedPurple, border: "1px solid rgba(200,180,220,0.4)", background: "rgba(255,255,255,0.5)" }}
                 >
                   View Details
@@ -102,7 +109,7 @@ export default function UXAuditPage() {
                       <h2 className="text-2xl font-bold text-[#1F1F1F]" style={courier}>
                         UX Audit +<br />Action Plan
                       </h2>
-                      <span className="text-sm font-bold px-3 py-1 rounded-full flex-shrink-0 ml-4" style={{ background: "rgba(232,213,240,0.4)", color: purple, ...courier }}>
+                      <span className="text-sm font-bold px-3 py-1 rounded-full flex-shrink-0 ml-4" style={{ background: "rgba(232,213,240,0.4)", color: "#5a3e5c", ...courier }}>
                         $300–$500
                       </span>
                     </div>
@@ -121,12 +128,13 @@ export default function UXAuditPage() {
                   <p className="text-xs text-[#7B6B9E] mb-6 italic" style={courier}>
                     Delivered within 48–72 hours
                   </p>
+                  {/* Tier 1 — primary revenue CTA */}
                   <a
                     href="https://forms.gle/Spmj5KfBp7MxsF9t9"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center w-full px-6 py-3 rounded-full font-bold text-sm transition-all duration-200 hover:-translate-y-0.5"
-                    style={{ ...btnStyle, ...courier }}
+                    className="inline-flex items-center justify-center w-full px-6 py-3 rounded-full font-bold text-sm transition-all duration-200 hover:-translate-y-0.5 hover:underline"
+                    style={{ ...tier1Btn, ...courier }}
                   >
                     Request an Audit →
                   </a>
@@ -141,7 +149,7 @@ export default function UXAuditPage() {
                       <h2 className="text-2xl font-bold text-[#1F1F1F]" style={courier}>
                         2-Week Website<br />Clarity Sprint
                       </h2>
-                      <span className="text-sm font-bold px-3 py-1 rounded-full flex-shrink-0 ml-4" style={{ background: "rgba(232,213,240,0.4)", color: purple, ...courier }}>
+                      <span className="text-sm font-bold px-3 py-1 rounded-full flex-shrink-0 ml-4" style={{ background: "rgba(232,213,240,0.4)", color: "#5a3e5c", ...courier }}>
                         $1,500–$3,500
                       </span>
                     </div>
@@ -160,10 +168,11 @@ export default function UXAuditPage() {
                   <p className="text-xs text-[#7B6B9E] mb-6 italic" style={courier}>
                     2-week turnaround from project start
                   </p>
+                  {/* Tier 2 — softer CTA for sprint inquiry */}
                   <a
                     href="mailto:asha.cobbjones@gmail.com?subject=Design Sprint Inquiry"
-                    className="inline-flex items-center justify-center w-full px-6 py-3 rounded-full font-bold text-sm transition-all duration-200 hover:-translate-y-0.5"
-                    style={{ ...courier, color: mutedPurple, border: "1px solid rgba(200,180,220,0.4)", background: "rgba(255,255,255,0.5)" }}
+                    className="inline-flex items-center justify-center w-full px-6 py-3 rounded-full font-bold text-sm transition-all duration-200 hover:-translate-y-0.5 hover:underline"
+                    style={{ ...tier2Btn, ...courier }}
                   >
                     Get In Touch →
                   </a>
@@ -211,11 +220,12 @@ export default function UXAuditPage() {
           <FadeUp>
             <div className="text-center space-y-4">
               <p className="text-[#7B6B9E] text-lg">Want to see my work?</p>
+              {/* Tier 2 — exploration */}
               <Link
                 href="/work"
                 scroll={true}
-                className="inline-flex items-center px-8 py-3 rounded-full font-bold text-sm transition-all duration-200 hover:-translate-y-0.5"
-                style={{ ...btnStyle, ...courier }}
+                className="inline-flex items-center px-8 py-3 rounded-full font-bold text-sm transition-all duration-200 hover:-translate-y-0.5 hover:underline no-underline"
+                style={{ ...tier2Btn, ...courier }}
               >
                 View Portfolio →
               </Link>
@@ -233,18 +243,20 @@ export default function UXAuditPage() {
                   If you're interested, reach out via email or request a quick review. I'll get back to you within 24 hours.
                 </p>
                 <div className="flex flex-wrap gap-4 justify-center">
+                  {/* Tier 1 — primary revenue CTA */}
                   <a
                     href="https://forms.gle/Spmj5KfBp7MxsF9t9"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center px-8 py-3 rounded-full font-bold text-sm transition-all duration-200 hover:-translate-y-0.5"
-                    style={{ ...btnStyle, ...courier }}
+                    className="inline-flex items-center px-8 py-3 rounded-full font-bold text-sm transition-all duration-200 hover:-translate-y-0.5 hover:underline"
+                    style={{ ...tier1Btn, ...courier }}
                   >
                     Request an Audit →
                   </a>
+                  {/* Tier 2 — softer email option */}
                   <a
                     href="mailto:asha.cobbjones@gmail.com"
-                    className="inline-flex items-center px-8 py-3 rounded-full font-bold text-sm transition-all duration-200 hover:-translate-y-0.5"
+                    className="inline-flex items-center px-8 py-3 rounded-full font-bold text-sm transition-all duration-200 hover:-translate-y-0.5 hover:underline"
                     style={{ ...courier, color: mutedPurple, border: "1px solid rgba(200,180,220,0.4)", background: "rgba(255,255,255,0.5)" }}
                   >
                     Email Me
@@ -268,4 +280,3 @@ export default function UXAuditPage() {
     </MySpaceLayout>
   )
 }
-
