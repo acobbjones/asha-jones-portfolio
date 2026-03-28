@@ -12,6 +12,14 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Linkedin, Send, CheckCircle2 } from "lucide-react"
 import { FadeUp, HeroFadeUp } from "@/components/scroll-animations"
 
+// Button style tokens
+const tier1Btn = {
+  background: "#e8d5f0",
+  color: "#5a3e5c",
+  border: "1.5px solid #c4a0cc",
+  boxShadow: "0 2px 10px rgba(196,160,204,0.25)",
+}
+
 export default function ContactPage() {
   const [formData, setFormData] = useState({
     name: "",
@@ -34,10 +42,7 @@ export default function ContactPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    if (honeypot) {
-      setSubmitted(true)
-      return
-    }
+    if (honeypot) { setSubmitted(true); return }
     setIsSubmitting(true)
     const sanitizedData = {
       name: sanitizeInput(formData.name),
@@ -128,7 +133,6 @@ export default function ContactPage() {
                   </div>
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-8">
-                    {/* Honeypot */}
                     <div className="absolute -left-[9999px]" aria-hidden="true">
                       <label htmlFor="website">Website</label>
                       <input
@@ -171,13 +175,8 @@ export default function ContactPage() {
                     </div>
 
                     <div className="space-y-2">
-                      <Label htmlFor="projectType" className="text-[#1F1F1F] font-medium">
-                        Reason for Reaching Out
-                      </Label>
-                      <Select
-                        value={formData.projectType}
-                        onValueChange={(value) => handleSelectChange("projectType", value)}
-                      >
+                      <Label htmlFor="projectType" className="text-[#1F1F1F] font-medium">Reason for Reaching Out</Label>
+                      <Select value={formData.projectType} onValueChange={(value) => handleSelectChange("projectType", value)}>
                         <SelectTrigger className="bg-white border-purple-200 focus:border-[#E057A0] focus:ring-[#E057A0]/20 h-12 rounded-lg">
                           <SelectValue placeholder="Select a reason" />
                         </SelectTrigger>
@@ -206,25 +205,18 @@ export default function ContactPage() {
                     </div>
 
                     <div className="flex justify-end">
+                      {/* Tier 1 — revenue CTA */}
                       <Button
                         type="submit"
                         disabled={isSubmitting}
-                        className="rounded-full px-8 py-4 font-bold shadow-sm transition-all duration-200 active:-translate-y-0.5 text-sm w-full md:w-auto flex items-center justify-center gap-2"
-                        style={{ background: "linear-gradient(135deg, #f5e6d3 0%, #f0d9e8 50%, #e8d5f0 100%)", color: "#5a3e5c", border: "1px solid rgba(240,210,230,0.6)", boxShadow: "0 2px 12px rgba(200,160,200,0.2)" }}
-                        onMouseEnter={e => {
-                          const span = e.currentTarget.querySelector('span');
-                          if (span) span.style.textDecoration = "underline";
-                        }}
-                        onMouseLeave={e => {
-                          const span = e.currentTarget.querySelector('span');
-                          if (span) span.style.textDecoration = "none";
-                        }}
+                        className="rounded-full px-8 py-4 font-bold shadow-sm transition-all duration-200 active:-translate-y-0.5 text-sm w-full md:w-auto flex items-center justify-center gap-2 hover:underline"
+                        style={{ ...tier1Btn, fontFamily: "Courier New, Courier, monospace" }}
                       >
                         {isSubmitting ? (
-                          <span style={{ fontFamily: "Courier New, Courier, monospace", textDecoration: "none" }}>Sending...</span>
+                          <span>Sending...</span>
                         ) : (
                           <>
-                            <span style={{ fontFamily: "Courier New, Courier, monospace", textDecoration: "none" }}>Send Message</span>
+                            <span>Send Message</span>
                             <Send className="w-5 h-5 ml-2" />
                           </>
                         )}
@@ -267,7 +259,6 @@ export default function ContactPage() {
             </div>
           </FadeUp>
 
-          {/* Touch of Personality */}
           <FadeUp>
             <div className="text-center pt-8 border-t border-purple-100">
               <p className="text-sm text-[#7B6B9E]/80 italic">
