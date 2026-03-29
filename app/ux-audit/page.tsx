@@ -19,129 +19,212 @@ const tier2Btn = {
 }
 
 function HeroVisual() {
-  // FIX 4: max-w increased from 480px to 560px, minHeight from 420px to 480px
   return (
-    <div className="relative w-full max-w-[640px] mx-auto" style={{ perspective: "1000px", minHeight: "520px" }}>
-
-      {/* Glow blob */}
-      <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse at 55% 45%, rgba(232,213,240,0.5) 0%, rgba(240,210,230,0.2) 50%, transparent 70%)", filter: "blur(32px)", transform: "scale(1.2)" }} />
-
-      {/* Floating secondary card — "Before" score */}
+    // Outer container — overflows right edge like Teamanage
+    <div
+      className="relative w-full"
+      style={{
+        height: "520px",
+        perspective: "1200px",
+        // Allow bleed off right edge
+        marginRight: "-60px",
+      }}
+    >
+      {/* Glow blob behind everything */}
       <div
-        className="absolute top-0 left-0 rounded-2xl p-4 z-10"
+        className="absolute pointer-events-none"
         style={{
-          background: "rgba(255,255,255,0.65)",
-          backdropFilter: "blur(16px)",
-          WebkitBackdropFilter: "blur(16px)",
-          border: "1px solid rgba(255,255,255,0.8)",
-          boxShadow: "0 8px 32px rgba(196,160,204,0.2)",
-          transform: "rotateY(6deg) rotateX(-3deg) rotate(-4deg)",
-          width: "160px",
+          inset: "-40px",
+          background: "radial-gradient(ellipse at 60% 50%, rgba(232,213,240,0.55) 0%, rgba(240,210,230,0.25) 45%, transparent 70%)",
+          filter: "blur(40px)",
         }}
-      >
-        <p className="text-[9px] font-bold uppercase tracking-widest text-[#7a6a82] mb-2" style={{ fontFamily: "Courier New, monospace" }}>Clarity Score</p>
-        <div className="flex items-end gap-1 mb-2">
-          <span className="text-2xl font-bold text-[#f5c2c7]" style={{ fontFamily: "Courier New, monospace" }}>42</span>
-          <span className="text-xs text-[#7a6a82] mb-1">/100</span>
-        </div>
-        <div className="h-1.5 rounded-full w-full" style={{ background: "rgba(200,180,220,0.2)" }}>
-          <div className="h-1.5 rounded-full" style={{ width: "42%", background: "#f5c2c7" }} />
-        </div>
-        <p className="text-[9px] text-[#7a6a82] mt-2">Needs improvement</p>
-      </div>
+      />
 
-      {/* Main audit card — center, 3D tilted */}
+      {/* ── MAIN AUDIT CARD ── large, bleeds off right, strong 3D tilt */}
       <div
         className="absolute rounded-3xl overflow-hidden"
         style={{
-          background: "rgba(255,255,255,0.60)",
-          backdropFilter: "blur(20px)",
-          WebkitBackdropFilter: "blur(20px)",
-          border: "1px solid rgba(255,255,255,0.8)",
-          boxShadow: "0 24px 60px rgba(196,160,204,0.35), 0 8px 20px rgba(196,160,204,0.2), inset 0 1px 0 rgba(255,255,255,0.9)",
-          padding: "22px",
-          transform: "rotateY(-6deg) rotateX(3deg)",
+          background: "rgba(255,255,255,0.72)",
+          backdropFilter: "blur(24px)",
+          WebkitBackdropFilter: "blur(24px)",
+          border: "1px solid rgba(255,255,255,0.85)",
+          boxShadow: "0 32px 80px rgba(196,160,204,0.4), 0 8px 24px rgba(196,160,204,0.2), inset 0 1px 0 rgba(255,255,255,0.95)",
+          padding: "28px",
+          // Position: starts ~15% from left, bleeds off right
+          left: "15%",
+          top: "30px",
+          width: "520px",
+          // 3D tilt — coming toward viewer like Teamanage
+          transform: "rotateY(-12deg) rotateX(4deg)",
           transformStyle: "preserve-3d",
-          width: "320px",
-          top: "40px",
-          left: "50%",
-          marginLeft: "-160px",
           zIndex: 20,
         }}
       >
         {/* Browser chrome */}
-        <div className="flex items-center gap-1.5 mb-4">
-          <div className="w-2.5 h-2.5 rounded-full bg-[#f5c2c7]" />
-          <div className="w-2.5 h-2.5 rounded-full bg-[#fde68a]" />
-          <div className="w-2.5 h-2.5 rounded-full bg-[#bbf7d0]" />
-          <div className="flex-1 h-5 rounded-full ml-1 flex items-center px-2" style={{ background: "rgba(200,180,220,0.2)", border: "1px solid rgba(200,180,220,0.3)" }}>
-            <span className="text-[9px] text-[#7a6a82]" style={{ fontFamily: "Courier New, monospace" }}>yourwebsite.com</span>
+        <div className="flex items-center gap-2 mb-5">
+          <div className="w-3 h-3 rounded-full bg-[#f5c2c7]" />
+          <div className="w-3 h-3 rounded-full bg-[#fde68a]" />
+          <div className="w-3 h-3 rounded-full bg-[#bbf7d0]" />
+          <div
+            className="flex-1 h-6 rounded-full ml-2 flex items-center px-3"
+            style={{ background: "rgba(200,180,220,0.2)", border: "1px solid rgba(200,180,220,0.3)" }}
+          >
+            <span className="text-[10px] text-[#7a6a82]" style={{ fontFamily: "Courier New, monospace" }}>yourwebsite.com</span>
           </div>
         </div>
-        <div className="space-y-2">
-          <div className="h-6 rounded-lg flex items-center gap-2 px-2" style={{ background: "rgba(200,180,220,0.15)", border: "1px solid rgba(200,180,220,0.2)" }}>
-            <div className="w-8 h-1.5 rounded-full" style={{ background: "#c4a0cc" }} />
-            <div className="flex gap-1 ml-auto">
-              {[14, 11, 13].map((w, i) => (<div key={i} className="h-1.5 rounded-full" style={{ width: `${w}px`, background: "rgba(196,160,204,0.4)" }} />))}
+
+        <div className="space-y-3">
+          {/* Nav bar */}
+          <div
+            className="h-8 rounded-lg flex items-center gap-2 px-3"
+            style={{ background: "rgba(200,180,220,0.15)", border: "1px solid rgba(200,180,220,0.2)" }}
+          >
+            <div className="w-14 h-2 rounded-full" style={{ background: "#c4a0cc" }} />
+            <div className="flex gap-2 ml-auto">
+              {[22, 18, 20, 16].map((w, i) => (
+                <div key={i} className="h-2 rounded-full" style={{ width: `${w}px`, background: "rgba(196,160,204,0.4)" }} />
+              ))}
             </div>
           </div>
-          <div className="rounded-xl p-3 relative" style={{ background: "linear-gradient(135deg, #f5e6d3 0%, #f0d9e8 60%, #e8d5f0 100%)", minHeight: "70px" }}>
-            <div className="w-3/4 h-2.5 rounded-full mb-1.5" style={{ background: "rgba(90,62,92,0.25)" }} />
-            <div className="w-1/2 h-1.5 rounded-full mb-2" style={{ background: "rgba(90,62,92,0.15)" }} />
-            <div className="w-16 h-5 rounded-full" style={{ background: "rgba(196,160,204,0.6)" }} />
-            <div className="absolute top-1.5 right-2 flex items-start gap-1">
-              <div className="text-[#c4a0cc] text-sm leading-none">↙</div>
-              <div className="rounded-md px-1.5 py-0.5 text-[8px] font-bold" style={{ background: "#5a3e5c", color: "white", fontFamily: "Courier New, monospace" }}>CTA unclear</div>
+
+          {/* Hero section wireframe */}
+          <div
+            className="rounded-xl p-5 relative overflow-hidden"
+            style={{
+              background: "linear-gradient(135deg, #f5e6d3 0%, #f0d9e8 60%, #e8d5f0 100%)",
+              minHeight: "110px",
+            }}
+          >
+            <div className="w-3/4 h-3 rounded-full mb-2" style={{ background: "rgba(90,62,92,0.25)" }} />
+            <div className="w-1/2 h-2 rounded-full mb-3" style={{ background: "rgba(90,62,92,0.15)" }} />
+            <div className="w-24 h-7 rounded-full" style={{ background: "rgba(196,160,204,0.6)" }} />
+
+            {/* Annotation bubble */}
+            <div className="absolute top-3 right-4 flex items-start gap-1">
+              <div className="text-[#c4a0cc] text-base leading-none">↙</div>
+              <div
+                className="rounded-lg px-2 py-1 text-[9px] font-bold leading-tight"
+                style={{ background: "#5a3e5c", color: "white", fontFamily: "Courier New, monospace" }}
+              >
+                CTA unclear
+              </div>
             </div>
           </div>
-          <div className="rounded-xl p-2.5" style={{ background: "rgba(232,213,240,0.3)", border: "1px dashed #c4a0cc" }}>
-            <div className="flex items-center gap-1.5 mb-1.5">
-              <span className="text-[#c4a0cc] text-[9px]">✦</span>
-              <span className="text-[8px] font-bold uppercase tracking-widest text-[#5a3e5c]" style={{ fontFamily: "Courier New, monospace" }}>Audit Report</span>
+
+          {/* Two content blocks with annotation badges */}
+          <div className="grid grid-cols-2 gap-3">
+            <div
+              className="rounded-lg p-3 relative"
+              style={{ background: "rgba(240,210,230,0.2)", border: "1px solid rgba(200,180,220,0.25)" }}
+            >
+              <div className="w-full h-2 rounded-full mb-2" style={{ background: "rgba(196,160,204,0.4)" }} />
+              <div className="w-4/5 h-2 rounded-full mb-2" style={{ background: "rgba(196,160,204,0.3)" }} />
+              <div className="w-3/5 h-2 rounded-full" style={{ background: "rgba(196,160,204,0.2)" }} />
+              <div
+                className="absolute -top-2 -right-2 rounded-full w-5 h-5 flex items-center justify-center text-[9px] font-bold"
+                style={{ background: "#f5c2c7", color: "#5a3e5c" }}
+              >!</div>
+            </div>
+            <div
+              className="rounded-lg p-3 relative"
+              style={{ background: "rgba(240,210,230,0.2)", border: "1px solid rgba(200,180,220,0.25)" }}
+            >
+              <div className="w-full h-2 rounded-full mb-2" style={{ background: "rgba(196,160,204,0.4)" }} />
+              <div className="w-3/5 h-2 rounded-full mb-2" style={{ background: "rgba(196,160,204,0.3)" }} />
+              <div className="w-4/5 h-2 rounded-full" style={{ background: "rgba(196,160,204,0.2)" }} />
+              <div
+                className="absolute -top-2 -right-2 rounded-full w-5 h-5 flex items-center justify-center text-[9px] font-bold"
+                style={{ background: "#bbf7d0", color: "#166534" }}
+              >✓</div>
+            </div>
+          </div>
+
+          {/* Audit report */}
+          <div
+            className="rounded-xl p-3"
+            style={{ background: "rgba(232,213,240,0.3)", border: "1px dashed #c4a0cc" }}
+          >
+            <div className="flex items-center gap-2 mb-2">
+              <span className="text-[#c4a0cc] text-xs">✦</span>
+              <span
+                className="text-[9px] font-bold uppercase tracking-widest text-[#5a3e5c]"
+                style={{ fontFamily: "Courier New, monospace" }}
+              >Audit Report</span>
             </div>
             {["Hierarchy issue on hero", "CTA buried below fold", "Mobile nav unclear"].map((note, i) => (
-              <div key={i} className="flex items-center gap-1.5 py-0.5 border-b border-[#c4a0cc]/20 last:border-0">
-                <div className="w-1 h-1 rounded-full flex-shrink-0" style={{ background: i === 2 ? "#c4a0cc" : i === 1 ? "#f5c2c7" : "#fde68a" }} />
-                <span className="text-[8px] text-[#5a3e5c]" style={{ fontFamily: "Courier New, monospace" }}>{note}</span>
+              <div key={i} className="flex items-center gap-2 py-1 border-b border-[#c4a0cc]/20 last:border-0">
+                <div
+                  className="w-1.5 h-1.5 rounded-full flex-shrink-0"
+                  style={{ background: i === 2 ? "#c4a0cc" : i === 1 ? "#f5c2c7" : "#fde68a" }}
+                />
+                <span className="text-[10px] text-[#5a3e5c]" style={{ fontFamily: "Courier New, monospace" }}>{note}</span>
               </div>
             ))}
           </div>
         </div>
       </div>
 
-      {/* Floating secondary card — Loom badge bottom right */}
+      {/* ── LOOM CARD ── overlaps top-right of main card, angled */}
       <div
-        className="absolute bottom-16 right-0 rounded-2xl px-4 py-3 z-10"
+        className="absolute rounded-2xl px-4 py-3"
         style={{
-          background: "rgba(255,255,255,0.65)",
+          background: "rgba(255,255,255,0.80)",
           backdropFilter: "blur(16px)",
           WebkitBackdropFilter: "blur(16px)",
-          border: "1px solid rgba(255,255,255,0.8)",
-          boxShadow: "0 8px 32px rgba(196,160,204,0.2)",
-          transform: "rotateY(-4deg) rotateX(2deg) rotate(3deg)",
-          width: "180px",
+          border: "1px solid rgba(255,255,255,0.9)",
+          boxShadow: "0 12px 40px rgba(196,160,204,0.3)",
+          transform: "rotateY(-8deg) rotateX(-2deg) rotate(-3deg)",
+          width: "200px",
+          // Overlaps the top-right area of the main card
+          top: "10px",
+          right: "30px",
+          zIndex: 30,
         }}
       >
         <div className="flex items-center gap-2 mb-2">
-          <div className="w-2 h-2 rounded-full bg-red-400 flex-shrink-0" />
-          <p className="text-[9px] font-bold text-[#5a3e5c]" style={{ fontFamily: "Courier New, monospace" }}>Loom recorded</p>
+          <div className="w-2.5 h-2.5 rounded-full bg-red-400 flex-shrink-0" />
+          <p className="text-[10px] font-bold text-[#5a3e5c]" style={{ fontFamily: "Courier New, monospace" }}>Loom recorded</p>
         </div>
-        <p className="text-[8px] text-[#7a6a82]" style={{ fontFamily: "Courier New, monospace" }}>15 min walkthrough</p>
-        <div className="flex items-center justify-between mt-2">
-          <div className="flex gap-0.5">
-            {[40, 55, 35, 60, 45, 50, 38].map((h, i) => (
-              <div key={i} className="w-1.5 rounded-full" style={{ height: `${h * 0.3}px`, background: i < 4 ? "#c4a0cc" : "rgba(196,160,204,0.3)" }} />
-            ))}
-          </div>
-          <span className="text-[8px] text-[#7a6a82]" style={{ fontFamily: "Courier New, monospace" }}>48hr</span>
+        <p className="text-[9px] text-[#7a6a82] mb-2" style={{ fontFamily: "Courier New, monospace" }}>15 min walkthrough</p>
+        <div className="flex items-end gap-0.5 mb-1">
+          {[40, 55, 35, 60, 45, 50, 38, 52, 30, 48].map((h, i) => (
+            <div
+              key={i}
+              className="w-1.5 rounded-full"
+              style={{
+                height: `${h * 0.28}px`,
+                background: i < 5 ? "#c4a0cc" : "rgba(196,160,204,0.25)",
+              }}
+            />
+          ))}
+        </div>
+        <div className="flex items-center justify-between mt-1">
+          <span className="text-[8px] text-[#c4a0cc] font-bold" style={{ fontFamily: "Courier New, monospace" }}>▶ 0:42 / 15:00</span>
+          <span className="text-[8px] text-[#7a6a82]" style={{ fontFamily: "Courier New, monospace" }}>48hr delivery</span>
         </div>
       </div>
 
-      {/* Sparkles */}
-      <span className="absolute top-2 right-[15%] text-[#c4a0cc] text-base rotate-12 pointer-events-none select-none z-30">✦</span>
-      <span className="absolute bottom-[30%] left-[5%] text-[#f0d9e8] text-xs -rotate-6 pointer-events-none select-none z-30">✦</span>
-      <span className="absolute top-[45%] right-[2%] text-[#e8d5f0] text-xs rotate-45 pointer-events-none select-none z-30">✦</span>
+      {/* ── ANNOTATION BUBBLE ── UX callout floating top-left */}
+      <div
+        className="absolute rounded-xl px-3 py-2"
+        style={{
+          background: "#5a3e5c",
+          boxShadow: "0 8px 24px rgba(90,62,92,0.25)",
+          transform: "rotate(-2deg)",
+          left: "2%",
+          top: "60px",
+          zIndex: 25,
+          maxWidth: "150px",
+        }}
+      >
+        <p className="text-[9px] font-bold text-white mb-1" style={{ fontFamily: "Courier New, monospace" }}>↗ Nav too complex</p>
+        <p className="text-[8px] text-[rgba(255,255,255,0.7)]" style={{ fontFamily: "Courier New, monospace" }}>Users dropping off here</p>
+      </div>
 
+      {/* Sparkles */}
+      <span className="absolute top-4 left-[8%] text-[#f5e6d3] text-base rotate-12 pointer-events-none select-none z-10 opacity-80">✦</span>
+      <span className="absolute bottom-[20%] left-[10%] text-[#f0d9e8] text-xs -rotate-6 pointer-events-none select-none z-10">✦</span>
+      <span className="absolute bottom-[35%] right-[8%] text-[#e8d5f0] text-sm rotate-45 pointer-events-none select-none z-10 opacity-70">✦</span>
     </div>
   )
 }
@@ -210,7 +293,6 @@ export default function UXAuditPage() {
     "You know something is off, but can't pinpoint it",
   ]
 
-  // FIX 3: step 02 shortened to one line
   const steps = [
     { num: "01", label: "Request an audit", desc: "Fill out a short form so I understand your site and goals." },
     { num: "02", label: "I record a Loom", desc: "I do a deep UX review and record a walkthrough of my findings." },
@@ -228,7 +310,7 @@ export default function UXAuditPage() {
           <span className="absolute bottom-12 left-[20%] text-[#f0d9e8] text-xs rotate-45 pointer-events-none select-none opacity-60">✦</span>
           <span className="absolute top-1/3 left-[42%] text-[#e8d5f0] text-sm -rotate-6 pointer-events-none select-none opacity-50">✦</span>
           <div className="max-w-[1200px] mx-auto px-6 py-[70px]">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
               <HeroFadeUp>
                 <span className="text-xs font-semibold tracking-[0.25em] uppercase text-[#7B6B9E] mb-4 block" style={courier}>Services</span>
                 <h1 className="text-5xl sm:text-6xl font-bold text-[#1F1F1F] mb-4 max-w-3xl leading-tight" style={courier}>
@@ -249,7 +331,8 @@ export default function UXAuditPage() {
                   </a>
                 </div>
               </HeroFadeUp>
-              <div className="hidden lg:flex items-center justify-center py-8">
+              {/* Right col — no centering constraint, let it bleed */}
+              <div className="hidden lg:block">
                 <HeroFadeUp><HeroVisual /></HeroFadeUp>
               </div>
             </div>
@@ -266,10 +349,7 @@ export default function UXAuditPage() {
                 <h2 className="text-2xl font-bold text-[#1F1F1F] mb-6" style={courier}>Who This Is For</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2">
                   {whoItIsFor.map((item, i) => (
-                    <p
-                      key={i}
-                      className="text-sm text-[#374151] py-3 border-b border-[#e8d5f0]/60 sm:odd:pr-8 sm:even:pl-8 sm:even:border-l sm:even:border-l-[#e8d5f0]/60"
-                    >
+                    <p key={i} className="text-sm text-[#374151] py-3 border-b border-[#e8d5f0]/60 sm:odd:pr-8 sm:even:pl-8 sm:even:border-l sm:even:border-l-[#e8d5f0]/60">
                       {item}
                     </p>
                   ))}
@@ -309,7 +389,6 @@ export default function UXAuditPage() {
                       <h2 className="text-3xl font-bold text-[#1F1F1F]" style={courier}>UX Audit + Action Plan</h2>
                       <p className="text-sm text-[#7a6a82] mt-2 italic">{"I'll show you what's unclear, what's blocking users, and what to fix first."}</p>
                     </div>
-                    {/* FIX 2: just $500, no $300 or sub-text range */}
                     <div className="flex-shrink-0 text-right">
                       <p className="text-4xl font-bold text-[#5a3e5c]" style={courier}>$500</p>
                       <p className="text-xs text-[#7a6a82] italic mt-1" style={courier}>Flat rate. No surprises.</p>
@@ -334,7 +413,6 @@ export default function UXAuditPage() {
           </FadeUp>
 
           {/* Sprint divider */}
-          {/* FIX 1: text-sm → text-lg for heading, text-xs → text-sm for subtext */}
           <FadeUp>
             <div className="text-center space-y-2 relative">
               <span className="absolute -top-6 left-[30%] text-[#f5e6d3] text-sm rotate-12 pointer-events-none select-none">✦</span>
@@ -351,11 +429,7 @@ export default function UXAuditPage() {
           <FadeUp>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-end">
               {sprintTiers.map((tier, i) => (
-                <div
-                  key={i}
-                  className="group relative flex flex-col transition-all duration-300"
-                  style={tier.popular ? { transform: "translateY(-8px)" } : {}}
-                >
+                <div key={i} className="group relative flex flex-col transition-all duration-300" style={tier.popular ? { transform: "translateY(-8px)" } : {}}>
                   {tier.popular && (
                     <div className="text-center mb-2">
                       <span className="inline-block text-xs font-bold px-4 py-1 rounded-full" style={{ background: "#5a3e5c", color: "white", ...courier }}>
@@ -365,17 +439,10 @@ export default function UXAuditPage() {
                   )}
                   <div
                     className="bg-white/20 backdrop-blur-md rounded-2xl p-1 shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col flex-1"
-                    style={tier.popular
-                      ? { border: "1.5px solid #c4a0cc", boxShadow: "0 8px 40px rgba(196,160,204,0.3)" }
-                      : { border: "1px solid rgba(255,255,255,0.3)" }
-                    }
+                    style={tier.popular ? { border: "1.5px solid #c4a0cc", boxShadow: "0 8px 40px rgba(196,160,204,0.3)" } : { border: "1px solid rgba(255,255,255,0.3)" }}
                   >
                     <div className="bg-white/95 rounded-2xl overflow-hidden flex flex-col flex-1">
-                      <div className="px-6 pt-6 pb-5" style={{
-                        background: tier.popular
-                          ? "linear-gradient(135deg, #e8d5f0 0%, #d4a8e0 50%, #c4a0cc 100%)"
-                          : "linear-gradient(135deg, #f5e6d3 0%, #f0d9e8 50%, #e8d5f0 100%)"
-                      }}>
+                      <div className="px-6 pt-6 pb-5" style={{ background: tier.popular ? "linear-gradient(135deg, #e8d5f0 0%, #d4a8e0 50%, #c4a0cc 100%)" : "linear-gradient(135deg, #f5e6d3 0%, #f0d9e8 50%, #e8d5f0 100%)" }}>
                         <h3 className="text-lg font-bold text-[#1F1F1F] mb-3" style={courier}>{tier.title}</h3>
                         <p className="text-3xl font-bold text-[#5a3e5c]" style={courier}>{tier.price}</p>
                         <p className="text-xs text-[#7a6a82] italic mt-1" style={courier}>Flat rate. No surprises.</p>
@@ -384,17 +451,11 @@ export default function UXAuditPage() {
                         <p className="text-sm text-[#7B6B9E] leading-relaxed mb-5">{tier.desc}</p>
                         <div className="flex-1">
                           {tier.items.map((item, j) => (
-                            <p key={j} className="text-sm text-[#374151] py-2.5 border-b border-[#e8d5f0]/60 last:border-0">
-                              {item}
-                            </p>
+                            <p key={j} className="text-sm text-[#374151] py-2.5 border-b border-[#e8d5f0]/60 last:border-0">{item}</p>
                           ))}
                         </div>
                         <p className="text-xs text-[#7B6B9E] italic mt-5 mb-5" style={courier}>2-week turnaround from project start</p>
-                        <a
-                          href={tier.cta}
-                          className="inline-flex items-center justify-center w-full px-6 py-3 rounded-full font-bold text-sm transition-all duration-200 hover:-translate-y-0.5 hover:underline"
-                          style={tier.popular ? { ...tier1Btn, ...courier } : { ...tier2Btn, ...courier }}
-                        >
+                        <a href={tier.cta} className="inline-flex items-center justify-center w-full px-6 py-3 rounded-full font-bold text-sm transition-all duration-200 hover:-translate-y-0.5 hover:underline" style={tier.popular ? { ...tier1Btn, ...courier } : { ...tier2Btn, ...courier }}>
                           Get In Touch →
                         </a>
                       </div>
