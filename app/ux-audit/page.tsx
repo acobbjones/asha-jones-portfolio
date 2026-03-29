@@ -21,7 +21,7 @@ const tier2Btn = {
 function HeroVisual() {
   // FIX 4: max-w increased from 480px to 560px, minHeight from 420px to 480px
   return (
-    <div className="relative w-full max-w-[560px] mx-auto" style={{ perspective: "1000px", minHeight: "480px" }}>
+    <div className="relative w-full max-w-[640px] mx-auto" style={{ perspective: "1000px", minHeight: "520px" }}>
 
       {/* Glow blob */}
       <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse at 55% 45%, rgba(232,213,240,0.5) 0%, rgba(240,210,230,0.2) 50%, transparent 70%)", filter: "blur(32px)", transform: "scale(1.2)" }} />
@@ -62,10 +62,10 @@ function HeroVisual() {
           padding: "22px",
           transform: "rotateY(-6deg) rotateX(3deg)",
           transformStyle: "preserve-3d",
-          width: "280px",
+          width: "320px",
           top: "40px",
           left: "50%",
-          marginLeft: "-140px",
+          marginLeft: "-160px",
           zIndex: 20,
         }}
       >
@@ -111,7 +111,7 @@ function HeroVisual() {
 
       {/* Floating secondary card — Loom badge bottom right */}
       <div
-        className="absolute bottom-6 right-0 rounded-2xl px-4 py-3 z-10"
+        className="absolute bottom-16 right-0 rounded-2xl px-4 py-3 z-10"
         style={{
           background: "rgba(255,255,255,0.65)",
           backdropFilter: "blur(16px)",
