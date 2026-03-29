@@ -19,8 +19,9 @@ const tier2Btn = {
 }
 
 function HeroVisual() {
+  // FIX 4: max-w increased from 480px to 560px, minHeight from 420px to 480px
   return (
-    <div className="relative w-full max-w-[480px] mx-auto" style={{ perspective: "1000px", minHeight: "420px" }}>
+    <div className="relative w-full max-w-[560px] mx-auto" style={{ perspective: "1000px", minHeight: "480px" }}>
 
       {/* Glow blob */}
       <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse at 55% 45%, rgba(232,213,240,0.5) 0%, rgba(240,210,230,0.2) 50%, transparent 70%)", filter: "blur(32px)", transform: "scale(1.2)" }} />
@@ -209,9 +210,10 @@ export default function UXAuditPage() {
     "You know something is off, but can't pinpoint it",
   ]
 
+  // FIX 3: step 02 shortened to one line
   const steps = [
     { num: "01", label: "Request an audit", desc: "Fill out a short form so I understand your site and goals." },
-    { num: "02", label: "I review and record a Loom", desc: "I do a deep UX review and record a walkthrough of my findings." },
+    { num: "02", label: "I record a Loom", desc: "I do a deep UX review and record a walkthrough of my findings." },
     { num: "03", label: "You get an action plan", desc: "A clear, prioritized document delivered within 48–72 hours." },
     { num: "04", label: "Optional sprint", desc: "Want help implementing? We can move into a design sprint." },
   ]
@@ -307,9 +309,9 @@ export default function UXAuditPage() {
                       <h2 className="text-3xl font-bold text-[#1F1F1F]" style={courier}>UX Audit + Action Plan</h2>
                       <p className="text-sm text-[#7a6a82] mt-2 italic">{"I'll show you what's unclear, what's blocking users, and what to fix first."}</p>
                     </div>
+                    {/* FIX 2: just $500, no $300 or sub-text range */}
                     <div className="flex-shrink-0 text-right">
-                      <p className="text-4xl font-bold text-[#5a3e5c]" style={courier}>$300</p>
-                      <p className="text-sm text-[#7a6a82]" style={courier}>– $500</p>
+                      <p className="text-4xl font-bold text-[#5a3e5c]" style={courier}>$500</p>
                       <p className="text-xs text-[#7a6a82] italic mt-1" style={courier}>Flat rate. No surprises.</p>
                     </div>
                   </div>
@@ -332,15 +334,16 @@ export default function UXAuditPage() {
           </FadeUp>
 
           {/* Sprint divider */}
+          {/* FIX 1: text-sm → text-lg for heading, text-xs → text-sm for subtext */}
           <FadeUp>
             <div className="text-center space-y-2 relative">
               <span className="absolute -top-6 left-[30%] text-[#f5e6d3] text-sm rotate-12 pointer-events-none select-none">✦</span>
               <div className="flex items-center gap-4">
                 <div className="flex-1 h-px bg-gradient-to-r from-transparent to-[#e8d5f0]" />
-                <p className="text-sm font-bold text-[#7B6B9E] px-4" style={courier}>Want help implementing the fixes?</p>
+                <p className="text-lg font-bold text-[#7B6B9E] px-4" style={courier}>Want help implementing the fixes?</p>
                 <div className="flex-1 h-px bg-gradient-to-l from-transparent to-[#e8d5f0]" />
               </div>
-              <p className="text-xs text-[#7B6B9E]/70 italic">Choose a sprint tier below — each includes a full redesign of your core pages.</p>
+              <p className="text-sm text-[#7B6B9E]/70 italic">Choose a sprint tier below — each includes a full redesign of your core pages.</p>
             </div>
           </FadeUp>
 
