@@ -52,8 +52,8 @@ export default function CSVStackCaseStudy() {
                   Team: Solo Designer
                 </span>
                 <span className="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm font-medium">
-  Tools: Framer, Canva
-</span>
+                  Tools: Framer, Canva
+                </span>
               </div>
 
               <div className="flex flex-wrap gap-2">
