@@ -26,7 +26,7 @@ export function FadeUp({
       className={className}
       initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-50px" }}
+      viewport={{ once: true, margin: "0px" }}
       transition={{ 
         duration: shouldReduceMotion ? 0 : 0.6, 
         ease: "easeOut",
@@ -55,7 +55,7 @@ export function StaggerReveal({
       className={className}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, margin: "-50px" }}
+      viewport={{ once: true, margin: "0px" }}
       variants={{
         hidden: {},
         visible: {
@@ -117,7 +117,7 @@ export function SoftPop({
       className={className}
       initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, scale: 0.97, y: 8 }}
       whileInView={{ opacity: 1, scale: 1, y: 0 }}
-      viewport={{ once: true, margin: "-50px" }}
+      viewport={{ once: true, margin: "0px" }}
       transition={{ 
         duration: shouldReduceMotion ? 0 : 0.5, 
         ease: "easeOut",
