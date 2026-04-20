@@ -47,7 +47,7 @@ export default function HomePage() {
     { id: 3, name: "Blair School", href: "/work/blair-school", logo: "https://i.imgur.com/ugKfb42.png" },
     { id: 4, name: "CSV Stack", href: "/work/csv-stack-ai", logo: "https://i.imgur.com/XKGR9YL.png" },
     { id: 5, name: "US Bank", href: "/work/us-bank", logo: "https://i.imgur.com/AI9WqsI.png" },
-    { id: 6, name: "Coca-Cola", href: "/work/coca-cola", logo: "https://i.imgur.com/CDeCUfV.png" },
+    { id: 6, name: "Coca-Cola", href: "/work/coca-cola", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Coca-Cola_logo.svg/1200px-Coca-Cola_logo.svg.png" },
     { id: 7, name: "Delta", href: "/work/delta", logo: "https://i.imgur.com/pbO7RwH.png" },
     { id: 8, name: "Neighborly", href: "/work/neighborly", logo: "https://i.imgur.com/1zJsfDl.png" },
   ]
