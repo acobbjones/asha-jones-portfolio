@@ -235,7 +235,7 @@ export default function HomePage() {
                         <p className="text-xs text-gray-500">Pennsylvania, United States</p>
                         <p className="text-xs text-gray-400 mt-2">Profile Views: <span className="font-bold text-gray-600">1810</span></p>
                         <p className="text-xs text-gray-400">Last Login: Today</p>
-                        <div className="flex items-center gap-1.5 mt-1" aria-label="Online now">
+                        <div className="flex items-center gap-1.5 mt-2" aria-label="Online now">
                           <span className="online-status-orb h-2 w-2 flex-shrink-0 rounded-full" aria-hidden="true" />
                           <span className="text-xs font-bold" style={{ color: "#5a3e5c", fontFamily: "Courier New, monospace" }}>Online Now!</span>
                         </div>
