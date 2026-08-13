@@ -234,7 +234,11 @@ export default function HomePage() {
                         <p className="text-xs text-gray-500 mt-1">HARRISBURG</p>
                         <p className="text-xs text-gray-500">Pennsylvania, United States</p>
                         <p className="text-xs text-gray-400 mt-2">Profile Views: <span className="font-bold text-gray-600">1810</span></p>
-                        <p className="text-xs text-gray-400">Last Login: 2/20/2026</p>
+                        <p className="text-xs text-gray-400">Last Login: Today</p>
+                        <div className="flex items-center gap-1.5 mt-2" aria-label="Online now">
+                          <span className="online-status-orb h-2 w-2 flex-shrink-0 rounded-full" aria-hidden="true" />
+                          <span className="text-xs font-bold" style={{ color: "#5a3e5c", fontFamily: "Courier New, monospace" }}>Online Now!</span>
+                        </div>
                       </div>
                     </div>
                     <div className="text-center mt-3 text-xs">
@@ -331,9 +335,15 @@ export default function HomePage() {
                     <h3 className="text-lg font-bold mb-3" style={{ fontFamily: "Courier New, monospace", color: "#5a3e5c" }}>
                       Most Curious & Creative
                     </h3>
-                    <div className="flex gap-2">
-                      <span className="px-3 py-1 rounded-full text-xs font-bold bg-gradient-to-r from-yellow-400 to-orange-400 text-white">Curious</span>
-                      <span className="px-3 py-1 rounded-full text-xs font-bold border" style={{ color: "#7a6a82", borderColor: "#e8d5f0", background: "rgba(240,210,230,0.2)" }}>Creative</span>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 gap-2">
+                      <div className="rounded-lg border px-3 py-2" style={{ borderColor: "#c4a0cc", background: "rgba(232,213,240,0.35)" }}>
+                        <p className="text-xs font-bold" style={{ color: "#5a3e5c", fontFamily: "Courier New, monospace" }}>Most Curious</p>
+                        <p className="text-xs mt-0.5" style={{ color: "#7a6a82" }}>AI, voice, systems &amp; whatever’s next</p>
+                      </div>
+                      <div className="rounded-lg border px-3 py-2" style={{ borderColor: "#e8d5f0", background: "rgba(196,160,204,0.12)" }}>
+                        <p className="text-xs font-bold" style={{ color: "#5a3e5c", fontFamily: "Courier New, monospace" }}>Most Creative</p>
+                        <p className="text-xs mt-0.5" style={{ color: "#7a6a82" }}>Turning messy ideas into clear experiences</p>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -532,16 +542,16 @@ export default function HomePage() {
                     <div className="bg-white/95 rounded-lg p-6">
                       <div className="flex justify-between items-center mb-3">
                         <h3 className="text-xl font-bold" style={{ fontFamily: "Courier New, monospace", color: "#5a3e5c" }}>Latest Update</h3>
-                        <span className="text-xs text-gray-400">February 2026</span>
+                        <span className="text-xs text-gray-400">August 2026</span>
                       </div>
                       <p className="text-gray-500 mb-4">
-                        {"Lately I've been deep in the world of vibecoding — building real interfaces through conversation and iteration, which feels like the most natural extension of design thinking I've found yet. With a background in languages and linguistics, conversational design isn't just a career pivot for me — it's where everything I already know converges. I'm exploring AI agents, voice interfaces, and agentic systems, because the next frontier of UX isn't just screens. It's systems that think, speak, and respond. Excited to see where this takes me. 👀"}
+                        {"Lately I’ve been exploring AI-assisted prototyping, conversational design, and emerging interaction patterns — using tools like Claude, V0, and MCP to move from early ideas to working experiences faster. I’m especially interested in how these tools can make complex systems feel clearer and more human."}
                       </p>
                       <div className="flex gap-2 flex-wrap">
-                        <span className="px-2 py-1 rounded text-xs bg-pink-50 text-pink-600">Vibecoding</span>
-                        <span className="px-2 py-1 rounded text-xs bg-purple-50 text-purple-600">AI Agents</span>
-                        <span className="px-2 py-1 rounded text-xs bg-blue-50 text-blue-500">Voice Design</span>
-                        <span className="px-2 py-1 rounded text-xs bg-gray-50 text-gray-500">What's Next</span>
+                        <span className="px-2 py-1 rounded text-xs bg-pink-50 text-pink-600">AI Prototyping</span>
+                        <span className="px-2 py-1 rounded text-xs bg-purple-50 text-purple-600">Conversational Design</span>
+                        <span className="px-2 py-1 rounded text-xs bg-blue-50 text-blue-500">Agentic UX</span>
+                        <span className="px-2 py-1 rounded text-xs bg-gray-50 text-gray-500">What’s Next</span>
                       </div>
                     </div>
                   </div>
