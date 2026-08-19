@@ -158,13 +158,13 @@ export default function HomePage() {
     <div className={cardShell}>
       <div className="bg-white/95 rounded-lg p-8">
         <h1 className="text-3xl md:text-4xl font-bold mb-3" style={{ fontFamily: "Courier New, monospace", color: "#5a3e5c" }}>
-          Welcome to My Digital Space!
+          I make products and systems easier to understand, use, and scale.
         </h1>
         <p className="text-base text-gray-500 mb-4">
           {"I'm glad you're here. take a look around and stay awhile."}
         </p>
         <p className="text-sm text-gray-500 mb-4">
-          — product/ux designer, storyteller, and lowkey obsessed with how things feel, not just how they function. i care about the details, the experience, and whether it actually lands— for the user and the business.
+          Senior product designer working across enterprise UX, emerging AI workflows, information architecture, and accessible digital systems.
         </p>
         <div className="space-y-1 mb-5 text-sm" style={{ color: "#7a6a82" }}>
           <p>→ thoughtful interaction</p>
@@ -314,7 +314,7 @@ export default function HomePage() {
                         { label: "Hometown", value: "Harrisburg, PA + open to NC, DC, or NYC 🗽" },
                         { label: "Zodiac", value: "Aries ♈" },
                         { label: "Coffee or Tea", value: "Lattes and Green Tea!" },
-                        { label: "Occupation", value: "Senior UX Designer" },
+                        { label: "Occupation", value: "Senior Product Designer" },
                       ].map((item) => (
                         <div key={item.label}>
                           <span className="font-medium" style={{ color: "#7a6a82" }}>{item.label}:</span>{" "}
