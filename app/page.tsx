@@ -160,16 +160,13 @@ export default function HomePage() {
         <h1 className="text-3xl md:text-4xl font-bold mb-3" style={{ fontFamily: "Courier New, monospace", color: "#5a3e5c" }}>
           I make products and systems easier to understand, use, and scale.
         </h1>
-        <p className="text-base text-gray-500 mb-4">
-          {"I'm glad you're here. take a look around and stay awhile."}
-        </p>
         <p className="text-sm text-gray-500 mb-4">
           Senior product designer working across enterprise UX, emerging AI workflows, information architecture, and accessible digital systems.
         </p>
         <div className="space-y-1 mb-5 text-sm" style={{ color: "#7a6a82" }}>
-          <p>→ thoughtful interaction</p>
-          <p>→ strong visual instinct</p>
-          <p>→ real impact (not just pretty screens)</p>
+          <p className="font-bold">8+ years across enterprise, higher education, fintech, and emerging technology.</p>
+          <p className="text-xs text-gray-400 pt-2" style={courierFont}>SELECTED EXPERIENCE</p>
+          <p>Vanderbilt University · Delta Air Lines · U.S. Bank · The Coca-Cola Company</p>
         </div>
         <p className="text-base text-gray-400 mb-6" style={{ fontFamily: "Courier New, monospace" }}>
           remote-friendly ✦ open to nyc/nj ✦ dc ✦ nc
