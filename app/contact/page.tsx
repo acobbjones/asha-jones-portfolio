@@ -75,7 +75,7 @@ export default function ContactPage() {
                 Let's build something thoughtful.
               </h1>
               <p className="text-lg sm:text-xl text-[#7B6B9E] max-w-2xl">
-                Open to full-time UX roles, contract engagements, and meaningful design conversations.
+                Exploring full-time Senior Product Designer opportunities. Let’s connect about how I can contribute to your team.
               </p>
             </HeroFadeUp>
           </div>
@@ -90,20 +90,7 @@ export default function ContactPage() {
                 <div className="max-w-3xl mx-auto space-y-4">
                   <h2 className="font-display text-3xl font-bold text-[#1F1F1F]">Get In Touch</h2>
                   <p className="text-[#374151] text-lg leading-relaxed">
-                    {"I'm currently exploring full-time UX opportunities at companies building products that matter. Whether you're a hiring manager, recruiter, or potential collaborator — I'd love to connect."}
-                  </p>
-                  <p className="text-[#374151] text-base leading-relaxed">
-                    {"If you're reaching out about UX audits or website improvements, you can "}
-                    <a
-                      href="https://forms.gle/Spmj5KfBp7MxsF9t9"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="font-semibold underline hover:opacity-80 transition-opacity"
-                      style={{ color: "#5a3e5c" }}
-                    >
-                      request one here
-                    </a>
-                    {"."}
+                    {"I'm currently exploring full-time Senior Product Designer opportunities focused on thoughtful, scalable digital products and systems. Whether you're a hiring manager, recruiter, or potential collaborator — I'd love to connect."}
                   </p>
                 </div>
               </div>
@@ -182,9 +169,7 @@ export default function ContactPage() {
                         </SelectTrigger>
                         <SelectContent>
                           <SelectItem value="full-time-role">Full-Time Role</SelectItem>
-                          <SelectItem value="contract">{"Contract / Freelance"}</SelectItem>
                           <SelectItem value="collaboration">Collaboration</SelectItem>
-                          <SelectItem value="ux-audit">{"UX Audit / Website Review"}</SelectItem>
                           <SelectItem value="just-saying-hi">Just Saying Hi</SelectItem>
                         </SelectContent>
                       </Select>
