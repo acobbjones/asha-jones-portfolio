@@ -55,7 +55,7 @@ const featuredCaseStudies = [
 const archiveProjects = [
   {
     id: "delta",
-    title: "Delta Airlines",
+    title: "Delta Air Lines",
     subheading: "SkyMiles Profile & UI Component Design — Jan 2022 - Sep 2022",
     summary: "Interactive before/after redesign of SkyMiles profile modal with accessibility improvements",
     image: "https://i.imgur.com/f7inBIe.png",

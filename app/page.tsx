@@ -245,7 +245,7 @@ export default function HomePage() {
                       <span className="text-gray-500">View My: </span>
                       <a href="https://www.linkedin.com/in/ashacobb-jones/" target="_blank" rel="noopener noreferrer" className="hover:underline" style={{ color: "#6b7fd4" }}>LinkedIn</a>
                       <span className="text-gray-300"> | </span>
-                      <a href="https://drive.google.com/uc?export=download&id=1uxzTJJR4Bauqo_W9MkSiixViFqwMMtbE" target="_blank" rel="noopener noreferrer" className="hover:underline" style={{ color: "#6b7fd4" }}>Resume</a>
+                      <a href="https://docs.google.com/document/d/1saER6KuImkuxipRN5FlmRxQI9HCZVWJNzclPjT-KGWA/edit" target="_blank" rel="noopener noreferrer" className="hover:underline" style={{ color: "#6b7fd4" }}>Resume</a>
                       <span className="text-gray-300"> | </span>
                       <Link href="/work" className="hover:underline" style={{ color: "#6b7fd4" }}>Portfolio</Link>
                     </div>
@@ -267,7 +267,7 @@ export default function HomePage() {
                         { href: "/work", icon: <Star size={14} />, label: "View My Work", external: false },
                         { href: "/about", icon: <Users size={14} />, label: "About Me", external: false },
                         { href: "/work", icon: <Award size={14} />, label: "Case Studies", external: false },
-                        { href: "https://drive.google.com/uc?export=download&id=1uxzTJJR4Bauqo_W9MkSiixViFqwMMtbE", icon: <Download size={14} />, label: "Download Resume", external: true },
+                        { href: "https://docs.google.com/document/d/1saER6KuImkuxipRN5FlmRxQI9HCZVWJNzclPjT-KGWA/edit", icon: <Download size={14} />, label: "Download Resume", external: true },
                       ].map((item) => (
                         <a
                           key={item.label}

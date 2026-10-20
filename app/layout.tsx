@@ -13,8 +13,8 @@ const _sourceSerif_4 = V0_Font_Source_Serif_4({ subsets: ['latin'], weight: ["20
 const _v0_fontVariables = `${_geist.variable} ${_geistMono.variable} ${_sourceSerif_4.variable}`
 
 export const metadata: Metadata = {
-  title: "Asha Cobb-Jones - UX Designer",
-  description: "UX Designer Portfolio - Where nostalgia meets modern design",
+  title: "Asha Cobb-Jones — Senior Product Designer",
+  description: "Senior Product Designer portfolio spanning enterprise UX, emerging AI workflows, information architecture, accessibility, and scalable digital systems.",
   generator: "v0.app",
 }
 
