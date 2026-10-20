@@ -37,7 +37,7 @@ const archivedProjects = [
     icon: Landmark,
   },
   {
-    year: "2020-2021",
+    year: "2021",
     name: "Neighborly – Design System & UI Patterns",
     slug: "neighborly",
     description: "Designed UI patterns and contributed to a design system for service-based home improvement brands. Created reusable components for scheduling, service selection, and customer communication.",

@@ -35,7 +35,7 @@ export default function NeighborlyCaseStudy() {
                   Role: UX Designer
                 </span>
                 <span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">
-                  Duration: Jan 2021 - Jan 2022
+                  Duration: 2021
                 </span>
                 <span className="px-3 py-1 bg-cyan-100 text-cyan-800 rounded-full text-sm font-medium">
                   Team: Remote collaboration

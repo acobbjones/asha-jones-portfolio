@@ -46,7 +46,7 @@ const originStory = [
     phase: "Where I Am Now",
     year: "Present",
     content:
-      "Today I'm a Senior UX Designer with 8+ years of experience across enterprise, education, fintech, and emerging tech. I've designed for 1.1M+ users, led cross-functional teams, and built systems that scale. I'm currently exploring what's next — AI agents, voice design, and the intersections of technology that don't have names yet.",
+      "Today I'm a Senior Product Designer with 8+ years of experience across enterprise, education, fintech, and emerging tech. I've designed for 1.1M+ users, led cross-functional teams, and built systems that scale. I'm currently exploring what's next — AI agents, voice design, and the intersections of technology that don't have names yet.",
     mobileContent:
       "8+ years, 1.1M+ users, enterprise to emerging tech. Now exploring AI agents, voice design, and what comes next.",
   },
@@ -170,7 +170,7 @@ export default function AboutPage() {
                   </span>
                 </h1>
                 <p className="text-lg text-[#7B6B9E] max-w-xl">
-                  Senior UX Designer &middot; Open to full-time roles
+                  Senior Product Designer &middot; Open to full-time roles
                 </p>
               </div>
             </HeroFadeUp>
@@ -670,12 +670,12 @@ export default function AboutPage() {
             {/* MOBILE: clean single-column timeline */}
             <div className="flex flex-col gap-6 md:hidden">
               {[
-                { role: "Founder & Lead UX Designer", company: "The Golden Hour Agency", period: "June 2024 – Present", highlight: "Human-centered design, UX/UI, and innovative digital solutions" },
+                { role: "Senior Product Designer", company: "The Golden Hour Creative Agency", period: "June 2024 – Present", highlight: "Human-centered design, UX/UI, and innovative digital solutions" },
                 { role: "Associate Director, UX/UI Design", company: "Vanderbilt University", period: "Oct 2022 – March 2024", highlight: "Led strategic UX overhaul for 8 major university websites" },
-                { role: "Senior UX/UI Designer", company: "Delta Airlines", period: "Jan 2022 – Sep 2022", highlight: "Delta Vacations booking flows + in-flight Wi-Fi portal" },
-                { role: "UX Design Architect", company: "US Bank", period: "Sep 2021 – Jan 2022", highlight: "Cross-segment customer journey maps + IA for financial products" },
+                { role: "Senior UX/UI Designer", company: "Delta Air Lines", period: "Jan 2022 – Sep 2022", highlight: "Delta Vacations booking flows + in-flight Wi-Fi portal" },
+                { role: "UX Design Architect", company: "U.S. Bank", period: "Sep 2021 – Jan 2022", highlight: "Cross-segment customer journey maps + IA for financial products" },
                 { role: "UX Designer", company: "Neighborly", period: "Jan 2021 – Sep 2021", highlight: "Design system + 25+ screens for home services platform" },
-                { role: "Digital Production Designer", company: "Coca-Cola", period: "Oct 2019 – Sep 2020", highlight: "500+ prototypes for Freestyle kiosk UX serving 800K consumers" },
+                { role: "Digital Production Designer", company: "The Coca-Cola Company", period: "Oct 2019 – Sep 2020", highlight: "500+ prototypes for Freestyle kiosk UX serving 800K consumers" },
               ].map((item, index) => (
                 <div key={index} className="flex flex-col gap-2">
                   <span className="px-3 py-1 rounded-full text-xs font-bold self-start" style={{ background: "linear-gradient(135deg, #f5e6d3, #f0d9e8, #e8d5f0)", color: "#5a3e5c", fontFamily: "Courier New, monospace" }}>
@@ -706,9 +706,9 @@ export default function AboutPage() {
                   <div className="w-3 h-3 rounded-full bg-[#c4a0cc] z-10" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-lg text-[#1F1F1F] mb-2" style={{ fontFamily: "Courier New, monospace" }}>Founder & Lead UX Designer</h3>
+                  <h3 className="font-bold text-lg text-[#1F1F1F] mb-2" style={{ fontFamily: "Courier New, monospace" }}>Senior Product Designer</h3>
                   <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 border border-[#E8E4F0] shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300">
-                    <p className="text-[#7a6a82] text-sm font-medium mb-1">The Golden Hour Agency</p>
+                    <p className="text-[#7a6a82] text-sm font-medium mb-1">The Golden Hour Creative Agency</p>
                     <p className="text-[#4A4268] text-sm">Human-centered design, UX/UI, and innovative digital solutions</p>
                   </div>
                 </div>
@@ -752,7 +752,7 @@ export default function AboutPage() {
                 <div>
                   <h3 className="font-bold text-lg text-[#1F1F1F] mb-2" style={{ fontFamily: "Courier New, monospace" }}>Senior UX/UI Designer</h3>
                   <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 border border-[#E8E4F0] shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300">
-                    <p className="text-[#7a6a82] text-sm font-medium mb-1">Delta Airlines</p>
+                    <p className="text-[#7a6a82] text-sm font-medium mb-1">Delta Air Lines</p>
                     <p className="text-[#4A4268] text-sm">Delta Vacations booking flows + in-flight Wi-Fi portal</p>
                   </div>
                 </div>
@@ -764,7 +764,7 @@ export default function AboutPage() {
                 <div className="md:text-right">
                   <h3 className="font-bold text-lg text-[#1F1F1F] mb-2" style={{ fontFamily: "Courier New, monospace" }}>UX Design Architect</h3>
                   <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 border border-[#E8E4F0] shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300">
-                    <p className="text-[#7a6a82] text-sm font-medium mb-1">US Bank</p>
+                    <p className="text-[#7a6a82] text-sm font-medium mb-1">U.S. Bank</p>
                     <p className="text-[#4A4268] text-sm">Cross-segment customer journey maps + IA for financial products</p>
                   </div>
                 </div>
@@ -809,7 +809,7 @@ export default function AboutPage() {
                 <div className="md:text-right">
                   <h3 className="font-bold text-lg text-[#1F1F1F] mb-2" style={{ fontFamily: "Courier New, monospace" }}>Digital Production Designer</h3>
                   <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 border border-[#E8E4F0] shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300">
-                    <p className="text-[#7a6a82] text-sm font-medium mb-1">Coca-Cola</p>
+                    <p className="text-[#7a6a82] text-sm font-medium mb-1">The Coca-Cola Company</p>
                     <p className="text-[#4A4268] text-sm">500+ prototypes for Freestyle kiosk UX serving 800K consumers</p>
                   </div>
                 </div>
@@ -838,7 +838,7 @@ export default function AboutPage() {
                 {"I'm always open to new opportunities, collaborations, or just a good design conversation."}
               </p>
               <div className="flex flex-wrap justify-center gap-4">
-                <a href="https://drive.google.com/uc?export=download&id=1uxzTJJR4Bauqo_W9MkSiixViFqwMMtbE" target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none" }}>
+                <a href="https://docs.google.com/document/d/1saER6KuImkuxipRN5FlmRxQI9HCZVWJNzclPjT-KGWA/edit" target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none" }}>
                   <button className="rounded-full px-8 py-3 font-bold transition-all duration-200 border active:-translate-y-0.5" style={{ borderColor: "#5a3e5c", color: "#5a3e5c", background: "transparent" }}>
                     <span
                       onMouseEnter={e => (e.currentTarget.style.textDecoration = "underline")}

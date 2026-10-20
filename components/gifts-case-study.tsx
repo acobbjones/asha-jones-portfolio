@@ -115,7 +115,7 @@ export default function GiftsCaseStudy() {
                   Role: UX Designer
                 </span>
                 <span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">
-                  Duration: March 2016 - Dec 2020
+                  Duration: 2018 - Present
                 </span>
                 <span className="px-3 py-1 bg-cyan-100 text-cyan-800 rounded-full text-sm font-medium">
                   Team: Remote collaboration
