@@ -14,14 +14,6 @@ const caseStudies = [
   { href: "/work/csv-stack-ai", label: "CSV Stack" },
 ]
 
-// Button style tokens
-const tier1Btn = {
-  background: "#e8d5f0",
-  color: "#5a3e5c",
-  border: "1.5px solid #c4a0cc",
-  boxShadow: "0 2px 10px rgba(196,160,204,0.25)",
-}
-
 export function Navigation() {
   const pathname = usePathname()
   const [isWorkOpen, setIsWorkOpen] = useState(false)
@@ -75,7 +67,6 @@ export function Navigation() {
   }
 
   const isWorkPage = pathname.startsWith("/work") || pathname === "/more-work"
-  const isAuditPage = pathname === "/ux-audit"
 
   const activePillStyle = {
     background: "linear-gradient(135deg, #f5e6d3 0%, #f0d9e8 50%, #e8d5f0 100%)",
@@ -225,22 +216,6 @@ export function Navigation() {
 
               </nav>
             </div>
-          </div>
-
-          {/* UX Audits CTA — top right, outside pill, desktop only */}
-          <div className="hidden md:flex ml-auto">
-            <Link
-              href="/ux-audit"
-              scroll={true}
-              className="px-5 py-2 rounded-full font-bold text-sm transition-all duration-200 hover:-translate-y-0.5 hover:underline no-underline"
-              style={{
-                ...courierFont,
-                ...tier1Btn,
-                ...(isAuditPage && { boxShadow: "0 0 0 2px #c4a0cc, 0 2px 10px rgba(196,160,204,0.3)" }),
-              }}
-            >
-              ✦ UX Audits
-            </Link>
           </div>
 
           {/* Mobile: hamburger pill */}
@@ -409,19 +384,6 @@ export function Navigation() {
                   </span>
                 )}
               </Link>
-
-              {/* UX Audits — pinned at bottom of mobile panel, Tier 1 style */}
-              <div className="mt-auto pt-6">
-                <Link
-                  href="/ux-audit"
-                  scroll={true}
-                  onClick={handleCloseMenu}
-                  className="flex items-center justify-center w-full py-4 rounded-full font-bold text-sm no-underline hover:underline transition-all duration-200 hover:-translate-y-0.5"
-                  style={{ ...courierFont, ...tier1Btn }}
-                >
-                  ✦ UX Audits
-                </Link>
-              </div>
 
             </nav>
           </div>
