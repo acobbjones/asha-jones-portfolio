@@ -90,7 +90,7 @@ export default function ContactPage() {
                 <div className="max-w-3xl mx-auto space-y-4">
                   <h2 className="font-display text-3xl font-bold text-[#1F1F1F]">Get In Touch</h2>
                   <p className="text-[#374151] text-lg leading-relaxed">
-                    {"I'm currently exploring full-time UX opportunities at companies building products that matter. Whether you're a hiring manager, recruiter, or potential collaborator — I'd love to connect."}
+                    {"I'm currently exploring full-time Senior Product Designer opportunities focused on thoughtful, scalable digital products and systems. Whether you're a hiring manager, recruiter, or potential collaborator — I'd love to connect."}
                   </p>
                 </div>
               </div>
