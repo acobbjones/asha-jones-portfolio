@@ -25,7 +25,7 @@ const tier2Btn = {
 export default function HomePage() {
   const [isWorkOpen, setIsWorkOpen] = useState(false)
   const [isPlaying, setIsPlaying] = useState(false)
-  const [activePanel, setActivePanel] = useState("vanderbilt-navigation")
+  const [activePanel, setActivePanel] = useState("csv-stack-ai")
   const [contentVisible, setContentVisible] = useState(true)
 
   useEffect(() => {
@@ -54,6 +54,34 @@ export default function HomePage() {
 
   const featuredProjects = [
     {
+      id: "csv-stack-ai",
+      year: "2025",
+      title: "CSV Stack AI — SaaS Landing Experience",
+      subtitle: "Human-centered UX for a technical AI product",
+      description: "Designed the brand and web experience for a CSV compliance platform — making complex validation concepts clear for engineers and decision-makers.",
+      mainImage: "from-[#4a6d8c] via-[#6b8fa8] to-[#8bafc7]",
+      tags: [
+        { name: "SaaS", bg: "bg-blue-100", text: "text-blue-800" },
+        { name: "AI Product", bg: "bg-purple-100", text: "text-purple-800" },
+        { name: "Conversions", bg: "bg-cyan-100", text: "text-cyan-800" },
+      ],
+      impact: "Clarity in complexity through smart UX",
+    },
+    {
+      id: "blair-school",
+      year: "2024",
+      title: "Blair School of Music — Website Redesign",
+      subtitle: "Bringing Vanderbilt's premier music school to life digitally",
+      description: "Redesigned Blair's website balancing Vanderbilt's brand with Blair's creative culture — accessibility and student discovery at the core.",
+      mainImage: "from-[#f3e8ff] via-[#e9d5ff] to-[#d8b4fe]",
+      tags: [
+        { name: "Education", bg: "bg-purple-100", text: "text-purple-800" },
+        { name: "Information Design", bg: "bg-blue-100", text: "text-blue-800" },
+        { name: "WCAG AA", bg: "bg-pink-100", text: "text-pink-800" },
+      ],
+      impact: "Creative accessibility showcase",
+    },
+    {
       id: "vanderbilt-navigation",
       year: "2024",
       title: "Vanderbilt University — Big VU Navigation Redesign",
@@ -79,34 +107,6 @@ export default function HomePage() {
         { name: "Branding", bg: "bg-orange-100", text: "text-orange-800" },
       ],
       impact: "Increased engagement through sophisticated design",
-    },
-    {
-      id: "blair-school",
-      year: "2024",
-      title: "Blair School of Music — Website Redesign",
-      subtitle: "Bringing Vanderbilt's premier music school to life digitally",
-      description: "Redesigned Blair's website balancing Vanderbilt's brand with Blair's creative culture — accessibility and student discovery at the core.",
-      mainImage: "from-[#f3e8ff] via-[#e9d5ff] to-[#d8b4fe]",
-      tags: [
-        { name: "Education", bg: "bg-purple-100", text: "text-purple-800" },
-        { name: "Information Design", bg: "bg-blue-100", text: "text-blue-800" },
-        { name: "WCAG AA", bg: "bg-pink-100", text: "text-pink-800" },
-      ],
-      impact: "Creative accessibility showcase",
-    },
-    {
-      id: "csv-stack-ai",
-      year: "2025",
-      title: "CSV Stack AI — SaaS Landing Experience",
-      subtitle: "Human-centered UX for a technical AI product",
-      description: "Designed the brand and web experience for a CSV compliance platform — making complex validation concepts clear for engineers and decision-makers.",
-      mainImage: "from-[#4a6d8c] via-[#6b8fa8] to-[#8bafc7]",
-      tags: [
-        { name: "SaaS", bg: "bg-blue-100", text: "text-blue-800" },
-        { name: "AI Product", bg: "bg-purple-100", text: "text-purple-800" },
-        { name: "Conversions", bg: "bg-cyan-100", text: "text-cyan-800" },
-      ],
-      impact: "Clarity in complexity through smart UX",
     },
   ]
 
