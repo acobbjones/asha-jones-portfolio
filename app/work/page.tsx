@@ -11,6 +11,26 @@ import { FadeUp, HeroFadeUp, StaggerReveal, StaggerItem } from "@/components/scr
 
 const featuredCaseStudies = [
   {
+    id: "csv-stack-ai",
+    year: "2025",
+    title: "CSV Stack AI — SaaS Landing Experience",
+    subheading: "Making CSV compliance software feel approachable without dumbing it down.",
+    summary:
+      "Designed the brand and landing experience for an FDA-regulated pharma/biotech platform — translating dense validation concepts into clear, conversion-focused UX for engineers and executives alike.",
+    image: "https://i.imgur.com/dkIgm4p.png",
+    roles: ["Product Design", "UX Strategy", "Content Architecture", "Web Design"],
+  },
+  {
+    id: "blair-school",
+    year: "2024",
+    title: "Blair School of Music — Website Redesign",
+    subheading: "Balancing institutional standards with a music school's creative identity.",
+    summary:
+      "Redesigned Blair's web presence within Vanderbilt's CMS — improving event discovery, prospective student journeys, and WCAG AA accessibility across the site.",
+    image: "https://i.imgur.com/FXSQqlJ.png",
+    roles: ["UX Lead", "IA", "Content Strategy", "Higher Ed Design"],
+  },
+  {
     id: "vanderbilt-navigation",
     year: "2024",
     title: "Big VU Navigation — Unified Ecosystem Framework",
@@ -29,45 +49,6 @@ const featuredCaseStudies = [
       "Designed an AI-enhanced, dark-mode website that converts high-end relocation clients — balancing aesthetic sophistication with lead capture strategy.",
     image: "https://i.imgur.com/O6dIEAL.png",
     roles: ["UX Strategy", "Product Design", "Brand Identity", "Framer Build"],
-  },
-  {
-    id: "blair-school",
-    year: "2024",
-    title: "Blair School of Music — Website Redesign",
-    subheading: "Balancing institutional standards with a music school's creative identity.",
-    summary:
-      "Redesigned Blair's web presence within Vanderbilt's CMS — improving event discovery, prospective student journeys, and WCAG AA accessibility across the site.",
-    image: "https://i.imgur.com/FXSQqlJ.png",
-    roles: ["UX Lead", "IA", "Content Strategy", "Higher Ed Design"],
-  },
-  {
-    id: "csv-stack-ai",
-    year: "2025",
-    title: "CSV Stack AI — SaaS Landing Experience",
-    subheading: "Making CSV compliance software feel approachable without dumbing it down.",
-    summary:
-      "Designed the brand and landing experience for an FDA-regulated pharma/biotech platform — translating dense validation concepts into clear, conversion-focused UX for engineers and executives alike.",
-    image: "https://i.imgur.com/dkIgm4p.png",
-    roles: ["Product Design", "UX Strategy", "Content Architecture", "Web Design"],
-  },
-]
-
-const archiveProjects = [
-  {
-    id: "delta",
-    title: "Delta Air Lines",
-    subheading: "SkyMiles Profile & UI Component Design — Jan 2022 - Sep 2022",
-    summary: "Interactive before/after redesign of SkyMiles profile modal with accessibility improvements",
-    image: "https://i.imgur.com/f7inBIe.png",
-    href: "/work/delta",
-  },
-  {
-    id: "us-bank",
-    title: "U.S. Bank",
-    subheading: "Information Architecture for Financial Goal Tools — Sep 2021 - Jan 2022",
-    summary: "Designed structure and clarity for digital banking experiences across multiple user segments",
-    image: "https://i.imgur.com/vmt3sfb.png",
-    href: "/work/us-bank",
   },
 ]
 
@@ -175,48 +156,7 @@ export default function WorkPage() {
             ))}
           </div>
 
-          {/* Archive Section */}
-          <div className="space-y-8 pt-12 border-t border-[#7B6B9E]/20">
-            <div className="space-y-2">
-              <h2 className="font-display text-3xl sm:text-4xl font-bold text-[#1F1F1F]">Archive Projects</h2>
-              <p className="text-[#7B6B9E] max-w-2xl">
-                Earlier work that shaped my approach to systems thinking, accessibility, and enterprise UX.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {archiveProjects.map((project, index) => (
-                <Link
-                  key={project.id}
-                  href={project.href}
-                  scroll={true}
-                  className="group block animate-fade-in-up transition-transform hover:scale-[1.02] cursor-pointer"
-                  style={{ animationDelay: `${(index + 4) * 100}ms`, textDecoration: "none" }}
-                >
-                  <Card className="overflow-hidden border border-[#7B6B9E]/15 border-l-4 border-l-transparent hover:border-l-[#c4a0cc] bg-[#F5F5F0] shadow-[0px_2px_8px_rgba(0,0,0,0.06)] transition-all duration-300 hover:shadow-[0px_4px_12px_rgba(0,0,0,0.1)] hover:-translate-y-0.5 h-full rounded-xl">
-                    {/* Small hero image */}
-                    <div className="relative h-48 overflow-hidden bg-[#E8E8E0]">
-                      <Image
-                        src={project.image || "/placeholder.svg"}
-                        alt={project.title}
-                        fill
-                        className="object-cover transition-transform duration-300 group-hover:scale-102"
-                      />
-                    </div>
-
-                    {/* Content */}
-                    <div className="p-5 space-y-3">
-                      <h3 className="font-display text-xl font-bold text-[#1F1F1F]">{project.title}</h3>
-                      <p className="text-[#7B6B9E] text-sm font-medium leading-relaxed">{project.subheading}</p>
-                      <p className="text-[#7B6B9E] text-sm leading-relaxed">{project.summary}</p>
-                    </div>
-                  </Card>
-                </Link>
-              ))}
-            </div>
-          </div>
-
-          {/* View Archived Work CTA */}
+          {/* View Earlier Work CTA */}
           <div className="flex justify-center pt-12">
             <Link
               href="/more-work"
@@ -228,7 +168,7 @@ export default function WorkPage() {
                 onMouseEnter={e => (e.currentTarget.style.textDecoration = "underline")}
                 onMouseLeave={e => (e.currentTarget.style.textDecoration = "none")}
                 style={{ textDecoration: "none", fontFamily: "Courier New, Courier, monospace" }}
-              >View Archived Work</span>
+              >View Earlier Work</span>
             </Link>
           </div>
         </div>
